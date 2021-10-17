@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
 import { Container } from '@material-ui/core';
-
+import '../css/Index.css'
 export default function Home() {
     return (
         <div className="index">
             <Container maxWidth='xs'>
                 <h1>This is the Index page</h1>
-                <Link to='/Home'>Go to home page</Link> <br />
-                <Link to='/Jobdetails'>Go to jobdetails page</Link> <br />
-                <Link to='/Jobsfeed'>Go to jobsfeed page</Link> <br />
-                <Link to='/Login'>Go to login page</Link> <br />
-                <Link to='/Myjobs'>Go to my jobs page</Link> <br />
-                <Link to='/Profile'>Go to profile page</Link> <br />
-                <Link to='/Register'>Go to register page</Link> <br />
+                <Link className='link' to='/Home'>Go to home page</Link> <br />
+                <Link className='link' to='/Jobdetails'>Go to jobdetails page</Link> <br />
+                <Link className='link'  to='/Jobsfeed'>Go to jobsfeed page</Link> <br />
+                <Link className='link'  to='/Login'>Go to login page</Link> <br />
+                <Link className='link'  to='/Myjobs'>Go to my jobs page</Link> <br />
+                <Link className='link'  to='/Profile'>Go to profile page</Link> <br />
+                <Link className='link'  to='/Register'>Go to register page</Link> <br />
 
             </Container>
         </div>
