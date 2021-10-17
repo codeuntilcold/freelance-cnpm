@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 
-export default function Home() {
+export default function Profile() {
     return (
-        <div className="home">
+        <div className="profile">
             <Container maxWidth='xs'>
-                <h1>This is the home page</h1>
+                <h1>This is the profile page</h1>
                 <Link to='/'>Back to index</Link>
             </Container>
         </div>
