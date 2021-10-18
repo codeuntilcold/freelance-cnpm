@@ -1,3 +1,7 @@
 .App {
   display: flex;
 }
+
+body {
+  --logo-color: #64e384;
+}
