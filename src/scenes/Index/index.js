@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Container } from '@material-ui/core';
+import Container from '@mui/material/Container';
 import './index.css'
 export default function Home() {
     return (
         <div className="index">
-            <Container maxWidth='xs'>
+            <Container>
                 <h1>This is the Index page</h1>
                 <Link className='link' to='/Home'>Go to home page</Link> <br />
                 <Link className='link' to='/Jobdetails'>Go to jobdetails page</Link> <br />
