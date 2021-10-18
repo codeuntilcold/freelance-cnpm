@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Container } from '@material-ui/core';
-import '../css/Index.css'
+import './index.css'
 export default function Home() {
     return (
         <div className="index">

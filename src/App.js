@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import Jobdetails from './components/Jobdetails';
+import Home from './scenes/Home/index';
+import Jobdetails from './scenes/Jobdetails/index';
 import Jobsfeed from './scenes/Jobsfeed/index';
-import Login from './components/Login';
-import Myjobs from './components/Myjobs';
-import Profile from './components/Profile';
-import Register from './components/Register';
-import Index from './components/Index';
+import Login from './scenes/Login/index';
+import Myjobs from './scenes/Myjobs/index';
+import Profile from './scenes/Profile/index';
+import Register from './scenes/Register/index';
+import Index from './scenes/Index/index';
 
 // import './scss/index.scss';
 
