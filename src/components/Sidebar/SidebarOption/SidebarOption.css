@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin: auto;
 }
 
 .sidebarOption:hover {
@@ -23,4 +24,13 @@
 
 .sidebarOption--active {
   color: var(--logo-color);
+}
+
+@media screen and (max-width: 777px) {
+  .sidebarOption > h2 {
+    display: none;
+  }
+  .sidebarOption > .MuiSvgIcon-root {
+    margin: auto;
+  }
 }

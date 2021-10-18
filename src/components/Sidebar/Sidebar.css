@@ -1,9 +1,14 @@
 .sidebar {
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   height: 100vh;
-  width: 20vw;
+  flex: 0.2;
+  min-width: fit-content;
 }
-
+.padding {
+  height: 50vh;
+}
 .ProfileButton {
   margin: 5vw;
-  margin-bottom: 0%;
 }

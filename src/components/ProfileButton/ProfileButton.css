@@ -2,7 +2,7 @@
   display: flex;
   background-color: var(--background-color);
   border-radius: 20px;
-  margin: auto;
+  margin: 10px auto;
   padding: 0.5rem;
   width: 80%;
   align-items: center;
@@ -23,4 +23,15 @@
 .ProfileButton:hover {
   cursor: pointer;
   background-color: var(--logo-color);
+}
+
+@media screen and (max-width: 777px) {
+  .ProfileButton h1,
+  h2 {
+    display: none;
+  }
+  .ProfileButton > .MuiSvgIcon-root {
+    font-size: 2rem;
+    margin: auto;
+  }
 }
