@@ -5,7 +5,7 @@
 }
 
 .sidebarOption:hover {
-  background-color: rgb(246, 246, 240);
+  background-color: var(--background-color);
   border-radius: 30px;
   color: var(--logo-color);
   transition: color 100ms ease-out;
@@ -19,4 +19,8 @@
   font-weight: 800;
   font-size: 20px;
   margin-right: 20px;
+}
+
+.sidebarOption--active {
+  color: var(--logo-color);
 }

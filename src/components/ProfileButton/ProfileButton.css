@@ -1,0 +1,26 @@
+.ProfileButton {
+  display: flex;
+  background-color: var(--background-color);
+  border-radius: 20px;
+  margin: auto;
+  padding: 0.5rem;
+  width: 80%;
+  align-items: center;
+}
+.ProfileButton > .MuiSvgIcon-root {
+  padding: 0.5rem;
+  font-size: 4rem;
+}
+.ProfileButton h1 {
+  font-size: medium;
+  margin: 00.5rem;
+}
+.ProfileButton h2 {
+  font-size: small;
+  margin: 0.5rem;
+  color: darkcyan;
+}
+.ProfileButton:hover {
+  cursor: pointer;
+  background-color: var(--logo-color);
+}

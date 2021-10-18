@@ -6,5 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Global variable */
-  --logo-color: #64e384;
+  --logo-color: #45ce67;
+  --background-color: #abe8ba;
 }
