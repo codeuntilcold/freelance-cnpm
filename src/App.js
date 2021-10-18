@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Home from './scenes/Home/index';
 import Jobdetails from './scenes/Jobdetails/index';
 import Jobsfeed from './scenes/Jobsfeed/index';
@@ -23,7 +23,12 @@ function App() {
           <Route path="/myjobs" exact component={Myjobs} />
           <Route path="/profile" exact component={Profile} />
           <Route path="/register" exact component={Register} />
-          <Route path="*" component={() => <h1>404 NotFound</h1>} />
+          <Route path="*" component={() => 
+            <div>
+              <h1>404 NotFound</h1>
+              <Link to="/">Return to Index page</Link>
+            </div>
+            } />
         </Switch>
       </div>
     </BrowserRouter>
