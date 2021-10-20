@@ -1,0 +1,14 @@
+.stats {
+    flex: 0.3;
+    margin-right: 20px;
+}
+
+
+.next-job {
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 3px 3px 5px gray;
+    font-size: 14px;
+}
+

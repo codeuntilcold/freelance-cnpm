@@ -1,0 +1,54 @@
+.feed {
+    flex: 0.7;
+    padding-right: 20px;
+    overflow-y: scroll;
+}
+
+/* Hide scrollbar on Chrome, Safari, Opera */
+.feed::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar on IE, Edge, Firefox */
+.feed {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.feed-header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+}
+
+.job-search {
+    margin: 0 0 50px;
+}
+
+.job-search__input {
+    display: flex;
+    background-color: var(--background-color);
+    align-items: center;
+    border-radius: 50px;
+    padding: 7px 15px;
+    margin: 0 0 20px;
+
+}
+
+.job-search__input input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+.job-card {
+    padding: 15px 40px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 3px 3px 5px gray;
+    font-size: 14px;
+}
+
