@@ -5,7 +5,7 @@ import './index.css'
 export default function Profile() {
     return (
         <div className="profile">
-            <Sidebar/>
+            <Sidebar active={4} role="freelancer"/>
             <Container maxWidth='xs'>
                 <h1>This is the profile page</h1>
                 <h2>It is in the scenes/Profile folder</h2>

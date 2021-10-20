@@ -7,6 +7,9 @@
   width: 80%;
   align-items: center;
 }
+.--active {
+  background-color: var(--logo-color);
+}
 .ProfileButton > .MuiSvgIcon-root {
   padding: 0.5rem;
   font-size: 4rem;
