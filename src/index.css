@@ -8,4 +8,5 @@ body {
   /* Global variable */
   --logo-color: #45ce67;
   --background-color: #abe8ba;
+  --selected-color: #dadada
 }

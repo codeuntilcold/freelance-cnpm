@@ -1,6 +1,6 @@
 import SearchBox from './SearchBox'
 import JobCard from './JobCard'
-import { useState, useEffect } from 'react' 
+import { useState } from 'react' 
 import './index.css'
 
 function Feed() {
@@ -21,6 +21,8 @@ function Feed() {
 			<SearchBox />
 
 			{/* Job */}
+			<JobCard content={job}/>
+			<JobCard content={job}/>
 			<JobCard content={job}/>
 			<JobCard content={job}/>
 			<JobCard content={job}/>
