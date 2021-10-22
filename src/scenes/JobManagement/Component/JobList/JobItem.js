@@ -1,5 +1,3 @@
-import { Container } from '@material-ui/core';
-
 import Button from '../Button'
 
 function JobItem(props){

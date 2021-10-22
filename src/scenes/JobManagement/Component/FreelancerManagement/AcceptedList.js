@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-import { Container } from '@material-ui/core';
 
 import AcceptedItem from './AcceptedItem';
 import './index.css'
