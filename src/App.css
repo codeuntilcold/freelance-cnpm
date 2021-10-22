@@ -1,3 +1,8 @@
 .App {
   display: flex;
+  /* height: 100vh; */
+}
+
+body {
+  --logo-color: #64e384;
 }

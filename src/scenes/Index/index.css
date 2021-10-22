@@ -1,0 +1,17 @@
+.index {
+  margin: 10px auto;
+  border: 0.5rem solid black;
+  border-radius: 50px;
+  max-width: fit-content;
+}
+
+.index .link {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.index h1 {
+  text-transform: uppercase;
+  color: darkgreen;
+}
