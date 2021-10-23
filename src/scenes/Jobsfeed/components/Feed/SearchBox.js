@@ -1,4 +1,3 @@
-import './index.css'
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter'
 
 function SearchBox() {

@@ -59,6 +59,27 @@
     transition: 0.3s;
 }
 
+.job-title {
+    display: flex;
+    align-items: center;
+}
+
+.job-card .job-title .job-bookmark {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.job-card .job-mini-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.job-card .job-mini-detail span {
+    margin-right: 20px;
+}
+
 @media screen and (max-width: 777px) {
     
     .feed {

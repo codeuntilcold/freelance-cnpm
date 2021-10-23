@@ -4,7 +4,8 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import Feed from './components/Feed/index'
 import Stats from './components/Stats/index'
 import './index.css'
-export default function Profile() {
+
+export default function Jobsfeed() {
     return (
         <Container maxWidth='lg'>
             <div className="jobsfeed">
@@ -13,9 +14,6 @@ export default function Profile() {
                 <Feed />
 
                 <Stats />
-
-                {/* <Footer /> */}
-
             </div>
         </Container>
     )
