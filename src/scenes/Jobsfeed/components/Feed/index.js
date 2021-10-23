@@ -6,12 +6,12 @@ import './index.css'
 function Feed() {
 
 	const [ jobs, setJobs ] = useState({
-		title: "Tên công việc",
-		salary: "Mức lương",
-		number: "Số lượng cần tuyển",
-		pre: "Kinh nghiệm",
+		title: "Lau dọn phân xưởng",
+		salary: "20.000đ/h",
+		target: "15/20",
+		prerequisite: "Không",
 		sex: "Nam/Nữ",
-		location: "Địa điểm làm việc",
+		location: "TP.HCM",
 		description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea.",
 		requirement: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor?",
 		deadline: "DD/MM/YYYY"

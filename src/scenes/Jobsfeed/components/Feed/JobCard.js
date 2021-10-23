@@ -8,31 +8,44 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 
+function MiniDetail({ MiniIcon, text, content }) {
+    return (
+        <span>
+            <MiniIcon className='job-mini-detail-icon' style={{fontSize:'20px'}}/> {text}: {content}
+        </span>
+    )
+}
+
 function JobCard({ content }) {
 
     const [ save, setSave ] = useState(true)
+
+    const onToggleBookmark = () => {
+        setSave(!save)
+    }
 
     return (
         <div className='job-card'>
             
             <div className="job-title">
-                <h1>
+                <h2>
                     {content.title}
-                </h1>
-                <span className='job-bookmark'>
+                </h2>
+                <span className='job-bookmark' 
+                    onClick={() => {onToggleBookmark()}}>
                     { save 
-                        ? <BookmarkIcon style={{ color:'var(--primary-color)', fontSize:'35px' }} /> 
-                        : <BookmarkBorderRoundedIcon /> }
+                        ? <BookmarkIcon style={{ color:'var(--primary-color)', fontSize:'30px' }} /> 
+                        : <BookmarkBorderRoundedIcon style={{ fontSize:'30px' }} /> }
                 </span>
             </div>
             
-            <p>Mô tả: {content.description}</p>
+            <p>{content.description}</p>
             
             <div className="job-mini-detail">
-                <span> <MonetizationOnIcon style={{fontSize:'16px'}}/> Mức lương: {content.salary}</span>
-                <span> <LocationOnIcon style={{fontSize:'16px'}}/> Địa điểm: {content.location}</span>
-                <span> <PeopleAltIcon style={{fontSize:'16px'}}/> Số lượng: {content.number}</span>
-                <span> <CancelIcon style={{fontSize:'16px'}}/> Hạn chót: {content.deadline}</span>
+                <MiniDetail MiniIcon={MonetizationOnIcon} text='Mức lương' content={content.salary} />
+                <MiniDetail MiniIcon={LocationOnIcon} text='Địa điểm' content={content.location} />
+                <MiniDetail MiniIcon={PeopleAltIcon} text='Số lượng' content={content.target} />
+                <MiniDetail MiniIcon={CancelIcon} text='Hạn chót' content={content.deadline} />
             </div>
 
 

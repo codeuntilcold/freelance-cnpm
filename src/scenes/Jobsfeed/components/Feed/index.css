@@ -62,6 +62,7 @@
 .job-title {
     display: flex;
     align-items: center;
+    font-size: var(--text-h3);
 }
 
 .job-card .job-title .job-bookmark {
@@ -77,13 +78,30 @@
 }
 
 .job-card .job-mini-detail span {
-    margin-right: 20px;
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.job-mini-detail-icon {
+    margin-right: 5px;
 }
 
 @media screen and (max-width: 777px) {
     
+    .job-title h2{
+        font-size: var(--text-h1);
+        display: inline;
+    }
+
     .feed {
         flex: 1;
+    }
+
+    .job-card .job-mini-detail span {
+        flex-basis: 100%;
+        margin-top: 5px;
     }
 
 }
