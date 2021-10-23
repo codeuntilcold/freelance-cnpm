@@ -6,14 +6,14 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 
 export default function Jobdetails() {
     return (
-        <div className="jobdetails">
-            <Container maxWidth='xs'>
+        <Container maxWidth='lg'>
+            <div className="jobdetails">
                 <Sidebar active={0} role="freelancer"/>
 
                 <Detail />
 
                 {/* <Stats /> */}
-            </Container>
-        </div>
+            </div>
+        </Container>
     )
 }
