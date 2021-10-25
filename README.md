@@ -6,9 +6,9 @@ Repo for web-app assignment of Software Engineering Project!!
 
 # Packages
 
-## Material-ui
+## ~~Material-ui~~ MUI
 
-Material-ui là 1 module Phước install thêm để hỗ trợ việc style, nếu mọi người thấy không cần thiết thì không cần dùng.
+~~Material-ui~~ Từ giờ mình chuyển qua xài MUI, là 1 module Phước install thêm để hỗ trợ việc style, nếu mọi người thấy không cần thiết thì không cần dùng.
 
 ---
 
@@ -26,4 +26,3 @@ Folder này sẽ bao gồm các components chung mà các scene có thể sử d
 ---
 
 Update 23-10: Dũng hot-fix code của Hạ để chạy được
-25-10: Phuoc test
