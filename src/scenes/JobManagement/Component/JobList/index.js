@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Container } from '@material-ui/core';
 
 import Button from '../Button'
 import JobItem from './JobItem';

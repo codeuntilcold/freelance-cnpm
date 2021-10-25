@@ -1,14 +1,19 @@
-import { Link } from 'react-router-dom';
-import Container from '@mui/material/Container';
+// import { Link } from 'react-router-dom';
+import { Container } from '@mui/material'
+import './index.css';
+import Detail from './components/Detail/index';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 export default function Jobdetails() {
     return (
-        <div className="jobdetails">
-            <Container maxWidth='xs'>
-                <h1>This is the job's details page</h1>
-                <h2>It is in the scenes/Jobdetails folder</h2>
-                <Link to='/'>Back to index</Link>
-            </Container>
-        </div>
+        <Container maxWidth='lg'>
+            <div className="jobdetails">
+                <Sidebar active={0} role="freelancer"/>
+
+                <Detail />
+
+                {/* <Stats /> */}
+            </div>
+        </Container>
     )
 }

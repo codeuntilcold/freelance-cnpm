@@ -22,7 +22,7 @@
     background-color: white;
     z-index: 100;
     margin: 20px 0 50px;
-    font-size: 20px;
+    font-size: var(--text-h1);
 }
 
 .job-search {
@@ -31,7 +31,7 @@
 
 .job-search__input {
     display: flex;
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
     align-items: center;
     border-radius: 50px;
     padding: 7px 15px;
@@ -42,7 +42,7 @@
     flex: 1;
     background-color: transparent;
     border: none;
-    font-size: 14px;
+    font-size: var(--text-p);
     margin-left: 15px;
 }
 
@@ -51,7 +51,7 @@
     border-radius: 20px;
     margin-bottom: 35px;
     box-shadow: 0px 3px 5px gray;
-    font-size: 14px;
+    font-size: var(--text-p);
 }
 
 .job-card:hover {
@@ -59,10 +59,49 @@
     transition: 0.3s;
 }
 
+.job-title {
+    display: flex;
+    align-items: center;
+    font-size: var(--text-h3);
+}
+
+.job-card .job-title .job-bookmark {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.job-card .job-mini-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.job-card .job-mini-detail span {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.job-mini-detail-icon {
+    margin-right: 5px;
+}
+
 @media screen and (max-width: 777px) {
     
+    .job-title h2{
+        font-size: var(--text-h1);
+        display: inline;
+    }
+
     .feed {
         flex: 1;
+    }
+
+    .job-card .job-mini-detail span {
+        flex-basis: 100%;
+        margin-top: 5px;
     }
 
 }

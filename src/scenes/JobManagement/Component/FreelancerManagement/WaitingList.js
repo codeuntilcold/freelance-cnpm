@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-import { Container } from '@material-ui/core';
 
 import WaitingItem from './WaitingItem';
 import './index.css'

@@ -8,6 +8,7 @@ import Myjobs from './scenes/Myjobs/index';
 import Profile from './scenes/Profile/index';
 import Register from './scenes/Register/index';
 import Index from './scenes/Index/index';
+import Noti from './scenes/Noti/index';
 
 // import './scss/index.scss';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/myjobs" exact component={Myjobs} />
           <Route path="/profile" exact component={Profile} />
           <Route path="/register" exact component={Register} />
+          <Route path="/notification" exact component={Noti} />
           <Route path="*" component={() => 
             <div>
               <h1>404 NotFound</h1>
