@@ -1,0 +1,32 @@
+.sidebar {
+    flex: 0.3;
+}
+
+.company {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+    border-radius: 10px;
+
+    width: 100%;
+    /* background-color: #fff; */
+    border: 1px solid #d3d3d3;
+    margin: 10px;
+    padding: 15px 20px;
+}
+.job {
+    width: 100%;
+    font-weight: bold;
+    line-height: 30px;
+    border-radius: 10px;
+
+    /* background-color: #fff; */
+    border: 1px solid #d3d3d3;
+    margin: 10px;
+    padding: 15px 20px;
+}
+
+button {
+    align-items: center;
+    cursor: pointer;
+}

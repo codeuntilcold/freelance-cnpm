@@ -1,0 +1,30 @@
+.detail {
+    flex: 0.7;
+    min-width: fit-content;
+    overflow-y: scroll;
+}
+
+.detail__header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 100;
+    /* border: 1px solid var(--twitter-background); */
+    padding: 10px 20px;
+}
+
+.detail__header > h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.detail::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.detail {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

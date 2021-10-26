@@ -1,16 +1,18 @@
 # Viecmoi.net
 
----
-
 Repo for web-app assignment of Software Engineering Project!!
 
-## Material-ui
+---
 
-Material-ui là 1 module Phước install thêm để hỗ trợ việc style, nếu mọi người thấy không cần thiết thì không cần dùng.
+# Packages
 
-# Update 18/10
+## ~~Material-ui~~ MUI
+
+~~Material-ui~~ Từ giờ mình chuyển qua xài MUI, là 1 module Phước install thêm để hỗ trợ việc style, nếu mọi người thấy không cần thiết thì không cần dùng.
 
 ---
+
+# Source Organization
 
 ## Scenes
 
@@ -20,3 +22,7 @@ Các file liên quan như css, services,... cũng sẽ được để trong fold
 ## Components
 
 Folder này sẽ bao gồm các components chung mà các scene có thể sử dụng
+
+---
+
+Update 23-10: Dũng hot-fix code của Hạ để chạy được

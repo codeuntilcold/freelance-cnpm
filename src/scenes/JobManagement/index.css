@@ -1,0 +1,52 @@
+.job-management {
+  /* display: flex; */
+}
+
+.job-heading {
+  margin-bottom: 50px;
+}
+
+.item-container {
+  box-shadow: 0 5px 3px #7b7b7b;
+  border-radius: 10px;
+  margin: 0 0 20px;
+  padding: 10px 25px 0px 25px;
+}
+
+.list__name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item__name {
+  font-size: 20px;
+  padding-bottom: 5px;
+  min-width: 130px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.item__field {
+  padding: 0 0 5px 10px;
+  margin: 0;
+  font-size: 14px;
+  display: flex;
+  min-width: 130px;
+}
+
+.item__field--name {
+  color: #7b7b7b;
+  min-width: 70px;
+}
+
+.item__field--content {
+  color: #000000;
+}
+
+.item__button {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  margin: 0;
+}

@@ -1,11 +1,29 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   /* Global variable */
   --logo-color: #45ce67;
   --background-color: #abe8ba;
+
+  --green-300: #abe8ba;
+  --green-500: #64e384;
+  --green-700: #4db066;
+  --grey: #dadada;
+  --blue: #7b87e3;
+
+  --primary-color: var(--green-500);
+  --secondary-color: var(--green-300);
+  --selected-color: var(--grey);
+  --red-button: #e3646b;
+  --yellow-button: #e3c459;
+
+  --text-h1: 20px;
+  --text-h2: 16px;
+  --text-p: 14px;
+  --text-mini: 10px;
 }
