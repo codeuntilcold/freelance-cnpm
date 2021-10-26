@@ -1,0 +1,32 @@
+.content-wrapper {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-color: var(--logo-color);
+}
+
+.text-wrapper {
+    margin: 20px;
+}
+
+.logo_container {
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.sign {
+    padding: 15px;
+}
+
+
+.sign li {
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+

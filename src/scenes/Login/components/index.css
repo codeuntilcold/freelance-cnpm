@@ -1,0 +1,25 @@
+@import '~antd/dist/antd.css';
+
+.login-form {
+    max-width: 400px;
+    min-width: 350px;
+    
+}
+.ant-input-affix-wrapper {
+    line-height: 3;
+}
+
+
+.login-form-forgot {
+    float: right;
+}
+
+.ant-col-rtl .login-form-forgot {
+    float: left;
+}
+
+.login-form-button {
+    width: 100%;
+    background-color:  #45ce67;
+    border-color: transparent;
+}

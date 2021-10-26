@@ -1,0 +1,21 @@
+.info {
+    padding: 10px;
+    margin: 11px;
+}
+
+.info li {
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.copyright span{
+    position: relative;
+    margin-right: 20px;
+    padding: 10px;
+    font-weight: bold;
+    top: 40%;
+}
