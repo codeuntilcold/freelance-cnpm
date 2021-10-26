@@ -1,17 +1,23 @@
-import React from "react";
-import './index.css';
-import DetailBox from "../DetailBox/index";
+import './index.css'
+import JobDetail from './JobDetail'
 
-function Detail() {
-    return (
-        <div className="detail">
-            <div className="detail__header">
-                <h1>Chi tiết công việc</h1>
-            </div>
+function Feed() {
+	return (
+		<div className='feed'>
+			
+			{/* Header */}
+			<div className="feed-header">
+				<h1>Chi tiết công việc</h1>
+			</div>
 
-            <DetailBox />
-        </div>
-    );
+			{/* Job */}
+			<JobDetail />
+	
+		</div>
+	)
 }
 
-export default Detail;
+export default Feed
+
+
+
