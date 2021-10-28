@@ -12,7 +12,7 @@ const Content = () => {
                 <h2>Hay bạn muốn tìm công việc phù hợp với mình?</h2>          
                 
                 <Link to="/Register" style={{color:"var(--logo-color)"}}>
-                    <button className="button"><span>Bắt đầu ngay !</span></button>
+                    <button className="start-button"><span>Bắt đầu ngay !</span></button>
                 </Link>
             </div>
         </div>

@@ -16,7 +16,7 @@
     line-height: 120%;
 }
 
-.button {
+.start-button {
     display: inline-block;
     border-radius: 10px;
     background-color: var(--logo-color);
@@ -30,14 +30,14 @@
     cursor: pointer;
 }
   
-.button span {
+.start-button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;    
 }
   
-.button span:after {
+.start-button span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -46,11 +46,11 @@
     transition: 0.5s;
 }
   
-.button:hover span {
+.start-button:hover span {
     padding-right: 25px;
 }
   
-.button:hover span:after {
+.start-button:hover span:after {
     opacity: 1;
     right: 0;
 }
