@@ -1,13 +1,10 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { Form, Input, Button} from "antd";
-import {
-  MailOutlined,
-  LockOutlined,
-  FacebookOutlined,
-} from "@ant-design/icons";
-import "./index.css";
+import { MailOutlined, LockOutlined, FacebookFilled, GoogleCircleFilled, GithubFilled } from "@ant-design/icons";
+import "./Form.css";
 
-const NormalLoginForm = () => {
+const LoginForm = () => {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
@@ -53,28 +50,29 @@ const NormalLoginForm = () => {
 
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
-          Đăng nhập
+          ĐĂNG NHẬP
         </Button>
       </Form.Item>
 
-      
-      <Form.Item>
-
-        <a href="../..">Đăng kí</a>
-        <a className="login-form-forgot" href="">
-          Quên mật khẩu?
-        </a>
-      </Form.Item>
-
-
-      <div style={{ width: "100%" }} align="center">
-        <FacebookOutlined style={{ fontSize: 50 }} />
-        <FacebookOutlined style={{ fontSize: 50 }} />
-        <FacebookOutlined style={{ fontSize: 50 }} />
+      <div style={{ width: "100%", marginBottom: "20px"}} align="center">
+        <GoogleCircleFilled className="icons"/>
+        <FacebookFilled className="icons"/>
+        <GithubFilled className="icons"/>
       </div>
+
+      <Form.Item>
+        <Link to="/" className="login-form-forgot" style={{
+          color: "black",
+          fontSize: "20px"
+        }}>Quên mật khẩu?</Link>
+        <Link to="/Register" style={{
+          color: "var(--logo-color)",
+          fontSize: "20px"
+        }}>Đăng kí</Link>
+      </Form.Item>
 
     </Form>
   );
 };
 
-export default NormalLoginForm;
+export default LoginForm;

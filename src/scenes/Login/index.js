@@ -1,15 +1,12 @@
 // import { Link } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo'
-import NormalLoginForm from './components/index';
-import './index.css'
+import LoginForm from './components/Form';
 
 export default function Login() {
     return ( 
         <div>
             <Logo/>
-            <div className = "login">
-                <NormalLoginForm />         
-            </div>
+            <LoginForm />         
         </div>
 
     )
