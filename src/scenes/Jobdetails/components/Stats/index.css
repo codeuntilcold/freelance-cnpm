@@ -1,32 +1,37 @@
-.sidebar {
+.stats {
     flex: 0.3;
+    padding-left: 10px;
 }
 
 .company {
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 30px;
-    border-radius: 10px;
-
-    width: 100%;
-    /* background-color: #fff; */
-    border: 1px solid #d3d3d3;
-    margin: 10px;
     padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 130px;
+    margin-bottom: 35px;
+    box-shadow: 3px 3px 5px gray;
+    font-size: 14px;
 }
 .job {
-    width: 100%;
-    font-weight: bold;
-    line-height: 30px;
-    border-radius: 10px;
-
-    /* background-color: #fff; */
-    border: 1px solid #d3d3d3;
-    margin: 10px;
     padding: 15px 20px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 3px 3px 5px gray;
+    font-size: 14px;
+}
+
+.company:hover, .job:hover {
+    background-color: var(--selected-color);
+    transition: 0.3s;
 }
 
 button {
+    width: 200px;
     align-items: center;
     cursor: pointer;
+    background-color: var(--background-color);
+    margin-bottom: 3px;
+}
+
+.section {
+    font-weight: bold;
 }

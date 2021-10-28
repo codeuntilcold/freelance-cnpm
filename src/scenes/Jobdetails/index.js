@@ -1,8 +1,9 @@
 // import { Link } from 'react-router-dom';
 import { Container } from '@mui/material'
 import './index.css';
-import Detail from './components/Detail/index';
-import Sidebar from '../../components/Sidebar/Sidebar';
+import Sidebar from '../../components/Sidebar/Sidebar'
+import Detail from './components/Detail/index'
+import Stats from './components/Stats/index'
 
 export default function Jobdetails() {
     return (
@@ -12,7 +13,7 @@ export default function Jobdetails() {
 
                 <Detail />
 
-                {/* <Stats /> */}
+                <Stats />
             </div>
         </Container>
     )
