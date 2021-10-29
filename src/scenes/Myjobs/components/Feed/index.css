@@ -1,0 +1,30 @@
+/* Hide scrollbar on Chrome, Safari, Opera */
+.myjobs__feed::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar on IE, Edge, Firefox */
+.myjobs__feed {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.myjobs__feed {
+    flex: 0.7;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-y: scroll;
+}
+
+.myjobs__feed-header {
+    margin-top: 20px;
+    padding: 5px 10px ;
+    /* font-size: var(--text-h1); */
+}
+
+.myjobs__feed-header h1 {
+    font-weight: 700;
+}
+
+
+
