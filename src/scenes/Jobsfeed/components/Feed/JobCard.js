@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
@@ -28,9 +29,11 @@ function JobCard({ content }) {
         <div className='job-card'>
             
             <div className="job-title">
-                <h2>
-                    {content.title}
-                </h2>
+                <Link to='/jobdetails'>
+                    <h2>
+                        {content.title}
+                    </h2>
+                </Link>
                 <span className='job-bookmark' 
                     onClick={() => {onToggleBookmark()}}>
                     { save 

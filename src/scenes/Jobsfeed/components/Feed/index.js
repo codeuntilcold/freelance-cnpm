@@ -5,17 +5,55 @@ import './index.css'
 
 function Feed() {
 
-	const [ jobs, setJobs ] = useState({
-		title: "Lau dọn phân xưởng",
-		salary: "20.000đ/h",
-		target: "15/20",
-		prerequisite: "Không",
-		sex: "Nam/Nữ",
-		location: "TP.HCM",
-		description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea.",
-		requirement: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor?",
-		deadline: "DD/MM/YYYY"
-	})
+	const [ jobs, setJobs ] = useState(
+		[
+			{
+				title: "Lau dọn phân xưởng",
+				salary: "20.000đ/h",
+				target: "15/20",
+				prerequisite: "Không",
+				sex: "Nam/Nữ",
+				location: "TP.HCM",
+				description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea.",
+				requirement: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor?",
+				deadline: "DD/MM/YYYY"
+			},
+			{
+				title: "Lau dọn phân xưởng",
+				salary: "20.000đ/h",
+				target: "15/20",
+				prerequisite: "Không",
+				sex: "Nam/Nữ",
+				location: "TP.HCM",
+				description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea.",
+				requirement: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor?",
+				deadline: "DD/MM/YYYY"
+			},
+			{
+				title: "Lau dọn phân xưởng",
+				salary: "20.000đ/h",
+				target: "15/20",
+				prerequisite: "Không",
+				sex: "Nam/Nữ",
+				location: "TP.HCM",
+				description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea.",
+				requirement: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor?",
+				deadline: "DD/MM/YYYY"
+			},
+			{
+				title: "Lau dọn phân xưởng",
+				salary: "20.000đ/h",
+				target: "15/20",
+				prerequisite: "Không",
+				sex: "Nam/Nữ",
+				location: "TP.HCM",
+				description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea.",
+				requirement: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor?",
+				deadline: "DD/MM/YYYY"
+			}
+
+		]
+	)
 
 	return (
 		<div className='feed'>
@@ -29,7 +67,9 @@ function Feed() {
 			<SearchBox />
 
 			{/* Job */}
-			<JobCard content={jobs} />
+			{ jobs.map(job => 
+				<JobCard content={job} />)
+			}
 			
 			
 		</div>

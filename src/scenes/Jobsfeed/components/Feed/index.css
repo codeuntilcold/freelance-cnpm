@@ -21,8 +21,13 @@
     top: 0;
     background-color: white;
     z-index: 100;
-    margin: 20px 0 50px;
+    padding: 5px 10px ;
     font-size: var(--text-h1);
+}
+
+
+.feed-header > h1 {    
+    font-weight: 700;
 }
 
 .job-search {
@@ -63,6 +68,8 @@
     display: flex;
     align-items: center;
     font-size: var(--text-h3);
+    font-weight: 700;
+    margin: 7px 0;
 }
 
 .job-card .job-title .job-bookmark {
@@ -74,7 +81,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: 10px 0;
 }
 
 .job-card .job-mini-detail span {
@@ -97,6 +104,11 @@
 
     .feed {
         flex: 1;
+    }
+
+    .feed-header {
+        font-size: var(--text-h2);
+        margin-bottom: 20px;
     }
 
     .job-card .job-mini-detail span {

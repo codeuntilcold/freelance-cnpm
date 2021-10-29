@@ -1,9 +1,8 @@
 .stats {
     flex: 0.3;
     padding-left: 10px;
-    /* padding-right: 20px; */
+    padding-right: 10px;
 }
-
 
 .next-job {
     padding: 15px 20px;
@@ -12,6 +11,16 @@
     margin-bottom: 35px;
     box-shadow: 3px 3px 5px gray;
     font-size: 14px;
+}
+
+.next-job h2 {
+    font-weight: 700;
+    color: var(--green-700);
+}
+
+.next-job p:link,
+.next-job p:visited {
+    color: black;
 }
 
 @media screen and (max-width: 777px) {
