@@ -19,17 +19,28 @@
     font-size: 14px;
 }
 
-.company:hover, .job:hover {
-    background-color: var(--selected-color);
-    transition: 0.3s;
+button {
+    height: 30px;
+    border: 2px var(--background-color);
+    width: 200px;
+
+    cursor: pointer;
+    color: black;
+}
+button:hover {
+    color: black;
+    font-weight: bold;
 }
 
-button {
-    width: 200px;
-    align-items: center;
-    cursor: pointer;
-    background-color: var(--background-color);
-    margin-bottom: 3px;
+.apply {
+    background-color: #64E384;
+    color: white;
+    font-weight: bold;
+}
+
+.divider {
+    height: 1px;
+    display: inline-block;
 }
 
 .section {

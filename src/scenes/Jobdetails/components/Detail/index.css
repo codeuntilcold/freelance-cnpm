@@ -21,7 +21,7 @@
     top: 0;
     background-color: white;
     z-index: 100;
-    margin: 20px 0 50px;
+    margin: 20px 0 10px;
     font-size: var(--text-h1);
 }
 
@@ -33,9 +33,28 @@
     font-size: var(--text-p);
 }
 
-.detail:hover {
-    background-color: var(--selected-color);
-    transition: 0.3s;
+
+.summary {
+    display: flex;
+}
+
+.summary_left, .summary_right {
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 5px gray;
+}
+.summary_left {
+    vertical-align: middle;
+    flex: 0.1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.summary_right {
+    line-height: 30px;
+    flex: 0.9;
+    font-size: var(--text-p);
 }
 
 @media screen and (max-width: 777px) {
@@ -44,7 +63,7 @@
         flex: 1;
     }
 
-    .detail .job-mini-detail span {
+    .detail {
         flex-basis: 100%;
         margin-top: 5px;
     }
