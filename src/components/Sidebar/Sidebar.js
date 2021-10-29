@@ -20,7 +20,8 @@ export default function Sidebar(props){
         <Logo className="Viecmoi-logo"></Logo>
         <SidebarOption active={active_a[0]} Icon={BusinessCenterIcon} text="Tìm việc" ></SidebarOption>
         <SidebarOption active={active_a[1]} Icon={FormatListBulletedIcon} text="Việc của tôi"></SidebarOption>
-        <SidebarOption active={active_a[2]} Icon={ChatIcon} text="Tin nhắn"></SidebarOption>
+        {/* Tạm ẩn phần tin nhắn */}
+        {/* <SidebarOption active={active_a[2]} Icon={ChatIcon} text="Tin nhắn"></SidebarOption> */}
         <SidebarOption active={active_a[3]} Icon={NotificationsIcon} text="Thông báo"></SidebarOption>
         <div className="padding"></div>
         <ProfileButton active={active_a[4]}></ProfileButton>
@@ -33,6 +34,7 @@ export default function Sidebar(props){
         <Logo className="Viecmoi-logo"></Logo>
         <SidebarOption active={active_a[0]} Icon={BusinessCenterIcon} text="Tìm kiếm" ></SidebarOption>
         <SidebarOption active={active_a[1]} Icon={FormatListBulletedIcon} text="Quản lý việc"></SidebarOption>
+        {/* Tạm ẩn */}
         {/* <SidebarOption active={active_a[2]} Icon={ChatIcon} text="Tin nhắn"></SidebarOption> */}
         <SidebarOption active={active_a[3]} Icon={NotificationsIcon} text="Thông báo"></SidebarOption>
         <div className="padding"></div>
