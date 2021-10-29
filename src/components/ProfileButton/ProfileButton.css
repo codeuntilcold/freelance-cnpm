@@ -29,8 +29,8 @@
 }
 
 @media screen and (max-width: 777px) {
-  .ProfileButton h1,
-  h2 {
+  .ProfileButton > h1,
+  .ProfileButton > h2 {
     display: none;
   }
   .ProfileButton > .MuiSvgIcon-root {
