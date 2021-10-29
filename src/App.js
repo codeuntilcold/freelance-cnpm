@@ -10,7 +10,7 @@ import Register from './scenes/Register/index';
 import Index from './scenes/Index/index';
 import Noti from './scenes/Noti/index';
 
-// import './scss/index.scss';
+import './App.css';
 
 function App() {
   return (
