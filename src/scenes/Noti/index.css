@@ -1,5 +1,7 @@
 .noti {
     display: flex;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
 .noti-list {
@@ -7,17 +9,24 @@
 }
 
 .noti-item {
-    padding: 10px 30px;
+    padding: 10px 20px;
     border-radius: 20px;
     margin-bottom: 35px;
     box-shadow: 0px 3px 5px gray;
-    min-height: 50px;
-    font-size: var(--text-h3);
+    min-height: 70px;
+    font-size: var(--text-h2);
 }
 
 .noti-item:hover {
     background-color: var(--selected-color);
     transition: 0.3s;
+}
+
+@media screen and (max-width: 450px) {
+    
+    .noti-item {
+        font-size: var(--text-p);
+    }
 }
 
 
