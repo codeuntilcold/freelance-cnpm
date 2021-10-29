@@ -10,9 +10,26 @@ function Status({ jobStatus }) {
 
         <div className="feed-item-status">
             
-            { jobStatus === 'Đã xong' && <div className="feed-item-status" style={{ backgroundColor: 'var(--green-500)'}}> <span>{jobStatus}</span> <CheckIcon style={{ fontSize: '25', paddingLeft: '5px' }}/> </div>}
-            { jobStatus === 'Đang làm' && <div className="feed-item-status" style={{ backgroundColor: 'var(--yellow-button)'}}> <span>{jobStatus}</span> <RemoveIcon style={{ fontSize: '25', paddingLeft: '5px' }}/> </div>}
-            { jobStatus === 'Huỷ' && <div className="feed-item-status" style={{ backgroundColor: 'var(--red-button)'}}> <span>{jobStatus}</span> <ClearIcon style={{ fontSize: '25', paddingLeft: '5px' }}/> </div> }
+            { jobStatus === 'Đã xong' && 
+                <div className="feed-item-status" 
+                    style={{ backgroundColor: 'var(--green-500)'}}> 
+                    <span>{jobStatus}</span> 
+                    <CheckIcon style={{ fontSize: '25', paddingLeft: '5px' }}/> 
+                </div>
+            }
+            { jobStatus === 'Đang làm' && 
+                <div className="feed-item-status"  
+                    style={{ backgroundColor: 'var(--yellow-button)'}}> 
+                    <span>{jobStatus}</span> 
+                    <RemoveIcon style={{ fontSize: '25', paddingLeft: '5px' }}/> 
+                </div>}
+            { jobStatus === 'Huỷ' && 
+                <div className="feed-item-status" 
+                    style={{ backgroundColor: 'var(--red-button)'}}> 
+                    <span>{jobStatus}</span> 
+                    <ClearIcon style={{ fontSize: '25', paddingLeft: '5px' }}/> 
+                </div> 
+            }
 
         </div>
 
