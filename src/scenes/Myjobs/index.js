@@ -8,7 +8,7 @@ import './index.css'
 export default function Myjobs() {
     return (
         <Container maxWidth='lg'>
-            <div className="myjobs">
+            <div className='whole-page-container'>
 
                 <Sidebar active={0} role="freelancer"/>
 

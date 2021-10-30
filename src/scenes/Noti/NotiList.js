@@ -3,9 +3,9 @@ import NotiItem from "./NotiItem"
 function NotiList() {
 
     return (
-        <div className="noti-list">
+        <div className="central-collumn">
 
-            <div className="noti-header">
+            <div className="central-page-header">
                 <h1>Thông báo</h1>
             </div>
 

@@ -8,10 +8,11 @@ import './index.css'
 export default function Jobsfeed() {
     return (
         <Container maxWidth='lg'>
-            <div className="jobsfeed">
+            <div className='whole-page-container'>
                 <Sidebar active={0} role="freelancer"/>
                 
                 <Feed />
+
 
                 <Stats />
             </div>

@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
 import './index.css'
-import FeedItem from '../FeedItem/index'
+import FeedItem from './FeedItem'
 
 function Feed() {
 
-    const [ securedJobs, setSecuredJobs ] = useState([
+    const [ confirmedJobs, setConfirmedJobs ] = useState([
         
         {
             title: "Phụ quán cho cô Hai",
@@ -53,17 +53,17 @@ function Feed() {
 
 
     return (
-        <div className='myjobs__feed'>
+        <div className='central-collumn'>
 
-            <div className="myjobs__feed-header">
+            <div className="central-page-header">
 				<h1>Việc của tôi</h1>
 			</div>
 
-            { securedJobs.map(job => <FeedItem content={job}/>) }
+            { confirmedJobs.map(job => <FeedItem content={job}/>) }
             
 
 
-            <div className="myjobs__feed-header">
+            <div className="central-page-header">
 				<h1>Đang chờ duyệt</h1>
 			</div>
 
