@@ -25,4 +25,12 @@ Folder này sẽ bao gồm các components chung mà các scene có thể sử d
 
 ---
 
-Update 23-10: Dũng hot-fix code của Hạ để chạy được
+## Updates
+23-10: Dũng hot-fix code của Hạ để chạy được
+
+30/11: Thêm một style chung trong file `src/index.css`. Mọi người chỉ cần thêm các class này vào các `<div>` chứ không cần import (xem ví dụ tại scene Jobsfeed)
+
+- `whole-page-container`: là class dùng trong các file `scenes/<...>/index.js`, dùng để bao bọc 3 collumn lại, giấu đi những phần thừa khi cuộn.
+- `central-collumn`: là class cho các component ở giữa trang, có `flex = 0.7`, dùng để cuộn khi nội dung dài.
+- `central-page-header`: là class cho phần header ở giữa trang (chỉ áp dụng cho `<div>` chứa thẻ `<h1>`). Có thể dùng component `PageHeader` thay cho class này.
+
