@@ -27,3 +27,36 @@ body {
   --text-p: 14px;
   --text-mini: 10px;
 }
+
+.whole-page-container {
+  display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.central-collumn {
+  flex: 0.7;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: scroll;
+}
+
+/* Hide scrollbar on Chrome, Safari, Opera */
+.central-collumn::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar on IE, Edge, Firefox */
+.central-collumn {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.central-page-header {
+  padding: 25px 0px 5px;
+  font-size: var(--text-h1);
+}
+
+.central-page-header > h1 {
+  font-weight: 700;
+}
