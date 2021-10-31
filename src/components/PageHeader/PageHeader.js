@@ -1,3 +1,5 @@
+
+// component for big page header
 export default function PageHeader({ title }) {
 
     return (
