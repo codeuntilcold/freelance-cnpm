@@ -19,6 +19,10 @@
     margin: 5px 0;
 }
 
+.feed-item-title > h2 {
+    cursor: pointer;
+}
+
 .feed-item-status {
     display: flex;
     align-items: center;

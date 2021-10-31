@@ -2,7 +2,8 @@ import './index.css'
 import CheckIcon from '@mui/icons-material/Check'
 import RemoveIcon from '@mui/icons-material/Remove'
 import ClearIcon from '@mui/icons-material/Clear'
-
+import MenuIcon from '@mui/icons-material/Menu'
+import { Link } from 'react-router-dom'
 
 function Status({ jobStatus }) {
 
@@ -30,6 +31,13 @@ function Status({ jobStatus }) {
                     <ClearIcon style={{ fontSize: '25', paddingLeft: '5px' }}/> 
                 </div> 
             }
+            { jobStatus === 'Lưu' && 
+                <div className="feed-item-status" 
+                    style={{ backgroundColor: 'var(--green-500)'}}> 
+                    <span>{jobStatus}</span>
+                    <MenuIcon style={{ fontSize: '25', paddingLeft: '5px' }}/> 
+                </div> 
+            }
 
         </div>
 
@@ -42,11 +50,13 @@ function FeedItem({ content }) {
     return (
         <div className='feed-item'>
 
-            <div className='feed-item-title'>
-                <h2>{content.title}</h2>
+            <Link to='/jobdetails' style={{ color: '#000' }}>
+                <div className='feed-item-title'>
+                    <h2>{content.title}</h2>
 
-                <Status jobStatus={content.jobStatus} />
-            </div>
+                    <Status jobStatus={content.jobStatus} />
+                </div>
+            </Link>
 
             <div className="feed-item-date">
                 <p>{content.startDate} - {content.endDate}</p>

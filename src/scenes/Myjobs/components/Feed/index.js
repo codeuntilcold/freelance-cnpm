@@ -50,6 +50,28 @@ function Feed() {
         }
     ])
 
+    const [ markedJobs, setMarkedJobs ] = useState([
+        {
+            title: "Phụ quán cho cô Hai",
+            startDate: "D1/MM/YYYY",
+            endDate: "D2/MM/YYYY",
+            jobStatus: "Lưu",
+            
+        },
+        {
+            title: "Làm việc tại xí nghiệp may",
+            startDate: "D1/MM/YYYY",
+            endDate: "D2/MM/YYYY",
+            jobStatus: "Lưu",
+        },
+        {
+            title: "Phụ chuyển nhà",
+            startDate: "D1/MM/YYYY",
+            endDate: "D2/MM/YYYY",
+            jobStatus: "Lưu",
+        }
+    ])
+
 
 
     return (
@@ -68,6 +90,12 @@ function Feed() {
 			</div>
 
             { pendingJobs.map(job => <FeedItem content={job}/>) }
+
+            <div className="central-page-header">
+				<h1>Tin đã lưu</h1>
+			</div>
+
+            { markedJobs.map(job => <FeedItem content={job}/>) }
 
 
 
