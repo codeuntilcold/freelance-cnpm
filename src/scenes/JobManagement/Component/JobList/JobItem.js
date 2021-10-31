@@ -1,4 +1,6 @@
-import Button from '../Button'
+import AccessButton from '../../../../components/button/AccessButton';
+import DeleteButton from '../../../../components/button/DeleteButton';
+import './index.css';
 
 function JobItem(props){
     return (
@@ -6,36 +8,67 @@ function JobItem(props){
             <p className = "item__name">{props.name}</p>
             <p className = "item__field">
                 <span className = "item__field--name">Trạng thái</span> 
-                <span className = "item__field--content">{props.status}</span>
+                <Status/>
             </p>
             <p className = "item__field">
                 <span className = "item__field--name">Đơn mới</span>
-                <span className = "item__field--content">{props.waitng}</span> 
+                <span className = "item__field--content">{props.waiting}</span> 
             </p>
             <p className = "item__field">
                 <span className = "item__field--name">Số lượng</span>
                 <span className = "item__field--content">{props.accepted}/{props.need}</span>
             </p>
             <p className = "item__button">
-                <Button
-                    type = "delete"
+                <DeleteButton
                     name = "Xóa"
                     link = "/"
                 />
-                <Button
-                    type = "access"
+                <AccessButton
                     name = "Danh sách"
-                    link = "/Freelancerlist"
+                    link = {`/job-management/job${props.id}`}
                 />
-                <Button
-                    type = "access"
+                <AccessButton
                     name = "Chỉnh sửa"
-                    link = "/ew"
+                    link = "/new"
                 />
             </p>
         </div>
     )
 }
 
-
 export default JobItem;
+
+function Status(){
+    return (
+        <span className = "item__field--content job-status">
+            <div className = 'job-status__box' onClick = {StatusClick} >
+                Đang tuyển
+            </div>
+            <div className = 'job-status__list'>
+                <div className = 'job-status__item'>Đang tuyển</div>
+                <div className = 'job-status__item'>Dừng tuyển</div>
+            </div>
+
+
+        </span>
+    )
+}
+
+var on = false;
+function StatusClick(){
+    const statusList = document.getElementsByClassName('job-status__list')[0];
+    const body = document.getElementsByClassName('job-management');
+    body.click = function(){
+        statusList.style.display = "none";
+        on = false;
+    }
+    if (!on){
+        statusList.style.display = "block";
+        on = true;
+    }
+    else {
+        statusList.style.display = "none";
+        on = false;
+    }
+
+}

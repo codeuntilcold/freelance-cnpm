@@ -1,5 +1,5 @@
 .button {
-  color: #ffffff;
+  color: #ffffff !important;
   font-size: 14px;
   text-decoration: none;
   border-radius: 5px;
@@ -27,8 +27,8 @@
   background-color: #4db066;
 }
 
-.button--exit {
-  color: #4db066;
+.button--cancel {
+  color: #4db066 !important;
   box-shadow: 0 2px 1px #7b7b7b;
   font-weight: 600;
   font-size: 16px;

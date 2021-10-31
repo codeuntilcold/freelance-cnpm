@@ -1,5 +1,17 @@
 .job-management {
-  /* display: flex; */
+  display: flex;
+}
+
+.job-management {
+  flex-grow: 1;
+}
+
+.job-management__item {
+  flex: 0.7 1;
+}
+
+.job-management__footer {
+  flex: 0.35 1;
 }
 
 .job-heading {
@@ -7,28 +19,30 @@
 }
 
 .item-container {
-  box-shadow: 0 5px 3px #7b7b7b;
-  border-radius: 10px;
-  margin: 0 0 20px;
-  padding: 10px 25px 0px 25px;
+  box-shadow: 0 6px 9px #7b7b7b;
+  border-radius: 20px;
+  margin-bottom: 26px;
+  padding: 6px 30px 6px 50px;
 }
 
 .list__name {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .item__name {
   font-size: 20px;
-  padding-bottom: 5px;
+  padding: 10px 0;
   min-width: 130px;
   margin: 0;
   font-weight: 600;
 }
 
 .item__field {
-  padding: 0 0 5px 10px;
+  padding: 5px 0 5px;
   margin: 0;
   font-size: 14px;
   display: flex;
@@ -42,11 +56,13 @@
 
 .item__field--content {
   color: #000000;
+  /* flex-grow: 1; */
+  position: relative;
 }
 
 .item__button {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 10px;
+  padding: 5px 0 5px;
   margin: 0;
 }

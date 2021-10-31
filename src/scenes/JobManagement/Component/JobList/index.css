@@ -1,0 +1,29 @@
+
+.job-status__box {
+  border-radius: 5px;
+  border: solid 1px #8a8a8a;
+  outline: none;
+  flex-grow: 1;
+  padding: 2px 6px;
+  max-width: 90px;
+}
+
+.job-status__list {
+  background-color: #ffffff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 1;
+  box-shadow: 0 3px 4px #7b7b7b;
+  display: none;
+}
+
+.job-status__item {
+  padding: 5px;
+}
+
+.job-status__item:hover {
+  background-color: #dbdbdb;
+}
