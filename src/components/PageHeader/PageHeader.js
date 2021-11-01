@@ -1,4 +1,4 @@
-
+import React from "react";
 // component for big page header
 export default function PageHeader({ title }) {
 

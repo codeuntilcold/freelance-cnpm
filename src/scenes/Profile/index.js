@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import ProfileContent from './components/ProfileContent/ProfileContent';
-import Stats from './components/Stats/index'
-import './index.css'
+import ProfileCentral from './components/ProfileCentral/index';
+import Stats from './components/Stats/index';
+import './index.css';
 export default function Profile() {
 
     return (
-        <Container>
-        <div className="profile">
+        <Container maxWidth="lg">
+        <div className="whole-page-container">
             <Sidebar active={4} role="freelancer"/>
-            <ProfileContent></ProfileContent>
+            <ProfileCentral/>
             <Stats></Stats>
         </div>
         </Container>
