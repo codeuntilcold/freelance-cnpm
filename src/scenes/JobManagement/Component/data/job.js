@@ -5,13 +5,13 @@ let jobList = [
         "salary": 1000,
         "need": 15,
         "finding": true,
-        "experience": "",
-        "sex": "",
+        "experience": "không",
+        "sex": "không",
         "address": "",
         "expired": "",
-        "detail": "",
-        "require": "",
-        "benefit": ""
+        "description": "",
+        "request": "",
+        "benefit": "",
     },
     {
         "id": 2,
@@ -19,13 +19,13 @@ let jobList = [
         "salary": 1000,
         "need": 10,
         "finding": true,
-        "experience": "",
-        "sex": "",
+        "experience": "không",
+        "sex": "không",
         "address": "",
         "expired": "",
-        "detail": "",
-        "require": "",
-        "benefit": ""
+        "description": "",
+        "request": "",
+        "benefit": "",
     }
 ];
 

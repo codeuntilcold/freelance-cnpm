@@ -11,6 +11,7 @@
   border: solid 1px #8a8a8a;
   outline: none;
   flex-grow: 1;
+  font-size: var(--text-p);
   padding: 2px 6px;
 }
 

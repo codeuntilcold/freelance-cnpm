@@ -10,13 +10,12 @@ import jobList from '../data/job';
 
 
 function JobList() {
-    console.log(jobList);
     return (    
         <Container maxWidth='lg'>
             <div className="job-management">
             <Sidebar active={1} role="employer" />
             <div className = "job-management__item">
-                <h1 className = "job-heading">Quản lý việc</h1>
+                <h1 className = "job-heading central-page-header">Quản lý việc</h1>
                 <h3 className = "list__name">
                     Việc hiện có
                     <LargeButton 

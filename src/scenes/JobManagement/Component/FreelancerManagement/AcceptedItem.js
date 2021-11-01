@@ -1,4 +1,5 @@
-import Button from '../Button'
+import AccessButton from '../../../../components/button/AccessButton'
+
 import './index.css'
 
 function AcceptedItem(props){
@@ -8,8 +9,7 @@ function AcceptedItem(props){
             <p className = "item__field item-content">{props.job}</p>
             <p className= "item__field item__field--name">{props.info}</p>
             <p className = "item__button">
-                <Button
-                    type = "access"
+                <AccessButton
                     name = "Chi tiết"
                 />
             </p>

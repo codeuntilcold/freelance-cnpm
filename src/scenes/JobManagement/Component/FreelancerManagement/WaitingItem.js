@@ -1,5 +1,4 @@
-
-import Button from '../Button'
+import AccessButton from '../../../../components/button/AccessButton'
 import './index.css'
 
 function WaitingItem(props){
@@ -9,11 +8,11 @@ function WaitingItem(props){
             <p className = "item__field item-content">{props.job}</p>
             <p className= "item__field item__field--name">{props.info}</p>
             <p className = "item__button">
-                <Button
+                <AccessButton
                     type = "access"
                     name = "Xác nhận"
                 />
-                <Button
+                <AccessButton
                     type = "access"
                     name = "Chi tiết"
                 />

@@ -15,7 +15,7 @@ export default function FreelancerList(props){
                 <div className="job-management">
                 <Sidebar active={1} role="employer" />
                 <div className = "job-management__item">
-                    <h1 className = "job-heading">Danh sách đơn</h1>
+                    <h1 className = "job-heading central-page-header">Danh sách đơn</h1>
                     <WaitingList jobId = {props.jobId}/>
                     <AcceptedList jobId = {props.jobId}/>
                 </div>
