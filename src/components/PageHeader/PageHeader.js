@@ -1,10 +1,12 @@
-import React from "react";
-import './PageHeader.css'
-export default function PageHeader(props){
-    const {content} = props;
+
+// component for big page header
+export default function PageHeader({ title }) {
+
     return (
-        <div className="PageHeader">
-            <h1>{content}</h1>
+        <div class='central-page-header'>
+            <h1>
+                {title}
+            </h1>
         </div>
     )
 }

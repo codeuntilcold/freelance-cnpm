@@ -1,3 +1,4 @@
+import PageHeader from '../../../../components/PageHeader/PageHeader'
 import SearchBox from './SearchBox'
 import JobCard from './JobCard'
 import { useState } from 'react' 
@@ -56,12 +57,10 @@ function Feed() {
 	)
 
 	return (
-		<div className='feed'>
+		<div className='central-collumn'>
 			
 			{/* Header */}
-			<div className="feed-header">
-				<h1>Tìm việc</h1>
-			</div>
+			<PageHeader title='Tìm việc'/>
 
 			{/* Search box */}
 			<SearchBox />

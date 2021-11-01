@@ -1,19 +1,46 @@
-import Container from '@mui/material/Container';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import './index.css'
-
+import jobList from './Component/data/job';
+import freelancerList from './Component/data/freelancer';
 import JobList from './Component/JobList';
 import FreelancerList from './Component/FreelancerManagement';
 import JobInput from './Component/JobInput'
 
-export default function Jobmanagerment() {
+export default function Jobmanagement() {
     return (
-        <Container maxWidth="sm" >
-            <div className="job-management">
-                <JobList/>
-                <FreelancerList/>
-                <JobInput/>
-            </div>
-        </Container>
+        <Switch>
+            <Route path = "/job-management" component = {JobList} exact/>
+            <Route path = "/job-management/new" component = {JobInput} exact/>
+            { 
+                jobList.map(function(job){
+                return (
+                    <Route path = {`/job-management/job${job.id}`} exact>
+                        <FreelancerList jobId = {job.id} />
+                    </Route>
+                    );
+                })
+            }
+            {
+                jobList.map(function(job){
+                return (
+                    <Route path = {`/job-management/edit-job${job.id}`} exact>
+                        <JobInput 
+                            name = {job.name}
+                            salary = {job.salary}
+                            need = {job.need}
+                            experience = {job.experience}
+                            sex = {job.sex}
+                            address = {job.address}
+                            deadline = {job.deadline}
+                            description = {job.description}
+                            request = {job.request}
+                            benefit = {job.benefit}
+                        />
+                    </Route>
+                );
+                })
+            }          
+        </Switch>
     );
         
 }

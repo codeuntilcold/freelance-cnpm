@@ -1,49 +1,57 @@
-import { Link } from 'react-router-dom';
-
-import Button from '../Button'
+// import { Link } from 'react-router-dom';
+import Container from '@mui/material/Container';
+import Sidebar from '../../../../components/Sidebar/Sidebar';
+import LargeButton from '../../../../components/button/LargeButton'
 import JobItem from './JobItem';
+// data
+import jobList from '../data/job';
+import freelancerList from '../data/freelancer';
+
 
 function JobList() {
     return (    
-        <div className="">
-            <h1 className = "job-heading">Quản lý việc</h1>
-            <h3 className = "list__name">
-                Việc hiện có
-                <Button 
-                    name = "Thêm mới" 
-                    link = "/New"
-                    type = "large"
-                />
-            </h3>
-            <JobItem
-                name = "Công việc 1"
-                status = "Đang tuyển"
-                waitng = "20"
-                need = "15"
-                accepted = "5"
-            />
-            <JobItem
-                name = "Công việc 2"
-                status = "Đang tuyển"
-                waitng = "15"
-                need = "10"
-                accepted = "8"
-            />
-            <JobItem
-                name = "Công việc 3"
-                status = "Đang tuyển"
-                waitng = "15"
-                need = "10"
-                accepted = "8"
-            />
-            <JobItem
-                name = "Công việc 4"
-                status = "Dừng tuyển"
-                waitng = "0"
-                need = "12"
-                accepted = "12"
-            />
-        </div>
+        <Container maxWidth='lg'>
+            <div className="job-management">
+            <Sidebar active={1} role="employer" />
+            <div className = "job-management__item">
+                <h1 className = "job-heading central-page-header">Quản lý việc</h1>
+                <h3 className = "list__name">
+                    Việc hiện có
+                    <LargeButton 
+                        name = "Thêm mới" 
+                        link = "/job-management/new"
+                    />
+                </h3>
+                {
+                    jobList.map(function(job){
+                        return (
+                            <JobItem
+                                id = {job.id}
+                                name = {job.name}
+                                status = {job.finding?"Đang tuyển":"Dừng tuyển"}
+                                need = {job.need}                               
+                                waiting = {
+                                    freelancerList.reduce(function(sum, cur){
+                                        if (cur.jodId == job.id && cur.accepted == false)
+                                            return sum+1;
+                                        else return sum;
+                                    }, 0)
+                                }
+                                accepted = {
+                                    freelancerList.reduce(function(sum, cur){
+                                        if (cur.jodId == job.id && cur.accepted == true)
+                                            return sum+1;
+                                        else return sum;
+                                    }, 0)
+                                }
+                            />
+                        )
+                    })
+                }
+            </div>
+                <div className = "job-management__footer"></div>
+            </div>
+        </Container>
     )
 }
 

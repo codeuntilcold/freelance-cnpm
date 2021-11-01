@@ -1,16 +1,16 @@
-export default function NameJob(){
+export default function NameJob(props){
     return (
         <div className= 'item-container'>
-        <InputName/>
+        <InputName value = {props.name}/>
         </div>
     )
 }
 
-function InputName(){
+function InputName(props){
     return (     
-            <p className="item-input">
-                <span className = "item__name">Tên công việc</span>
-                <input type = "text" className = "item-input__box"></input>
-            </p>
+        <p className="item-input">
+            <span className = "item__name">Tên công việc</span>
+            <input type = "text" className = "item-input__box" required value = {props.value}/>
+        </p>
     )
 }

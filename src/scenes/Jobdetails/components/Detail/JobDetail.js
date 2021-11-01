@@ -1,9 +1,19 @@
+function Detail({ text, content}) {
+    return (
+        <span>
+            <h3>{text}</h3>
+            {content}<br></br>
+            <br></br>
+        </span>
+    )
+}
+
 function JobDetail() {
     return (
         <div className='detail'>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet euismod ante ac egestas. Nulla sit amet hendrerit risus, convallis dictum orci. Proin ut ligula hendrerit, aliquet tellus quis, blandit felis. Mauris egestas pretium magna sed finibus. Phasellus pellentesque ex id sem iaculis, in interdum urna tincidunt. Etiam pharetra non ligula et pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin ut imperdiet dolor. Maecenas sit amet ipsum porta, iaculis velit ac, malesuada lectus. Phasellus lacinia sem nisl, fringilla fermentum metus facilisis id.</div>
-            <div>Quisque augue tortor, ullamcorper id nibh quis, rhoncus rutrum quam. Donec vitae massa dapibus, consectetur lorem eu, semper dolor. Aenean suscipit condimentum risus, sed accumsan ligula tristique id. Fusce sit amet iaculis lacus. Phasellus massa lectus, euismod eget tellus a, ultricies pharetra risus. Nam vitae erat justo. Etiam vel tellus est. Vestibulum sapien neque, consectetur ac ultrices vel, elementum in ipsum. Suspendisse potenti. Quisque elit lorem, mollis eget enim sed, ultricies gravida tortor. Fusce eu enim a nulla auctor rutrum.</div>
-            <div>Fusce dolor lacus, bibendum nec odio in, fringilla faucibus nibh. Maecenas viverra gravida ligula, vitae finibus nibh feugiat non. Vivamus ut ex leo. Nam egestas nisl quis mi commodo, ac convallis ligula dignissim. Cras tristique tristique sem, quis dignissim tellus. Cras nec placerat ante, at facilisis odio. Vestibulum auctor magna et tristique fringilla. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce mattis aliquam magna, ac blandit ex sollicitudin vel. Nam eget orci porttitor, aliquam ex non, tempus odio. Praesent finibus posuere leo at volutpat. Pellentesque ullamcorper ultrices commodo. Donec in risus nec mauris consequat scelerisque ut id ligula. Etiam fringilla, sem nec venenatis fringilla, sapien felis ultrices odio, non consequat ipsum velit vitae velit. Maecenas eget eros eu tortor bibendum rhoncus.</div>
+            <Detail text="MÔ TẢ CÔNG VIỆC" content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea." />
+            <Detail text="YÊU CẦU CÔNG VIỆC" content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea." />
+            <Detail text="QUYỀN LỢI ĐƯỢC HƯỞNG" content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam impedit praesentium quod voluptates cumque, odio, rerum maiores quo similique voluptatem veniam nobis aut ad ex nesciunt ullam eveniet fuga ea." />
         </div>
     )
 }

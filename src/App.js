@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Home from './scenes/Home/index';
 import Jobdetails from './scenes/Jobdetails/index';
-import Jobmanagerment from './scenes/JobManagement';
+import Jobmanagement from './scenes/JobManagement';
 import Jobsfeed from './scenes/Jobsfeed/index';
 import Login from './scenes/Login/index';
 import Myjobs from './scenes/Myjobs/index';
@@ -20,7 +20,7 @@ function App() {
           <Route path="/" exact component={Index} />
           <Route path="/home" component={Home} />
           <Route path="/jobdetails" component={Jobdetails} />
-          <Route path="/jobmanagerment" component={Jobmanagerment} />
+          <Route path="/job-management" component={Jobmanagement} />
           <Route path="/jobsfeed" exact component={Jobsfeed} />
           <Route path="/login" exact component={Login} />
           <Route path="/myjobs" exact component={Myjobs} />

@@ -1,10 +1,18 @@
+import { useState } from "react"
 
 function NotiItem({ content }) {
+
+    const [ read, setRead ] = useState(false)
+
+    const toggleRead = () => {
+        setRead(true)
+    }
+
     return (
-        <div className='noti-item'>
+        <div className={`noti-item ${read && 'noti-item-read'} `} onClick={toggleRead}>
             {/* {content} */}
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, doloribus?
+                {content}
             </p>
         </div>
     )

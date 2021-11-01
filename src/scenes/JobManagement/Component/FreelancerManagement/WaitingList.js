@@ -1,21 +1,26 @@
-
 import WaitingItem from './WaitingItem';
 import './index.css'
 
-function WaitingList(){
+import freelancerList from '../data/freelancer';
+
+function WaitingList(props){
     return (
         <div>
             <h3 className = "list__name">
-                Đơn mới
+                Đơn đang chờ
             </h3>
-            <WaitingItem
-                name= "Nguyễn Văn A"
-                description = "Lập trình viên"
-            />  
-            <WaitingItem
-                name= "Trần văn B"
-                description = "Lập trình viên"
-            />          
+            {
+                freelancerList.map(function(freelancer){
+                    if (freelancer.jodId == props.jobId && freelancer.accepted == false)
+                        return (
+                            <WaitingItem
+                                name = {freelancer.name}
+                                job = {freelancer.job}
+                                info = {freelancer.detail}
+                            />
+                        );
+                })
+            }         
         </div>
     )
 }

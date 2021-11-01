@@ -8,7 +8,7 @@ export default function Home() {
                 <h1>This is the Index page, godspeed</h1>
                 <Link className='link' to='/home'>Go to home page</Link> <br />
                 <Link className='link' to='/jobdetails'>Go to jobdetails page</Link> <br />
-                <Link className='link' to='/jobmanagerment'>Go to jobmanagerment page</Link> <br />
+                <Link className='link' to='/job-management'>Go to jobmanagerment page</Link> <br />
                 <Link className='link' to='/jobsfeed'>Go to jobsfeed page</Link> <br />
                 <Link className='link' to='/login'>Go to login page</Link> <br />
                 <Link className='link' to='/myjobs'>Go to my jobs page</Link> <br />

@@ -1,36 +1,7 @@
-.noti {
-    display: flex;
-    height: 100vh;
-    overflow-y: hidden;
-}
-
-/* Hide scrollbar on Chrome, Safari, Opera */
-.noti-list::-webkit-scrollbar {
-    display: none;
-}
-
-/* Hide scrollbar on IE, Edge, Firefox */
-.noti-list {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.noti-list {
-    flex: 0.7;
-    overflow-y: scroll;
-    padding: 0 5px;
-}
-
 .noti-header {
-    position: sticky;
-    background-color: white;
-    top: 0;
-    margin-top: 20px;
-    padding: 5px 10px ;
-}
-
-.noti-header h1 {
-    font-weight: 700;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
 }
 
 .noti-item {
@@ -40,9 +11,15 @@
     box-shadow: 0px 3px 5px gray;
     min-height: 70px;
     font-size: var(--text-h2);
+    cursor: pointer;
 }
 
-.noti-item:hover {
+/* .noti-item:hover {
+    background-color: var(--selected-color);
+    transition: 0.3s;
+} */
+
+.noti-item-read {
     background-color: var(--selected-color);
     transition: 0.3s;
 }

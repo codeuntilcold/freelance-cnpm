@@ -1,30 +1,40 @@
-/* Hide scrollbar on Chrome, Safari, Opera */
-.myjobs__feed::-webkit-scrollbar {
-    display: none;
+.feed-item {
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0px 3px 5px gray;
+    font-size: var(--text-p);
 }
 
-/* Hide scrollbar on IE, Edge, Firefox */
-.myjobs__feed {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+.feed-item:hover {
+    background-color: var(--selected-color);
+    transition: 0.3s;
 }
 
-.myjobs__feed {
-    flex: 0.7;
-    padding-left: 10px;
-    padding-right: 10px;
-    overflow-y: scroll;
-}
-
-.myjobs__feed-header {
-    margin-top: 20px;
-    padding: 5px 10px ;
-    /* font-size: var(--text-h1); */
-}
-
-.myjobs__feed-header h1 {
+.feed-item-title {
+    display: flex;
+    align-items: center;
+    font-size: var(--text-h3);
     font-weight: 700;
+    margin: 5px 0;
 }
+
+.feed-item-title > h2 {
+    cursor: pointer;
+}
+
+.feed-item-status {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-size: calc(var(--text-p) - 3px) ;
+}
+
+
+
 
 
 

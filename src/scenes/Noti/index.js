@@ -7,7 +7,7 @@ function Noti() {
     return (
         <Container maxWidth='lg'>
 
-            <div className='noti'>
+            <div className='whole-page-container'>
 
                 <Sidebar active={3} role="freelancer"/>
 
