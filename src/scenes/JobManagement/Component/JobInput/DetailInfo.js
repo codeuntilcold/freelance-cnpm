@@ -5,15 +5,15 @@ export default function DetailInfo(props){
                 <p className = "item__name">Thông tin chi tiết</p>
                 <InputLine
                     name = "Mô tả công việc"
-                    content = {props.description}
+                    value = {props.description}
                 />
                 <InputLine
                     name = "Yêu cầu ừng viên"
-                    content = {props.request}
+                    value = {props.request}
                 />
                 <InputLine
                     name = "Quyền lợi"
-                    content = {props.benefit}
+                    value = {props.benefit}
                 />
             </div>
             
@@ -25,7 +25,7 @@ function InputLine(props){
     return (
         <div className="item-input">
             <p className = "item__field">{props.name}</p>
-            <div class="item-input__line" contentEditable>{props.content}</div>
+            <div class="item-input__line" contentEditable>{props.value}</div>
         </div>
     )
 }

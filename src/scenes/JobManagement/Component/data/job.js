@@ -7,11 +7,11 @@ let jobList = [
         "finding": true,
         "experience": "không",
         "sex": "không",
-        "address": "",
-        "expired": "",
-        "description": "",
-        "request": "",
-        "benefit": "",
+        "address": "tp HCM",
+        "deadline": "2021-12-22",
+        "description": "Lập trình shop bán hàng",
+        "request": "Không",
+        "benefit": "không",
     },
     {
         "id": 2,
@@ -21,11 +21,11 @@ let jobList = [
         "finding": true,
         "experience": "không",
         "sex": "không",
-        "address": "",
-        "expired": "",
-        "description": "",
-        "request": "",
-        "benefit": "",
+        "address": "tp HCM",
+        "deadline": "2022-01-02",
+        "description": "Lập trình app nhắn tin",
+        "request": "không",
+        "benefit": "không",
     }
 ];
 

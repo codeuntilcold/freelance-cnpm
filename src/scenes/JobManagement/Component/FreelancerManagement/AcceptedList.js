@@ -7,7 +7,7 @@ function AcceptedList(props){
     return (
         <div >
             <h3 className = "list__name">
-                Đã nhận
+                Đơn đã nhận
             </h3>
             {
                 freelancerList.map(function(freelancer){

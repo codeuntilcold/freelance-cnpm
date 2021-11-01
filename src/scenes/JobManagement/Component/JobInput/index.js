@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
 
-function JobInput(){
+function JobInput(props){
     return(
     <Container maxWidth='lg'>
         <div className="job-management">
@@ -18,13 +18,27 @@ function JobInput(){
         <div className = "job-management__item">
             <h1 className = "job-heading central-page-header">Thông tin công việc</h1>
             <form>
-                <NameJob/>
-                <BaseInfo/>
-                <DetailInfo/>
+                <NameJob
+                    name = {props.name}
+                />
+                <BaseInfo
+                    salary = {props.salary}
+                    need = {props.need}
+                    experience = {props.experience}
+                    sex = {props.sex}
+                    address = {props.address}
+                    deadline = {props.deadline}
+                />
+                <DetailInfo
+                    description = {props.description}
+                    request = {props.request}
+                    benefit = {props.benefit}
+                />
                 <div className ="item__button item__button--foot">
                     <CancelButton
                         className = "button-large"
                         name = "Hủy"
+                        link = '/job-management'
                     />
                     <SubmitButton
                         name = "Xác nhận"

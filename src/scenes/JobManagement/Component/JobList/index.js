@@ -1,12 +1,11 @@
 // import { Link } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
-
 import LargeButton from '../../../../components/button/LargeButton'
-
 import JobItem from './JobItem';
-
+// data
 import jobList from '../data/job';
+import freelancerList from '../data/freelancer';
 
 
 function JobList() {
@@ -30,9 +29,21 @@ function JobList() {
                                 id = {job.id}
                                 name = {job.name}
                                 status = {job.finding?"Đang tuyển":"Dừng tuyển"}
-                                waiting = '0'
-                                need = {job.need}
-                                accepted = "0"
+                                need = {job.need}                               
+                                waiting = {
+                                    freelancerList.reduce(function(sum, cur){
+                                        if (cur.jodId == job.id && cur.accepted == false)
+                                            return sum+1;
+                                        else return sum;
+                                    }, 0)
+                                }
+                                accepted = {
+                                    freelancerList.reduce(function(sum, cur){
+                                        if (cur.jodId == job.id && cur.accepted == true)
+                                            return sum+1;
+                                        else return sum;
+                                    }, 0)
+                                }
                             />
                         )
                     })

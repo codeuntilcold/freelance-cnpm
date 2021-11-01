@@ -24,7 +24,18 @@ export default function Jobmanagement() {
                 jobList.map(function(job){
                 return (
                     <Route path = {`/job-management/edit-job${job.id}`} exact>
-                        <JobInput/>
+                        <JobInput 
+                            name = {job.name}
+                            salary = {job.salary}
+                            need = {job.need}
+                            experience = {job.experience}
+                            sex = {job.sex}
+                            address = {job.address}
+                            deadline = {job.deadline}
+                            description = {job.description}
+                            request = {job.request}
+                            benefit = {job.benefit}
+                        />
                     </Route>
                 );
                 })

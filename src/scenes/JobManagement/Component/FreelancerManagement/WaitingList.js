@@ -7,7 +7,7 @@ function WaitingList(props){
     return (
         <div>
             <h3 className = "list__name">
-                Đơn mới
+                Đơn đang chờ
             </h3>
             {
                 freelancerList.map(function(freelancer){
