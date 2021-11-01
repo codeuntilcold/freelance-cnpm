@@ -31,7 +31,6 @@ export default function BaseInfo(props){
         <InputBox
             name = "Hạn chót hồ sơ"
             type = 'date'
-            // value = "2021-06-01"
             value = {props.deadline}
         />
     </div>

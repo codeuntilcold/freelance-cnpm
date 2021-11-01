@@ -11,6 +11,7 @@ function AcceptedItem(props){
             <p className = "item__button">
                 <AccessButton
                     name = "Chi tiết"
+                    link = "/profile"
                 />
             </p>
         </div>

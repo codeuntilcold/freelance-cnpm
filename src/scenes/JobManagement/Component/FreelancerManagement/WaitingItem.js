@@ -15,6 +15,7 @@ function WaitingItem(props){
                 <AccessButton
                     type = "access"
                     name = "Chi tiết"
+                    link = "/profile"
                 />
             </p>
         </div>

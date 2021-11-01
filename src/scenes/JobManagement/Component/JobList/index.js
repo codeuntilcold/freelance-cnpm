@@ -11,9 +11,9 @@ import freelancerList from '../data/freelancer';
 function JobList() {
     return (    
         <Container maxWidth='lg'>
-            <div className="job-management">
+            <div className="job-management whole-page-container">
             <Sidebar active={1} role="employer" />
-            <div className = "job-management__item">
+            <div className = "job-management__item central-collumn">
                 <h1 className = "job-heading central-page-header">Quản lý việc</h1>
                 <h3 className = "list__name">
                     Việc hiện có
@@ -49,7 +49,7 @@ function JobList() {
                     })
                 }
             </div>
-                <div className = "job-management__footer"></div>
+            <div className = "job-management__footer"></div>
             </div>
         </Container>
     )

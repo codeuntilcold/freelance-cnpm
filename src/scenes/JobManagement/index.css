@@ -69,11 +69,11 @@
 }
 
 @media screen and (max-width: 777px) {
-  .job-management__item {
-    flex: 10 1;
-  }
+  /* .job-management__item {
+    flex: 1;
+  } */
 
   .job-management__footer {
-    flex: 0.2 1;
+    flex: 0.01;
   }
 }
