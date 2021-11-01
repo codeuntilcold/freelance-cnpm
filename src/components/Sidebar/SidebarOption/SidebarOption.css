@@ -5,25 +5,27 @@
   margin: auto;
 }
 
-.sidebarOption:hover {
-  background-color: var(--background-color);
-  border-radius: 30px;
-  color: var(--logo-color);
-  transition: color 100ms ease-out;
-}
-
 .sidebarOption > .MuiSvgIcon-root {
-  padding: 20px;
+  padding: 0.5rem;
+  font-size: 3rem;
 }
 
 .sidebarOption > h2 {
   font-weight: 800;
   font-size: 20px;
-  margin-right: 20px;
+  margin: 10px 10px;
+  align-items: center;
+}
+
+.sidebarOption:hover {
+  background-color: var(--background-color);
+  border-radius: 30px;
+  color: var(--primary-color);
+  transition: color 100ms ease-out;
 }
 
 .sidebarOption--active {
-  color: var(--logo-color);
+  color: var(--primary-color) !important;
 }
 
 @media screen and (max-width: 777px) {

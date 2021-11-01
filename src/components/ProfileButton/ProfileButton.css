@@ -17,11 +17,13 @@
 .ProfileButton h1 {
   font-size: medium;
   margin: 00.5rem;
+  min-width: 2rem;
 }
 .ProfileButton h2 {
   font-size: small;
   margin: 0.5rem;
   color: darkcyan;
+  min-width: 2rem;
 }
 .ProfileButton:hover {
   cursor: pointer;
@@ -29,12 +31,11 @@
 }
 
 @media screen and (max-width: 777px) {
-  .ProfileButton > h1,
-  .ProfileButton > h2 {
+  .ProfileButton h1,
+  .ProfileButton h2 {
     display: none;
   }
   .ProfileButton > .MuiSvgIcon-root {
-    font-size: 2rem;
     margin: auto;
   }
 }

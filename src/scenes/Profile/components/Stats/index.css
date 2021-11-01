@@ -1,0 +1,11 @@
+.stats {
+  flex: 0.3;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 777px) {
+  .stats {
+    display: none;
+  }
+}

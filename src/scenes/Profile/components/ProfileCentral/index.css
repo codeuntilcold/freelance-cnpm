@@ -1,0 +1,113 @@
+/* .firstRow > .MuiSvgIcon-root {
+  padding: 0.5rem;
+  font-size: 7rem;
+}
+.firstRow {
+  box-sizing: border-box;
+  display: flex;
+  background-color: white;
+
+  font-size: var(--text-p);
+  border-radius: 20px;
+  margin: 10px auto;
+  padding: 0.5rem;
+  width: 100%;
+  align-items: center;
+}
+.Location {
+  display: flex;
+}
+
+.Rate {
+  display: flex;
+}
+.CustomInfo {
+  display: flex;
+  flex: 0.7;
+  background-color: white;
+  font-size: var(--text-p);
+  border-radius: 20px;
+  margin: 10px 10px;
+  padding: 0.5rem;
+  width: 80%;
+  align-items: center;
+  box-shadow: 0px 3px 5px gray;
+  border-radius: 20px;
+}
+.About {
+  box-sizing: border-box;
+  background-color: var(--secondary-color);
+  font-size: var(--text-p);
+  border-radius: 20px;
+  margin: auto;
+  padding: 0.5rem;
+  width: 100%;
+  align-items: center;
+  border-radius: 20px;
+}
+.About .Header {
+  padding: 0.5rem;
+  display: flex;
+}
+.About .Header h2 {
+  width: 90%;
+}
+.About .Header > .MuiSvgIcon-root {
+  float: right;
+}
+.Content {
+  padding: 0.5rem;
+} 
+*/
+
+/* Các component có trong js này */
+/*  - CustomInfo
+        - firstRow
+            - MiniHeader
+*/
+.central-column {
+  padding: 10px;
+  flex: 0.7;
+}
+.CustomInfo {
+  background-color: white;
+  box-shadow: 0px 3px 5px gray;
+  border-radius: 20px;
+  flex: 0.7;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.firstRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.firstRow > .MuiSvgIcon-root {
+  padding: 00.5rem;
+  font-size: 7rem;
+}
+.About {
+  background-color: var(--secondary-color);
+  border-radius: 20px;
+  margin: auto;
+  padding: 00.5rem;
+}
+
+.InfoTag {
+  background-color: white;
+  padding: 10px;
+  margin: 20px 0px;
+  font-size: var(--text-p);
+  border-radius: 20px;
+  min-height: 200px;
+  box-shadow: 0px 3px 5px gray;
+}
+.InfoTag .MiniHeader {
+  display: flex;
+}
+.InfoTag .MiniHeader-Content {
+  display: inline-block;
+  width: 80%;
+  border-bottom: 1px solid black;
+}
