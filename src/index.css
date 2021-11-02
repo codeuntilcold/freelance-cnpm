@@ -60,3 +60,12 @@ body {
 .central-page-header > h1 {
   font-weight: 700;
 }
+
+@media screen and (max-width: 777px) {
+  .central-page-header {
+    font-size: var(--text-h2);
+  }
+  .central-collumn {
+    flex: 1;
+  }
+}

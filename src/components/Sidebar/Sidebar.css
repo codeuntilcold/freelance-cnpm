@@ -11,3 +11,9 @@
 .ProfileButton {
   margin: 5vw;
 }
+
+@media screen and (max-width: 777px) {
+  .sidebar {
+    flex: 0.1;
+  }
+}

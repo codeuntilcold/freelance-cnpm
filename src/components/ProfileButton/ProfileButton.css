@@ -4,7 +4,7 @@
   border-radius: 20px;
   margin: 10px auto;
   padding: 0.5rem;
-  width: 80%;
+  width: 100%;
   align-items: center;
 }
 .--active {
@@ -38,6 +38,7 @@
     display: none;
   }
   .ProfileButton > .MuiSvgIcon-root {
+    font-size: 3rem;
     margin: auto;
   }
 }
