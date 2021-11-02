@@ -7,7 +7,7 @@
 .noti-item {
     padding: 10px 20px;
     border-radius: 20px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     box-shadow: 0px 3px 5px gray;
     min-height: 70px;
     font-size: var(--text-h2);

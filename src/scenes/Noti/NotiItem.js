@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function NotiItem({ content }) {
+function NotiItem({ content, all }) {
 
     const [ read, setRead ] = useState(false)
 
@@ -9,7 +9,7 @@ function NotiItem({ content }) {
     }
 
     return (
-        <div className={`noti-item ${read && 'noti-item-read'} `} onClick={toggleRead}>
+        <div className={`noti-item ${(all || read) && 'noti-item-read'} `} onClick={toggleRead}>
             {/* {content} */}
             <p>
                 {content}

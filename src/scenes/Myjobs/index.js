@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Feed from './components/Feed/index'
+import CornerFooter from '../../components/CornerFooter/index'
 import './index.css'
 
 export default function Myjobs() {
@@ -14,7 +15,9 @@ export default function Myjobs() {
 
                 <Feed />
 
-                {/* <Footer /> */}
+                <div className="right-collumn">
+                    <CornerFooter />
+                </div>
 
             </div>
         </Container>

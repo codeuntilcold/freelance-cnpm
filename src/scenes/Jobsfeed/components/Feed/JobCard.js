@@ -37,8 +37,8 @@ function JobCard({ content }) {
                 <span className='job-bookmark' 
                     onClick={() => {onToggleBookmark()}}>
                     { save 
-                        ? <BookmarkIcon style={{ color:'var(--primary-color)', fontSize:'30px' }} /> 
-                        : <BookmarkBorderRoundedIcon style={{ fontSize:'30px' }} /> }
+                        ? <BookmarkIcon style={{ color:'var(--primary-color)', fontSize:'30px', cursor:'pointer' }} /> 
+                        : <BookmarkBorderRoundedIcon style={{ fontSize:'30px', cursor:'pointer' }} /> }
                 </span>
             </div>
             

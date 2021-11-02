@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import JCard from '../../../../components/JCard'
+import CornerFooter from '../../../../components/CornerFooter'
 import './index.css'
 
 function NextJob() {
@@ -6,7 +8,7 @@ function NextJob() {
         <div className='next-job'>
             <p>Công việc tiếp theo</p>
             <h2>Phụ quán cho cô Hai</h2>
-            <h2>7:00 - 11:00</h2>
+            <h3>7:00 - 11:00</h3>
         </div>
     )
 }
@@ -18,6 +20,9 @@ function Stats() {
             <Link to='/profile'>
                 <NextJob />
             </Link>
+
+            <CornerFooter />
+
 
         </div>
     )

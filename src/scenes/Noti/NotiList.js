@@ -2,31 +2,18 @@ import NotiItem from "./NotiItem"
 import Card from '@mui/material/Card'
 import JCard from "../../components/JCard";
 import Chip from '@mui/material/Chip';
-
-function Item({content}) {
-    return (
-        
-        <Card
-            elevation={4}
-            sx={{ 
-                minHeight:'70px', 
-                fontSize:'var(--text-h2)', 
-                borderRadius:'20px',
-                padding:'10px 20px',
-                mb:'35px'
-            }}
-        >
-            {content}
-        </Card>
-    )
-}
+import { useState } from "react"
 
 function NotiList() {
 
     const content = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quis?'
 
+
+    const [ allRead, setAllRead ] = useState(false)
+
     const markAll = () => {
         alert('Mark all')
+        setAllRead(true)
     }
 
     return (
@@ -40,32 +27,17 @@ function NotiList() {
                 />
             </div>
 
-            
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
+            <NotiItem content={content} all={allRead}/>
 
-            <Card
-                elevation={4}
-                sx={{ 
-                    minHeight:'70px', 
-                    fontSize:'var(--text-h2)', 
-                    borderRadius:'20px',
-                    padding:'10px 20px',
-                    mb:'35px',
-                    cursor:'pointer'
-                }}
-            >
-                {content}
-            </Card>
-
-            <JCard>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. A animi voluptas quod blanditiis excepturi tempora officiis hic. Voluptatibus, vitae, perspiciatis necessitatibus quam quia numquam perferendis, non ab ipsa quos modi.
-            </JCard>
-
-            <NotiItem content={content}/>
-            <NotiItem content={content}/>
-            <NotiItem content={content}/>
-            <NotiItem content={content}/>
-            <NotiItem content={content}/>
-            <NotiItem content={content}/>
             
         </div>
     )
