@@ -7,8 +7,7 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ProfileButton from "../ProfileButton/ProfileButton";
-// import { Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export default function Sidebar(props){
     const {role, active} = props;
@@ -18,13 +17,13 @@ export default function Sidebar(props){
     return(
         <div className="sidebar">
         <Logo className="Viecmoi-logo"></Logo>
-        <SidebarOption active={active_a[0]} Icon={BusinessCenterIcon} text="Tìm việc" ></SidebarOption>
-        <SidebarOption active={active_a[1]} Icon={FormatListBulletedIcon} text="Việc của tôi"></SidebarOption>
+        <SidebarOption active={active_a[0]} Icon={BusinessCenterIcon} text="Tìm việc" linkTo="/jobsfeed"></SidebarOption>
+        <SidebarOption active={active_a[1]} Icon={FormatListBulletedIcon} text="Việc của tôi" linkTo="/myjobs"></SidebarOption>
         {/* Tạm ẩn phần tin nhắn */}
         {/* <SidebarOption active={active_a[2]} Icon={ChatIcon} text="Tin nhắn"></SidebarOption> */}
-        <SidebarOption active={active_a[3]} Icon={NotificationsIcon} text="Thông báo"></SidebarOption>
+        <SidebarOption active={active_a[3]} Icon={NotificationsIcon} text="Thông báo" linkTo="/notification"></SidebarOption>
         <div className="padding"></div>
-        <ProfileButton active={active_a[4]}></ProfileButton>
+        <ProfileButton active={active_a[4]} linkTo="/profile"></ProfileButton>
         </div>
     )
     }
@@ -32,8 +31,8 @@ export default function Sidebar(props){
         return(
         <div className="sidebar">
         <Logo className="Viecmoi-logo"></Logo>
-        <SidebarOption active={active_a[0]} Icon={BusinessCenterIcon} text="Tìm kiếm" ></SidebarOption>
-        <SidebarOption active={active_a[1]} Icon={FormatListBulletedIcon} text="Quản lý việc"></SidebarOption>
+        <SidebarOption active={active_a[0]} Icon={BusinessCenterIcon} text="Tìm kiếm" linkTo="/jobsfeed"></SidebarOption>
+        <SidebarOption active={active_a[1]} Icon={FormatListBulletedIcon} text="Quản lý việc" linkTo="job-management"></SidebarOption>
         {/* Tạm ẩn */}
         {/* <SidebarOption active={active_a[2]} Icon={ChatIcon} text="Tin nhắn"></SidebarOption> */}
         <SidebarOption active={active_a[3]} Icon={NotificationsIcon} text="Thông báo"></SidebarOption>

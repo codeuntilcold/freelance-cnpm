@@ -13,6 +13,8 @@
 .ProfileButton > .MuiSvgIcon-root {
   padding: 0.5rem;
   font-size: 4rem;
+
+  color: black;
 }
 .ProfileButton h1 {
   font-size: medium;

@@ -14,7 +14,7 @@ export default function ProfileCentral(){
                 <PageHeader title="Thông tin cá nhân"/>
                 <CustomInfo Name="Freelancer's name here" Location="TP.HCM" HourlyRate="85.000" Content={Content}></CustomInfo>
                 <InfoTag Name={"Lịch sử công việc"} Handle={Handle}></InfoTag>
-                <InfoTag Name={"Kỹ năng"}Handle={Handle} ></InfoTag>
+                <InfoTag Name={"Kỹ năng"} Handle={Handle} ></InfoTag>
                 <Link to='/'>Back to index</Link>
         </div>
     );

@@ -6,7 +6,7 @@ export default function({MiniIcon, Content, Handle}){
     return (
         <span>
             <span className="MiniHeader-Content">{Content}</span> 
-            <span onClick={Handle}>
+            <span onClick={() =>{return Handle} }>
             <MiniIcon style={{fontSize:'30px'}} className="MiniHeader-Icon"/>
             </span>
         </span>
