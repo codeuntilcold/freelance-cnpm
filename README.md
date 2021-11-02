@@ -34,3 +34,4 @@ Folder này sẽ bao gồm các components chung mà các scene có thể sử d
 - `central-collumn`: là class cho các component ở giữa trang, có `flex = 0.7`, dùng để cuộn khi nội dung dài.
 - `central-page-header`: là class cho phần header ở giữa trang (chỉ áp dụng cho `<div>` chứa thẻ `<h1>`). Có thể dùng component `PageHeader` thay cho class này.
 
+02/11: Thêm footer, chỉnh responsive một chút
