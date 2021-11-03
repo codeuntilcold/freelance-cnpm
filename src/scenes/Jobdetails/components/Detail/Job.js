@@ -53,7 +53,7 @@ function Job({ content }) {
                 </div>
 
                 <div className="div-button">
-                    <button onClick={() => {onClickButton()}}>
+                    <button className="normal" onClick={() => {onClickButton()}}>
                         { save 
                             ? <ToText text="Tin đã lưu" content="" /> 
                             : <ToText text="Lưu tin" content="" /> }

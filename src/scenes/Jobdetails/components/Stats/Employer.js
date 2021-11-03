@@ -10,7 +10,7 @@ function Employer() {
 
             <div className="div-button">
                 <a href='./profile'>
-                    <button>Về chúng tôi</button>
+                    <button className="about-us">Về chúng tôi</button>
                 </a>
             </div>
 

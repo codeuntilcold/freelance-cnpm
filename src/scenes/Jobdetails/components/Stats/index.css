@@ -6,7 +6,7 @@
 .company {
     padding: 15px 20px;
     border-radius: 20px;
-    margin-top: 50px;
+    margin-top: 120px;
     box-shadow: 3px 3px 5px gray;
     font-size: var(--text-p);
 }
@@ -24,7 +24,7 @@
     color: black;
 }
 
-button {
+.about-us {
     height: 30px;
     border: 2px var(--background-color);
     width: 200px;
@@ -32,7 +32,7 @@ button {
     cursor: pointer;
     color: black;
 }
-button:hover {
+.about-us:hover {
     color: black;
     font-weight: bold;
 }

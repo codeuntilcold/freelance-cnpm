@@ -65,7 +65,7 @@
     color: black;
 }
 
-button {
+.normal {
     height: 30px;
     border: 2px var(--background-color);
     width: 200px;
@@ -73,7 +73,7 @@ button {
     cursor: pointer;
     color: black;
 }
-button:hover {
+.normal:hover {
     color: black;
     font-weight: bold;
 }
@@ -83,9 +83,17 @@ button:hover {
 }
 
 .apply {
+    height: 30px;
+    width: 200px;
     background-color: var(--logo-color);
+    border: 2px var(--logo-color);
+
     color: white;
     font-weight: bold;
+    cursor: pointer;
+}
+.apply:hover {
+    color: black;
 }
 
 .deadline {
