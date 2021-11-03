@@ -66,9 +66,20 @@
             - MiniHeader
 */
 .central-column {
-  padding: 10px;
   flex: 0.7;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: scroll;
 }
+.central-collumn::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar on IE, Edge, Firefox */
+.central-collumn {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .CustomInfo {
   background-color: white;
   box-shadow: 0px 3px 5px gray;
@@ -107,7 +118,48 @@
   display: flex;
 }
 .InfoTag .MiniHeader-Content {
+  font-weight: 700;
   display: inline-block;
-  width: 80%;
-  border-bottom: 1px solid black;
+  width: 90%;
+  border-bottom: 2px solid black;
+}
+
+.Info {
+  margin: 0.5rem 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Info .InfoContent {
+  font-weight: 700;
+  display: inline-block;
+  width: 85%;
+  border-bottom: 2px solid darkgray;
+}
+.Info .Done {
+  background-color: var(--secondary-color);
+}
+
+.Info .Cancelled {
+  background-color: var(--red-button);
+}
+.Info .Ongoing {
+  background-color: var(--yellow-button);
+}
+
+.Info .Delete {
+  background-color: var(--red-button);
+}
+.Info .InfoStatusContent {
+  margin: auto;
+  text-align: center;
+}
+
+.Info .InfoStatus {
+  margin: auto;
+  width: 6rem;
+  justify-content: center;
+  padding: 0 00.5rem;
+  border-radius: 10px;
+  text-transform: uppercase;
 }

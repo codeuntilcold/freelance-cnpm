@@ -1,11 +1,24 @@
-.stats {
+.MinorInfo {
   flex: 0.3;
   padding-left: 10px;
   padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-height: 1024px;
+  margin-top: 115px;
+  margin-bottom: 35px;
+}
+
+.MinorInfo .MiniHeader-Content {
+  display: inline-block;
+  width: 80%;
+  border-top: 2px solid gainsboro;
 }
 
 @media screen and (max-width: 777px) {
-  .stats {
+  .MinorInfo {
     display: none;
   }
 }
