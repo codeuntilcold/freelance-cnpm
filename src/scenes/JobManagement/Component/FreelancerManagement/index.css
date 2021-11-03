@@ -1,4 +1,3 @@
-
 .item-container--accepted {
-  background-color: #dadada;
+  background-color: var(--selected-color);
 }

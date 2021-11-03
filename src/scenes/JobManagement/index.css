@@ -68,6 +68,12 @@
   margin: 0;
 }
 
+.job-management__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
 @media screen and (max-width: 777px) {
   /* .job-management__item {
     flex: 1;
