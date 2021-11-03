@@ -3,17 +3,8 @@
   height: 100vh;
   overflow-y: hidden;
 }
-.central-column {
-  flex: 0.7;
-  padding-left: 10px;
-  padding-right: 10px;
-  overflow-y: scroll;
-}
-.central-collumn::-webkit-scrollbar {
-  display: none;
-}
-/* Hide scrollbar on IE, Edge, Firefox */
-.central-collumn {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+@media screen and (max-width: 777px) {
+  .whole-page-container {
+    flex: 1;
+  }
 }

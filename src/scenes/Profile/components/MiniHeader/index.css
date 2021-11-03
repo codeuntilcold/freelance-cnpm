@@ -17,3 +17,7 @@
   font-size: var(--text-h1);
   text-transform: uppercase;
 }
+
+.Uneditable {
+  display: none !important;
+}

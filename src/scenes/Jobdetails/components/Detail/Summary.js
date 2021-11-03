@@ -8,18 +8,19 @@ function Section({ text, content }) {
     )
 }
 
-function Summary() {
+function Summary({ content }) {
+
     return (
         <div className="summary">
             <div className="summary_left">
-                THÔNG TIN TUYỂN DỤNG
+                <p>THÔNG TIN TUYỂN DỤNG</p>
             </div>
             <div className="summary_right">
-                <Section text="Mức lương" content="20.000" />
-                <Section text="Số lượng cần tuyển" content="15" />
-                <Section text="Yêu cầu về kinh nghiệm" content="2 năm kinh nghiệm" />
-                <Section text="Yêu cầu về giới tính" content="Không có yêu cầu" />
-                <Section text="Địa điểm làm việc" content="Thành phố Hồ Chí Minh" />
+                <Section text="Mức lương" content={content.salary} />
+                <Section text="Số lượng cần tuyển" content={content.target} />
+                <Section text="Yêu cầu về kinh nghiệm" content={content.prerequisite} />
+                <Section text="Yêu cầu về giới tính" content={content.sex} />
+                <Section text="Địa điểm làm việc" content={content.location} />
             </div>
         </div>
     )

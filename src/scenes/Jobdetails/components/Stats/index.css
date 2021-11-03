@@ -6,17 +6,22 @@
 .company {
     padding: 15px 20px;
     border-radius: 20px;
-    margin-top: 130px;
-    margin-bottom: 35px;
+    margin-top: 50px;
     box-shadow: 3px 3px 5px gray;
-    font-size: 14px;
+    font-size: var(--text-p);
 }
-.job {
-    padding: 15px 20px;
-    border-radius: 20px;
-    margin-bottom: 35px;
-    box-shadow: 3px 3px 5px gray;
-    font-size: 14px;
+
+.employer-section {
+    font-weight: bold;
+}
+
+.div-button {
+    text-align: center;
+    padding: 3px;
+}
+
+.div-button a {
+    color: black;
 }
 
 button {
@@ -29,20 +34,5 @@ button {
 }
 button:hover {
     color: black;
-    font-weight: bold;
-}
-
-.apply {
-    background-color: #64E384;
-    color: white;
-    font-weight: bold;
-}
-
-.divider {
-    height: 1px;
-    display: inline-block;
-}
-
-.section {
     font-weight: bold;
 }

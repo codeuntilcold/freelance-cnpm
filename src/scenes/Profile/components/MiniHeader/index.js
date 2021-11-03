@@ -1,13 +1,13 @@
 import { fontSize } from "@mui/system";
 import React from "react";
 import './index.css';
-export default function({MiniIcon, Content, Handle}){
-
+export default function({MiniIcon, Content, Handle, Editable}){
+    
     return (
         <span>
             <span className="MiniHeader-Content">{Content}</span> 
-            <span onClick={() =>{return Handle} }>
-            <MiniIcon style={{fontSize:'30px'}} className="MiniHeader-Icon"/>
+            <span onClick={Handle}>
+            <MiniIcon style={{fontSize:'30px'}} className={"MiniHeader-Icon " + Editable}/>
             </span>
         </span>
     );
