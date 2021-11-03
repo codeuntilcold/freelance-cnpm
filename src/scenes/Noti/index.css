@@ -1,17 +1,17 @@
 .noti-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .noti-item {
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0px 3px 5px gray;
-    min-height: 70px;
-    font-size: var(--text-h2);
-    cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0px 3px 5px gray;
+  min-height: 70px;
+  font-size: var(--text-h2);
+  cursor: pointer;
 }
 
 /* .noti-item:hover {
@@ -20,17 +20,12 @@
 } */
 
 .noti-item-read {
-    background-color: var(--selected-color);
-    transition: 0.3s;
+  background-color: var(--selected-color);
+  transition: 0.3s;
 }
 
 @media screen and (max-width: 450px) {
-    
-    .noti-item {
-        font-size: var(--text-p);
-    }
+  .noti-item {
+    font-size: var(--text-p);
+  }
 }
-
-
-
-

@@ -7,7 +7,7 @@ export default function JCard(props) {
         <Card
             elevation={4}
             sx={{
-                borderRadius:'15px',
+                borderRadius:'20px',
                 padding:'10px 20px',
                 mb:'35px',
             }}
