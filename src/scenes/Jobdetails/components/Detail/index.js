@@ -1,27 +1,24 @@
 import './index.css'
+import PageHeader from '../../../../components/PageHeader/PageHeader'
 import JobDetail from './JobDetail'
 import Summary from './Summary'
+import Job from './Job';
 
-function Feed() {
+function Feed({ content }) {
+
 	return (
-		<div className='feed'>
-			
-			{/* Header */}
-			<div className="feed-header">
-				<h1>Chi tiết công việc</h1>
-			</div>
+		<div className='central-collumn'>
 
-			{/* Summary */}
-			<Summary />
+			<PageHeader title='Chi tiết công việc' />
 
-			{/* Job */}
-			<JobDetail />
+            <Job content={content} />
+
+			<Summary content={content} />
+
+			<JobDetail content={content} />
 	
 		</div>
 	)
 }
 
 export default Feed
-
-
-
