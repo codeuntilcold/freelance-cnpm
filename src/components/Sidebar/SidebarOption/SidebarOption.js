@@ -1,7 +1,7 @@
 import React from "react";
 import "./SidebarOption.css"
 import { Link } from "react-router-dom";
-import { LinkTwoTone, ViewArray } from "@mui/icons-material";
+// import { LinkTwoTone, ViewArray } from "@mui/icons-material";
 // import { Link } from "react-router-dom";
 export default function SidebarOption(props){
     const {text, Icon, active} = props;

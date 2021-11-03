@@ -1,9 +1,10 @@
-.MinorInfo {
+.Stats {
   flex: 0.3;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
   max-height: 1024px;
@@ -11,14 +12,35 @@
   margin-bottom: 35px;
 }
 
-.MinorInfo .MiniHeader-Content {
+.Stats .MiniHeader-Content {
   display: inline-block;
   width: 80%;
   border-top: 2px solid gainsboro;
 }
 
+.MinorInfo .Info {
+  display: flex;
+  flex-direction: column;
+}
+.MinorInfo .Info .Line {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.Line .MuiSvgIcon-root {
+  align-items: center;
+  font-size: 20px;
+  margin-right: 0.5rem;
+}
+.Line span {
+  align-items: center;
+  line-height: 40px;
+  text-align: center;
+}
+
 @media screen and (max-width: 777px) {
-  .MinorInfo {
+  .Stats {
     display: none;
   }
 }

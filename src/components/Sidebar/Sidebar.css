@@ -1,19 +1,26 @@
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
   margin-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 100vh;
+  max-height: 1024;
   flex: 0.3;
-}
-.padding {
-  height: 50vh;
+  justify-content: space-between;
+  margin-bottom: 35px;
 }
 .ProfileButton {
-  margin: 5vw;
+  align-items: flex-end;
+  margin-bottom: 35px !important;
 }
 
 @media screen and (max-width: 777px) {
   .sidebar {
     flex: 0.1;
+    width: min-content;
+  }
+}
+@media screen and (max-width: 425px) {
+  .sidebar {
+    display: none;
   }
 }
