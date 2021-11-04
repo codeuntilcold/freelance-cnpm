@@ -11,7 +11,7 @@ export default function Myjobs() {
         <Container maxWidth='lg'>
             <div className='whole-page-container'>
 
-                <Sidebar active={0} role="freelancer"/>
+                <Sidebar active={1} role="freelancer"/>
 
                 <Feed />
 
