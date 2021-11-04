@@ -21,7 +21,7 @@ export default function Jobdetails() {
     return (
         <Container maxWidth='lg'>
             <div className='whole-page-container'>
-                <Sidebar active={0} role="freelancer"/>
+                <Sidebar role="freelancer"/>
 
                 <Feed content={job}/>
 

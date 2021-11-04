@@ -13,23 +13,22 @@ function ToText({ text, content }) {
 
 function Job({ content }) {
 
-    const [ save, setSave ] = useState(false)
-    const [ apply, setApply ] = useState(false)
+    const [ save, setSave ] = useState(false);
+    const [ apply, setApply ] = useState(false);
 
     const onClickButton = () => {
         setSave(!save)
-    }
+    };
 
     const applyJob = () => {
         setApply(!apply)
-    }
+    };
 
     return (
         <div className="job">
             <div className="info">
                 <div className="job-section">
-                    Lau dọn phân xưởng
-                    {/* {content.title} */}
+                    {content.title}
                 </div>
 
                 <Link to='/profile'>
@@ -38,8 +37,7 @@ function Job({ content }) {
 
                 <div className="deadline">
                     <AccessTimeIcon />
-                    Hạn chót nộp hồ sơ: DD/MM/YYYY 
-                    {/* {content.deadline} */}
+                    Hạn chót nộp hồ sơ: {content.deadline}
                 </div>
             </div>
 

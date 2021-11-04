@@ -11,7 +11,7 @@ export default function BaseInfo(props){
         <InputBox
             name = "Số lượng cần tuyển"
             type = 'number'
-            value = {props.need}
+            value = {props.total}
         />
         <InputBox
             name = "Yêu cầu kinh nghiệm"

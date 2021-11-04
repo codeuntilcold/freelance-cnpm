@@ -1,6 +1,7 @@
-import LargeButton from '../../../../components/button/LargeButton'
 import CancelButton from "../../../../components/button/CancelButton";
 import SubmitButton from "../../../../components/button/SubmitButton";
+import CornerFooter from '../../../../components/CornerFooter'
+
 import NameJob from './NameJob';
 import BaseInfo from './BaseInfo';
 import DetailInfo from './DetailInfo';
@@ -23,7 +24,7 @@ function JobInput(props){
                     />
                     <BaseInfo
                         salary = {props.salary}
-                        need = {props.need}
+                        total = {props.total}
                         experience = {props.experience}
                         sex = {props.sex}
                         address = {props.address}
@@ -31,7 +32,7 @@ function JobInput(props){
                     />
                     <DetailInfo
                         description = {props.description}
-                        request = {props.request}
+                        requirement = {props.requirement}
                         benefit = {props.benefit}
                     />
                     <div className ="item__button item__button--foot">
@@ -46,7 +47,9 @@ function JobInput(props){
                     </div>
                 </form>
             </div>
-            <div className = "job-management__footer"></div>
+            <div className = "job-management__footer">
+                <CornerFooter/>
+            </div>
         </div>
     </Container>
 

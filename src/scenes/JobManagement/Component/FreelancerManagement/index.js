@@ -1,13 +1,9 @@
-import { Link } from 'react-router-dom';
-
+import CornerFooter from '../../../../components/CornerFooter'
 import WaitingList from './WaitingList';
 import AcceptedList from './AcceptedList';
 
 import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
-
-
-
 
 export default function FreelancerList(props){
     return (
@@ -19,7 +15,9 @@ export default function FreelancerList(props){
                     <WaitingList jobId = {props.jobId}/>
                     <AcceptedList jobId = {props.jobId}/>
                 </div>
-                <div className = "job-management__footer"></div>
+                <div className = "job-management__footer">
+                    <CornerFooter/>
+                </div>
             </div>
         </Container>
     );

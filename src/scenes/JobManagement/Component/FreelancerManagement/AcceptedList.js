@@ -2,6 +2,7 @@
 import AcceptedItem from './AcceptedItem';
 import './index.css'
 import freelancerList from '../data/freelancer';
+import applyForList from '../data/applyFor';
 
 function AcceptedList(props){
     return (
@@ -10,15 +11,20 @@ function AcceptedList(props){
                 Đơn đã nhận
             </h3>
             {
-                freelancerList.map(function(freelancer){
-                    if (freelancer.jodId == props.jobId && freelancer.accepted == true)
-                        return (
+                applyForList.map(function(applyFor){
+                    if (applyFor['job-id'] == props.jobId && applyFor.status == 'Xac nhan'){
+                        var freelancer = freelancerList.find(function(freelancer){
+                            return applyFor['freelancer-id'] == freelancer._id;
+                        });
+                        return(
                             <AcceptedItem
+                                key = {applyFor._id}
                                 name = {freelancer.name}
-                                job = {freelancer.job}
-                                info = {freelancer.detail}
+                                address = {freelancer.address}
+                                aboutMe = {freelancer['about-me']}
                             />
-                        );
+                        )
+                    }
                 })
             }
         </div>

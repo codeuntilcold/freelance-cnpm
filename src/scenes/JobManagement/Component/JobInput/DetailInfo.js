@@ -9,7 +9,7 @@ export default function DetailInfo(props){
                 />
                 <InputLine
                     name = "Yêu cầu ừng viên"
-                    value = {props.request}
+                    value = {props.requirement}
                 />
                 <InputLine
                     name = "Quyền lợi"

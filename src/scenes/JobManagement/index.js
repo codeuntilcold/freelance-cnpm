@@ -1,7 +1,6 @@
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
 import './index.css'
 import jobList from './Component/data/job';
-import freelancerList from './Component/data/freelancer';
 import JobList from './Component/JobList';
 import FreelancerList from './Component/FreelancerManagement';
 import JobInput from './Component/JobInput'
@@ -14,8 +13,8 @@ export default function Jobmanagement() {
             { 
                 jobList.map(function(job){
                 return (
-                    <Route path = {`/job-management/job${job.id}`} exact>
-                        <FreelancerList jobId = {job.id} />
+                    <Route key = {job._id} path = {`/job-management/job${job._id}`} exact>
+                        <FreelancerList key = {job._id} jobId = {job._id} />
                     </Route>
                     );
                 })
@@ -23,17 +22,18 @@ export default function Jobmanagement() {
             {
                 jobList.map(function(job){
                 return (
-                    <Route path = {`/job-management/edit-job${job.id}`} exact>
+                    <Route key = {job._id} path = {`/job-management/edit-job${job._id}`} exact>
                         <JobInput 
+                            key = {job._id}
                             name = {job.name}
                             salary = {job.salary}
-                            need = {job.need}
+                            total = {job.total}
                             experience = {job.experience}
                             sex = {job.sex}
                             address = {job.address}
                             deadline = {job.deadline}
                             description = {job.description}
-                            request = {job.request}
+                            requirement = {job.requirement}
                             benefit = {job.benefit}
                         />
                     </Route>

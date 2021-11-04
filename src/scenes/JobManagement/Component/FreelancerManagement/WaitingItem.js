@@ -5,8 +5,8 @@ function WaitingItem(props){
     return (
         <div className = "item-container">
             <p className = "item__name">{props.name}</p>
-            <p className = "item__field item-content">{props.job}</p>
-            <p className= "item__field item__field--name">{props.info}</p>
+            <p className = "item__field item-content">{props.address}</p>
+            <p className= "item__field item__field--name">{props.aboutMe}</p>
             <p className = "item__button">
                 <AccessButton
                     type = "access"
