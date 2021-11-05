@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Container from '@mui/material/Container';
 
 import Sidebar from '../../components/Sidebar/Sidebar';
@@ -11,7 +11,7 @@ export default function Myjobs() {
         <Container maxWidth='lg'>
             <div className='whole-page-container'>
 
-                <Sidebar active={0} role="freelancer"/>
+                <Sidebar active={1} role="freelancer"/>
 
                 <Feed />
 
