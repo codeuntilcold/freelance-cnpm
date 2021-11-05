@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Employer() {
     return (
@@ -9,9 +10,9 @@ function Employer() {
             </div>
 
             <div className="div-button">
-                <a href='./profile'>
+                <Link to='/profile'>
                     <button className="about-us">Về chúng tôi</button>
-                </a>
+                </Link>
             </div>
 
         </div>
