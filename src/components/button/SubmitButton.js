@@ -3,6 +3,6 @@ import './index.css';
 
 export default function SubmitButton(props){
     return (
-        <input type = "submit" className = "button button--access" title = {props.name} />
+        <input type = "submit" className = "button button--access" value = {props.name} onClick = {props.onClick}/>
     );
 }

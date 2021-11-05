@@ -20,7 +20,12 @@ function WaitingList({job, freelancerList, applyForList}){
                                 <p className= "item__field item__field--name">{freelancer.address}</p>
                                 <p className = "item__button">
                                     <AccessButton
-                                        key = {applyFor._id}
+                                        key = {applyFor._id + 'x'}
+                                        name = "Xác nhận"
+                                        
+                                    />
+                                    <AccessButton
+                                        key = {applyFor._id + 'c'}
                                         name = "Chi tiết"
                                         link = "/profile"
                                     />
