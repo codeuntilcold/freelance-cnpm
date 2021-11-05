@@ -259,7 +259,7 @@ export default function Jobmanagement() {
                 <JobList key = "1" jobList = {jobList} applyForList = {applyForList}/>
             </Route>
             <Route path = "/job-management/new" exact>
-                <JobNew key = '1' jobList={jobList} />
+                <JobNew key = '1' jobList={jobList} setJobList = {setJobList} />
             </Route>
             { 
                 jobList.map(function(job){
@@ -276,14 +276,14 @@ export default function Jobmanagement() {
             }
             {
                 jobList.map(function(job){
-                return (
-                    <Route key = {job._id} path = {`/job-management/edit-job${job._id}`} exact>
-                        <JobEdit 
-                            key = {job._id}
-                            job = {job}
-                        />
-                    </Route>
-                );
+                    return (
+                        <Route key = {job._id} path = {`/job-management/edit-job${job._id}`} exact>
+                            <JobEdit 
+                                key = {job._id}
+                                job = {job}
+                            />
+                        </Route>
+                    );
                 })
             }          
         </Switch>
