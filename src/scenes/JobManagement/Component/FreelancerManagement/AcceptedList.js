@@ -1,10 +1,7 @@
-
-import AcceptedItem from './AcceptedItem';
 import './index.css'
-import freelancerList from '../data/freelancer';
-import applyForList from '../data/applyFor';
+import AccessButton from '../../../../components/button/AccessButton'
 
-function AcceptedList(props){
+function AcceptedList({job, freelancerList, applyForList}){ 
     return (
         <div >
             <h3 className = "list__name">
@@ -12,17 +9,23 @@ function AcceptedList(props){
             </h3>
             {
                 applyForList.map(function(applyFor){
-                    if (applyFor['job-id'] == props.jobId && applyFor.status == 'Xac nhan'){
+                    if (applyFor["job-id"] == job._id && applyFor.status == 'Xac nhan'){
                         var freelancer = freelancerList.find(function(freelancer){
                             return applyFor['freelancer-id'] == freelancer._id;
                         });
                         return(
-                            <AcceptedItem
-                                key = {applyFor._id}
-                                name = {freelancer.name}
-                                address = {freelancer.address}
-                                aboutMe = {freelancer['about-me']}
-                            />
+                            <div className = "item-container item-container--accepted">
+                                <p className = "item__name">{freelancer.name}</p>
+                                <p className = "item__field item-content">{freelancer['about-me']}</p>
+                                <p className= "item__field item__field--name">{freelancer.address}</p>
+                                <p className = "item__button">
+                                    <AccessButton
+                                        key = {applyFor._id}
+                                        name = "Chi tiết"
+                                        link = "/profile"
+                                    />
+                                </p>
+                            </div>
                         )
                     }
                 })

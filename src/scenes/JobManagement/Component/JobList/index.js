@@ -3,12 +3,9 @@ import Sidebar from '../../../../components/Sidebar/Sidebar';
 import LargeButton from '../../../../components/button/LargeButton'
 import JobItem from './JobItem';
 import CornerFooter from '../../../../components/CornerFooter'
-// data
-import jobList from '../data/job';
-import applyForList from '../data/applyFor'
+import {useState} from 'react';
 
-
-function JobList() {
+function JobList({jobList, applyForList}) {
     return (    
         <Container maxWidth='lg'>
             <div className="job-management whole-page-container">
@@ -18,6 +15,7 @@ function JobList() {
                     <h3 className = "list__name">
                         Việc hiện có
                         <LargeButton 
+                            key = '1'
                             name = "Thêm mới" 
                             link = "/job-management/new"
                         />
@@ -27,24 +25,8 @@ function JobList() {
                             return (
                                 <JobItem
                                     key = {job._id}
-                                    id = {job._id}
-                                    name = {job.name}
-                                    status = {"Đang tuyển"}
-                                    need = {job.total}                               
-                                    waiting = {
-                                        applyForList.reduce(function(sum, cur){
-                                            if (cur['job-id'] == job._id && cur.status == 'Dang doi')
-                                                return sum+1;
-                                            else return sum;
-                                        }, 0)
-                                    }
-                                    accepted = {
-                                        applyForList.reduce(function(sum, cur){
-                                            if (cur['job-id'] == job._id && cur.status == 'Xac nhan')
-                                                return sum+1;
-                                            else return sum;
-                                        }, 0)
-                                    }
+                                    job = {job}
+                                    applyForList = {applyForList}
                                 />
                             )
                         })

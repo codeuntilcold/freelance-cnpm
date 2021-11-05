@@ -1,0 +1,31 @@
+.item-input {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.item-input__box {
+  border-radius: 5px;
+  border: solid 1px #8a8a8a;
+  outline: none;
+  flex-grow: 1;
+  font-size: var(--text-p);
+  padding: 2px 6px;
+}
+
+.item-input__line {
+  border: none;
+  border-bottom: solid 1px #000000;
+  width: 100%;
+  outline: none;
+  margin: 0;
+  overflow: auto;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.item__button--foot {
+  margin-top: 20px;
+}
