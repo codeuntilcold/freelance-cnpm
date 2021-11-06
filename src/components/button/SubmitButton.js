@@ -3,8 +3,8 @@ import './index.css';
 
 export default function SubmitButton(props){
     return (
-        <Link to = {props.link}>
-            <input type = "submit" className = "button button--access" value = {props.name} onClick = {props.onClick}/>
-        </Link>
+            <Link type = "submit" className = "button button--access"  onClick = {props.onClick} to = {props.link}>
+                {props.name}
+            </Link>
     );
 }

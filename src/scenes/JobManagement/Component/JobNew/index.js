@@ -7,18 +7,19 @@ import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
 
-function JobNew({jobList, setJobList}){
+function JobNew({jobList, setJobList, jId, setJId}){
     let newJob = {
-        "_id": "j6",
+        "_id": `j${jId}`,
         "createdAt": "04/11/2021"
     };
+    console.log(jId);
     return(
     <Container maxWidth='lg'>
         <div className="job-management whole-page-container">
             <Sidebar active={1} role="employer" />
             <div className = "job-management__item central-collumn">
                 <h1 className = "job-heading central-page-header">Tạo công việc mới</h1>
-                <form >
+                <form action = "/job-management" >
                     <div className= 'item-container'>
                         <p className="item-input">
                             <span className = "item__name">Tên công việc</span>
@@ -57,15 +58,15 @@ function JobNew({jobList, setJobList}){
                             <p className = "item__name">Thông tin chi tiết</p>
                             <div className="item-input">
                                 <p className = "item__field">Mô tả công việc</p>
-                                <div class="item-input__line" contentEditable onChange = {(e)=>newJob.description = e.target.value}></div>
+                                <div id = "description" class="item-input__line" contentEditable></div>
                             </div>
                             <div className="item-input">
                                 <p className = "item__field">Yêu cầu ừng viên</p>
-                                <div class="item-input__line" contentEditable onChange = {(e)=>newJob.requirement = e.target.value}></div>
+                                <div id = "requirement" class="item-input__line" contentEditable></div>
                             </div>
                             <div className="item-input">
                                 <p className = "item__field">Quyền lợi</p>
-                                <div class="item-input__line" contentEditable onChange = {(e)=>newJob.benefit = e.target.value}></div>
+                                <div id = "benefit" class="item-input__line" contentEditable></div>
                             </div>
                         </div>           
                     </div>
@@ -79,7 +80,14 @@ function JobNew({jobList, setJobList}){
                         <SubmitButton
                             key = 'a'
                             name = "Tạo mới"
-                            // onClick = {jobList = [...jobList,newJob]}
+                            link = '/job-management'
+                            onClick = {()=>{
+                                newJob.description = document.getElementById('description').textContent;
+                                newJob.requirement = document.getElementById('requirement').textContent;
+                                newJob.benefit = document.getElementById('benefit').textContent;
+                                setJobList(jobList=>[...jobList,newJob]);
+                                setJId(jId=>jId+1);
+                            }}
                         />
                     </div>
                 </form>

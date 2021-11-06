@@ -252,14 +252,14 @@ export default function Jobmanagement() {
 	    "status": "Xac nhan",
     },
 ])
-
+    let [jId, setJId] = useState(jobList.length);
     return (
         <Switch>
             <Route path = "/job-management"  exact>
                 <JobList key = "1" jobList = {jobList} applyForList = {applyForList}/>
             </Route>
             <Route path = "/job-management/new" exact>
-                <JobNew key = '1' jobList={jobList} setJobList = {setJobList} />
+                <JobNew key = '1' jobList={jobList} setJobList = {setJobList} jId = {jId} setJId = {setJId}/>
             </Route>
             { 
                 jobList.map(function(job){
@@ -287,7 +287,6 @@ export default function Jobmanagement() {
                 })
             }          
         </Switch>
-    );
-        
+    );        
 }
 
