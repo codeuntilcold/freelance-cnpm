@@ -28,7 +28,7 @@ function JobCard({ content }) {
     <div className="job-card">
       <div className="job-title">
         <Link to="/jobdetails">
-          <h2>{content.title}</h2>
+          <h2>{content.name}</h2>
         </Link>
         <span
           className="job-bookmark"
@@ -63,12 +63,12 @@ function JobCard({ content }) {
         <MiniDetail
           MiniIcon={LocationOnIcon}
           text="Địa điểm"
-          content={content.location}
+          content={content.address}
         />
         <MiniDetail
           MiniIcon={PeopleAltIcon}
           text="Số lượng"
-          content={content.target}
+          content={content.confirmed + '/' + content.total}
         />
         <MiniDetail
           MiniIcon={CancelIcon}
