@@ -1,14 +1,25 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Container from '@mui/material/Container';
+
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Feed from './components/Feed/index'
+import CornerFooter from '../../components/CornerFooter/index'
+import './index.css'
 
 export default function Myjobs() {
     return (
-        <div className="myjobs">
-            <Container maxWidth='xs'>
-                <h1>This is the My jobs page</h1>
-                <h2>It is in the scenes/Myjobs folder</h2>
-                <Link to='/'>Back to index</Link>
-            </Container>
-        </div>
+        <Container maxWidth='lg'>
+            <div className='whole-page-container'>
+
+                <Sidebar active={1} role="freelancer"/>
+
+                <Feed />
+
+                <div className="right-collumn">
+                    <CornerFooter />
+                </div>
+
+            </div>
+        </Container>
     )
 }

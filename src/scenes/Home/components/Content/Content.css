@@ -1,0 +1,102 @@
+.main-content {
+    background-image: url("https://www.oracle.com/a/ocom/img/rh03v3-ohsc21-series.png");
+    /* height: 600px; */
+    background-position: right center;    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-wrapper {
+    padding: 125px 200px;
+    margin: 0px;
+}
+
+.text-wrapper h1 {
+    color: var(--logo-color);
+    font-size: 70px;
+    max-width: 650px;
+    line-height: 120%;
+}
+
+.start-button {
+    display: inline-block;
+    height: fit-content;
+    border-radius: 20px;
+    background-color: var(--logo-color);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px grey;
+}
+  
+.start-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;    
+}
+  
+.start-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.start-button:hover span {
+    padding-right: 25px;
+}
+  
+.start-button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .main-content {
+        background-image: none;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .text-wrapper {
+        padding: 125px 50px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .text-wrapper {
+        padding: 155px 50px;
+    }
+
+    .text-wrapper h1 {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .text-wrapper {
+        padding: 130px 50px;
+    }
+
+    .text-wrapper h1 {
+        min-width: 450px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .text-wrapper {
+        padding: 100px 50px;
+    }
+
+    .text-wrapper h1 {
+        min-width: 50px;
+    }
+}

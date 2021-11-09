@@ -1,0 +1,148 @@
+/* JobDetail.js */
+.detail {
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0px 3px 5px gray;
+    font-size: var(--text-p);
+}
+
+.title-detail {
+    font-weight: bold;
+}
+
+/* Summary.js */
+.summary {
+    display: flex;
+}
+
+.summary_left, .summary_right {
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 5px gray;
+}
+.summary_left {
+    vertical-align: middle;
+    flex: 0.1;
+    text-align: center;
+    font-size: var(--text-h1);
+    font-weight: bold;
+}
+.summary_right {
+    line-height: 30px;
+    flex: 0.9;
+    font-size: var(--text-p);
+}
+
+/* Job.js */
+.job {
+    line-height: 30px;
+    display: flex;
+    margin-bottom: 10px;
+    font-size: var(--text-p)
+}
+
+.info {
+    flex: 0.95;
+}
+
+.job-section {
+    font-size: var(--text-h2);
+    font-weight: bold;
+}
+
+.section {
+    display: none;
+}
+
+.div-button {
+    text-align: center;
+    padding: 3px;
+}
+
+.div-button a {
+    color: black;
+}
+
+.normal {
+    height: 30px;
+    border: 2px var(--background-color);
+    width: 200px;
+
+    cursor: pointer;
+    color: black;
+}
+.normal:hover {
+    color: black;
+    font-weight: bold;
+}
+
+.double-button {
+    margin-top: 10px;
+}
+
+.apply {
+    height: 30px;
+    width: 200px;
+    background-color: var(--logo-color);
+    border: 2px var(--logo-color);
+
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.apply:hover {
+    color: black;
+}
+
+.deadline {
+    display: flex;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 3px;
+}
+
+.deadline > .MuiSvgIcon-root {
+    margin-top: -3px;
+    padding-right: 0.5rem;
+    font-size: 2.1rem;
+}
+
+@media screen and (max-width: 777px) {
+
+    .detail {
+        flex-basis: 100%;
+        margin-top: 1px;
+    }
+
+    .div-button {
+        text-align: center;
+        padding: 5px;
+    }
+
+    .apply {
+        background-color: var(--green-500);
+        color: white;
+        font-weight: bold;
+    }
+
+    .section {
+        display: flex;
+        font-weight: bold;
+        color: black;
+    }
+
+    .double-button {
+        margin-top: 30px;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+
+    .job {
+        display: flex;
+    }
+
+}

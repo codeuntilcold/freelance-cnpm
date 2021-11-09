@@ -1,14 +1,83 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import CancelIcon from "@mui/icons-material/Cancel";
 
-function JobCard({ content }) {
-    return (
-        <div className='job-card'>
-            <h1>{content.title}</h1>
-            <p>
-                {content.description}
-            </p>
-        </div>
-    )
+function MiniDetail({ MiniIcon, text, content }) {
+  return (
+    <span>
+      <MiniIcon className="job-mini-detail-icon" style={{ fontSize: "20px" }} />{" "}
+      {text}: {content}
+    </span>
+  );
 }
 
-export default JobCard
+function JobCard({ content }) {
+  const [save, setSave] = useState(true);
+
+  const onToggleBookmark = () => {
+    setSave(!save);
+  };
+
+  return (
+    <div className="job-card">
+      <div className="job-title">
+        <Link to="/jobdetails">
+          <h2>{content.name}</h2>
+        </Link>
+        <span
+          className="job-bookmark"
+          onClick={() => {
+            onToggleBookmark();
+          }}
+        >
+          {save ? (
+            <BookmarkIcon
+              style={{
+                color: "var(--primary-color)",
+                fontSize: "30px",
+                cursor: "pointer",
+              }}
+            />
+          ) : (
+            <BookmarkBorderRoundedIcon
+              style={{ fontSize: "30px", cursor: "pointer" }}
+            />
+          )}
+        </span>
+      </div>
+
+      <p>{content.description}</p>
+
+      <div className="job-mini-detail">
+        <MiniDetail
+          MiniIcon={MonetizationOnIcon}
+          text="Mức lương"
+          content={content.salary}
+        />
+        <MiniDetail
+          MiniIcon={LocationOnIcon}
+          text="Địa điểm"
+          content={content.address}
+        />
+        <MiniDetail
+          MiniIcon={PeopleAltIcon}
+          text="Số lượng"
+          content={content.confirmed + '/' + content.total}
+        />
+        <MiniDetail
+          MiniIcon={CancelIcon}
+          text="Hạn chót"
+          content={content.deadline}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default JobCard;

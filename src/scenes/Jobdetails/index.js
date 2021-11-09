@@ -1,14 +1,32 @@
-import { Link } from 'react-router-dom';
-import Container from '@mui/material/Container';
+import { Container } from '@mui/material'
+import './index.css';
+import Sidebar from '../../components/Sidebar/Sidebar'
+import Feed from './components/Detail/index'
+import Stats from './components/Stats/index'
 
 export default function Jobdetails() {
+
+    const job = {
+        title: "Lau dọn phân xưởng",
+        salary: "20.000đ/h",
+        target: "15/20",
+        prerequisite: "Không",
+        sex: "Nam/Nữ",
+        location: "TP.HCM",
+        description: "Xưởng đóng cửa lâu ngày, cần người lên phụ dọn dẹp để mở cửa trở lại.",
+        requirement: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor?",
+        deadline: "DD/MM/YYYY"
+    }
+
     return (
-        <div className="jobdetails">
-            <Container maxWidth='xs'>
-                <h1>This is the job's details page</h1>
-                <h2>It is in the scenes/Jobdetails folder</h2>
-                <Link to='/'>Back to index</Link>
-            </Container>
-        </div>
+        <Container maxWidth='lg'>
+            <div className='whole-page-container'>
+                <Sidebar role="freelancer"/>
+
+                <Feed content={job}/>
+
+                <Stats />
+            </div>
+        </Container>
     )
 }

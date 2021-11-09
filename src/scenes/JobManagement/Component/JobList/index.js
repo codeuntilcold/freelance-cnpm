@@ -1,50 +1,42 @@
-import { Link } from 'react-router-dom';
-import { Container } from '@material-ui/core';
-
-import Button from '../Button'
+import Container from '@mui/material/Container';
+import Sidebar from '../../../../components/Sidebar/Sidebar';
+import LargeButton from '../../../../components/button/LargeButton'
 import JobItem from './JobItem';
+import CornerFooter from '../../../../components/CornerFooter'
+import {useState} from 'react';
 
-function JobList() {
+function JobList({jobList, applyForList}) {
     return (    
-        <div className="">
-            <h1 className = "job-heading">Quản lý việc</h1>
-            <h3 className = "list__name">
-                Việc hiện có
-                <Button 
-                    name = "Thêm mới" 
-                    link = "/New"
-                    type = "large"
-                />
-            </h3>
-            <JobItem
-                name = "Công việc 1"
-                status = "Đang tuyển"
-                waitng = "20"
-                need = "15"
-                accepted = "5"
-            />
-            <JobItem
-                name = "Công việc 2"
-                status = "Đang tuyển"
-                waitng = "15"
-                need = "10"
-                accepted = "8"
-            />
-            <JobItem
-                name = "Công việc 3"
-                status = "Đang tuyển"
-                waitng = "15"
-                need = "10"
-                accepted = "8"
-            />
-            <JobItem
-                name = "Công việc 4"
-                status = "Dừng tuyển"
-                waitng = "0"
-                need = "12"
-                accepted = "12"
-            />
-        </div>
+        <Container maxWidth='lg'>
+            <div className="job-management whole-page-container">
+                <Sidebar active={1} role="employer" />
+                <div className = "job-management__item central-collumn">
+                    <h1 className = "job-heading central-page-header">Quản lý việc</h1>
+                    <h3 className = "list__name">
+                        Việc hiện có
+                        <LargeButton 
+                            key = '1'
+                            name = "Thêm mới" 
+                            link = "/job-management/new"
+                        />
+                    </h3>
+                    {
+                        jobList.map(function(job){
+                            return (
+                                <JobItem
+                                    key = {job._id}
+                                    job = {job}
+                                    applyForList = {applyForList}
+                                />
+                            )
+                        })
+                    }
+                </div>
+                <div className = "job-management__footer">
+                    <CornerFooter/>
+                </div>
+            </div>
+        </Container>
     )
 }
 

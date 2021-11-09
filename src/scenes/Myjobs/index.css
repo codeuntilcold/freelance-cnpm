@@ -1,0 +1,13 @@
+.right-collumn {
+    flex: 0.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-height: 1024px;
+}
+
+@media screen and (max-width: 777px) {
+    .right-collumn {
+        display: none;
+    }
+}

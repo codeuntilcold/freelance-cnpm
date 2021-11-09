@@ -1,0 +1,38 @@
+.stats {
+    flex: 0.3;
+    padding-left: 10px;
+}
+
+.company {
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 120px;
+    box-shadow: 3px 3px 5px gray;
+    font-size: var(--text-p);
+}
+
+.employer-section {
+    font-weight: bold;
+}
+
+.div-button {
+    text-align: center;
+    padding: 3px;
+}
+
+.div-button a {
+    color: black;
+}
+
+.about-us {
+    height: 30px;
+    border: 2px var(--background-color);
+    width: 200px;
+
+    cursor: pointer;
+    color: black;
+}
+.about-us:hover {
+    color: black;
+    font-weight: bold;
+}
