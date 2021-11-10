@@ -15,7 +15,7 @@ export default function CustomInfo(props){
                 <AccountCircleTwoToneIcon></AccountCircleTwoToneIcon>
                 <article>
                     <h2>{Name}</h2>
-                    <MiniHeader Content={Location} MiniIcon={LocationOnOutlinedIcon}/>
+                    <MiniHeader Content={Location} MiniIcon={LocationOnOutlinedIcon} Handle={Handle}/>
                 </article>
             </div>
             <div className="About">

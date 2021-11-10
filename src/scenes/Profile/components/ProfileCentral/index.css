@@ -137,6 +137,7 @@
   display: inline-block;
   width: 85%;
   border-bottom: 2px solid darkgray;
+  text-transform: capitalize;
 }
 .Info .Done {
   background-color: var(--secondary-color);
@@ -155,6 +156,7 @@
 .Info .InfoStatusContent {
   margin: auto;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .Info .InfoStatus {
