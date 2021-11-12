@@ -3,7 +3,7 @@ import React from "react";
 export default function PageHeader({ title }) {
 
     return (
-        <div class='central-page-header'>
+        <div className='central-page-header'>
             <h1>
                 {title}
             </h1>
