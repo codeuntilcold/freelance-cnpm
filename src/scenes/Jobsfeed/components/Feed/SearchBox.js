@@ -1,5 +1,5 @@
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import { FormControl, Select, InputLabel, MenuItem } from "@mui/material";
+import { Select, MenuItem } from "@mui/material";
 import { useState } from "react";
 
 function SearchBox() {

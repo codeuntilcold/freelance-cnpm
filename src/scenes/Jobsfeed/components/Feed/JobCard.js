@@ -18,6 +18,8 @@ function MiniDetail({ MiniIcon, text, content }) {
 }
 
 function JobCard({ content }) {
+  const decoded = content.data();
+
   const [save, setSave] = useState(true);
 
   const onToggleBookmark = () => {
@@ -27,8 +29,8 @@ function JobCard({ content }) {
   return (
     <div className="job-card">
       <div className="job-title">
-        <Link to="/jobdetails">
-          <h2>{content.name}</h2>
+        <Link to="/jobdetails" state={{ job: content.id }}>
+          <h2>{decoded.name}</h2>
         </Link>
         <span
           className="job-bookmark"
@@ -52,28 +54,28 @@ function JobCard({ content }) {
         </span>
       </div>
 
-      <p>{content.description}</p>
+      <p>{decoded.description}</p>
 
       <div className="job-mini-detail">
         <MiniDetail
           MiniIcon={MonetizationOnIcon}
           text="Mức lương"
-          content={content.salary}
+          content={decoded.salary}
         />
         <MiniDetail
           MiniIcon={LocationOnIcon}
           text="Địa điểm"
-          content={content.address}
+          content={decoded.address}
         />
         <MiniDetail
           MiniIcon={PeopleAltIcon}
           text="Số lượng"
-          content={content.confirmed + '/' + content.total}
+          content={decoded.confirmed + "/" + decoded.total}
         />
         <MiniDetail
           MiniIcon={CancelIcon}
           text="Hạn chót"
-          content={content.deadline}
+          content={decoded.deadline.toDate().toLocaleDateString()}
         />
       </div>
     </div>

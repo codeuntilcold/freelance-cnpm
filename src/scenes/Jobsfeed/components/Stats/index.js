@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import JCard from '../../../../components/JCard'
+// import JCard from '../../../../components/JCard'
 import CornerFooter from '../../../../components/CornerFooter'
 import './index.css'
 

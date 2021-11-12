@@ -1,5 +1,5 @@
 {
-    "employer": [
+    "employers": [
         {
             "name": "Nhà hàng Cơm Việt",
             "address": "35 CMT8, quận 3, TP.HCM",
@@ -23,7 +23,7 @@
             "createdAt": "04/11/2021"
         }   
     ],
-    "freelancer": [
+    "freelancers": [
         {
             "name": "Nguyễn Văn Minh",
             "address": [ "33/3 Ung Văn Khiêm, quận Bình Thạnh, TP.HCM" ],
@@ -49,7 +49,7 @@
             "createdAt": "07/11/2021"
         }
     ],
-    "job": [
+    "jobs": [
         { 
             "_id": "j1",
             "createdAt": "04/11/2021",
@@ -61,7 +61,6 @@
             "description": "Tư vấn và ghi món ăn khi có khách đến, báo cho thu ngân.",
             "deadline": "15/11/2021",
             "start-date": "20/11/2021",
-            "end-date": "20/1/2022",
             "salary": "23000",
     
             "total": "5",
@@ -83,7 +82,6 @@
             "description": "Rửa bát đũa ở phía sau bếp",
             "deadline": "16/11/2021",
             "start-date": "22/11/2021",
-            "end-date": "22/3/2022",
             "salary": "20000",
     
             "total": "3",
@@ -105,7 +103,6 @@
             "description": "Trông giữ xe và bảo vệ nhà hàng.",
             "deadline": "17/11/2021",
             "start-date": "22/11/2021",
-            "end-date": "22/1/2022",
             "salary": "29000",
     
             "total": "2",
@@ -127,7 +124,6 @@
             "description": "Chuẩn bị nguyên liệu cho đầu bếp, nấu các món đơn giản.",
             "deadline": "15/11/2021",
             "start-date": "20/11/2021",
-            "end-date": "20/1/2022",
             "salary": "25000",
     
             "total": "4",
@@ -149,7 +145,6 @@
             "description": "Lau dọn bàn và quét dọn sàn nhà, lau cửa kính.",
             "deadline": "15/11/2021",
             "start-date": "25/11/2021",
-            "end-date": "25/2/2022",
             "salary": "23000",
     
             "total": "4",
@@ -171,7 +166,6 @@
             "description": "Lái xe du lịch chở các tour đi các tỉnh.",
             "deadline": "16/11/2021",
             "start-date": "26/11/2021",
-            "end-date": "26/2/2022",
             "salary": "27000",
     
             "total": "4",
@@ -183,5 +177,4 @@
             "benefit": "Hỗ trợ tiền ăn uống sinh hoạt mỗi chuyến đi."
         }
     ]
-
 }
