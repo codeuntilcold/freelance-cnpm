@@ -8,7 +8,7 @@ export default function SidebarOption(props){
     var linkTo;
     if (props.linkTo === undefined) linkTo='/';
     else linkTo = props.linkTo;
-    console.log(active);
+    // console.log(active);
     return (
         <Link className={`sidebarOption ${active && 'sidebarOption--active'}`} to={linkTo}>
             <Icon/>
