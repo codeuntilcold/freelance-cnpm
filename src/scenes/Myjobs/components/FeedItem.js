@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 function Status({ jobStatus }) {
   return (
     <div className="feed-item-status">
-
       {jobStatus === "Đã xong" && (
         <div
           className="feed-item-status"
@@ -29,7 +28,7 @@ function Status({ jobStatus }) {
         </div>
       )}
 
-      {jobStatus === "Huỷ" && (
+      {jobStatus === "Đang đợi" && (
         <div
           className="feed-item-status"
           style={{ backgroundColor: "var(--red-button)" }}
@@ -48,7 +47,6 @@ function Status({ jobStatus }) {
           <MenuIcon style={{ fontSize: "25", paddingLeft: "5px" }} />
         </div>
       )}
-
     </div>
   );
 }
@@ -56,21 +54,19 @@ function Status({ jobStatus }) {
 function FeedItem({ content }) {
   return (
     <div className="feed-item">
-
       <div className="feed-item-title">
-        <Link to="/jobdetails" style={{ color: "#000" }}>
-          <h2>{content.title}</h2>
+        <Link to={`/jobdetails/${content["job-id"]}`} style={{ color: "#000" }}>
+          <h2>{content.name}</h2>
         </Link>
 
-        <Status jobStatus={content.jobStatus} />
+        <Status jobStatus={content.status} />
       </div>
 
       <div className="feed-item-date">
         <p>
-          {content.startDate} - {content.endDate}
+          Bắt đầu: {content["start-date"].toDate().toLocaleDateString("vi-VN")}
         </p>
       </div>
-
     </div>
   );
 }
