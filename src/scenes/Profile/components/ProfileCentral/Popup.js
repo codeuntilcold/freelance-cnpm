@@ -1,46 +1,65 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import { TextField } from '@mui/material';
 import MiniHeader from "../MiniHeader";
 import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
 function Popup(props) {
-    // const {Data, setData} = props;
-    const [Data, setData] = useState(props.Data);
-    const [renderState, setRenderState] = useState(false);
-    const Delete = (Element="") =>{
-        let temp = Data;
+    // console.log(props.data)
+    const [render, setRender] = useState(true);
+    function Delete (Element=""){
+        let temp = props.data;
         
-        const Eindex = temp.skills.indexOf(Element);
+        const Eindex = temp.indexOf(Element);
         if (Eindex!= -1){
-            temp.skills.splice(Eindex, 1);
+            temp.splice(Eindex, 1);
         }
         else console.log("Element not found");
-        setData(temp);
-        setRenderState(!renderState);
+        props.setData(temp);
+        console.log(props.data)
+        setRender(!render);
     }
-    const Save = () =>{
-        console.log("called Save");
-        props.setProfile(Data);
+
+    function insert(){
+        console.log("insert")
+        const newValue = document.getElementById("insert").value;
+        if (newValue != ""){
+        let temp = props.data;
+        temp.push(newValue);
+        props.setData(temp);
+        setRender(!render);
+        }
+    }
+
+    function Save(){
+        props.setProfile({...props.profile, skills: props.data});
+        // console.log(props.profile);
         props.setTrigger(false);
     }
     useEffect(() => {
-        console.log("rerender");
-    }, [renderState]);
-    return (props.trigger) ? (
+    }, [render])
+    return(
         <div className="Popup">
             <div className="PopupInner">
                 <button className="close-btn" onClick={()=>{props.setTrigger(false)}}>Close</button>
                 {/* {props.children} */}
-                <h1>Địa chỉ</h1>
+                <h1>Kĩ năng</h1>
                     {
-                        Data.skills.map((addr) => (
-                            <MiniHeader MiniIcon={RemoveIcon} Content={addr} Handle={()=>{Delete(addr)}}/>
+                        props.data.map((addr) => (
+                            <div>
+                                <span>{addr}</span>
+                                <button onClick={() =>{Delete(addr)}}>xoas</button>
+                            </div>
                         ))
                     }
+                    <input type="text" name="insert" id="insert" placeholder="Thêm Kĩ năng mới"/>
+                    <button onClick={()=>{insert()}}>Thêm</button>
+
                 <button className="submit" onClick={()=>{Save()}}>Save</button>
                 {/* <button className="cancel" onClick={()=>{Cancel()}}>Cancel</button> */}
             </div>
         </div>
-    ) : "";
+    )
 }
 
 export default Popup

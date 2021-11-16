@@ -4,11 +4,11 @@ import './index.css';
 export default function({MiniIcon, Content, Handle, Editable}){
     // console.log(`${typeof(Handle)} ${Content}`);
     return (
-        <span>
+        <div>
             <span className="MiniHeader-Content">{Content}</span> 
-            <span onClick={Handle}>
-            <MiniIcon style={{fontSize:'30px'}} className={"MiniHeader-Icon " + Editable}/>
+            <span>
+            <MiniIcon onClick={Handle} style={{fontSize:'30px'}} className={"MiniHeader-Icon " + Editable}/>
             </span>
-        </span>
+        </div>
     );
 }
