@@ -19,7 +19,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Index} />
           <Route path="/home" component={Home} />
-          <Route path="/jobdetails" component={Jobdetails} />
+          <Route path="/jobdetails/:jobID" component={Jobdetails} />
           <Route path="/job-management" component={Jobmanagement} />
           <Route path="/jobsfeed" exact component={Jobsfeed} />
           <Route path="/login" exact component={Login} />
