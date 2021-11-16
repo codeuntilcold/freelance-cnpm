@@ -4,7 +4,13 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import Feed from './components/Detail/index'
 import Stats from './components/Stats/index'
 
+import { useParams } from 'react-router';
+
 export default function Jobdetails() {
+
+    const param = useParams()
+
+    // param.jobID is j1, j2, j3...
 
     const job = {
         title: "Lau dọn phân xưởng",
