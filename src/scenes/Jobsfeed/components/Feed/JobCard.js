@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
@@ -18,6 +18,7 @@ function MiniDetail({ MiniIcon, text, content }) {
 }
 
 function JobCard({ content }) {
+
   const decoded = content.data();
 
   const [save, setSave] = useState(true);
@@ -29,9 +30,10 @@ function JobCard({ content }) {
   return (
     <div className="job-card">
       <div className="job-title">
-        <Link to="/jobdetails" state={{ job: content.id }}>
+        <Link to={`/jobdetails/${content.id}`}>
           <h2>{decoded.name}</h2>
         </Link>
+
         <span
           className="job-bookmark"
           onClick={() => {
@@ -75,7 +77,7 @@ function JobCard({ content }) {
         <MiniDetail
           MiniIcon={CancelIcon}
           text="Hạn chót"
-          content={decoded.deadline.toDate().toLocaleDateString()}
+          content={decoded.deadline.toDate().toLocaleDateString("vi-VN")} // firebase to react
         />
       </div>
     </div>
