@@ -42,7 +42,7 @@ function Feed() {
       });
 
       setAppls(applyarray);
-      console.log(applyarray);
+    //   console.log(applyarray);
     }
 
     fetchData();

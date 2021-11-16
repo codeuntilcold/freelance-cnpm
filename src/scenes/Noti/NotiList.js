@@ -1,6 +1,6 @@
 import NotiItem from "./NotiItem";
 // import JCard from "../../components/JCard";
-import Chip from "@mui/material/Chip";
+import { Chip, Snackbar } from "@mui/material";
 import { useState } from "react";
 
 function NotiList() {
@@ -8,10 +8,11 @@ function NotiList() {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quis?";
 
   const [allRead, setAllRead] = useState(false);
+  const [snack, setSnack] = useState(false)
 
   const markAll = () => {
-    alert("Mark all");
     setAllRead(true);
+    setSnack(true);
   };
 
   return (
@@ -20,6 +21,14 @@ function NotiList() {
         <h1>Thông báo</h1>
         <Chip label="Đánh dấu tất cả là đã đọc" onClick={markAll} />
       </div>
+
+      <Snackbar
+        // anchorOrigin={{ vertical, horizontal }}
+        open={snack}
+        autoHideDuration={1000}
+        onClose={() => setSnack(false)}
+        message="Đã đánh dấu hết"
+      />
 
       <NotiItem content={content} all={allRead} />
       <NotiItem content={content} all={allRead} />
