@@ -36,10 +36,13 @@ export default function FreelancerList({job, freelancerList, applyForList}){
                                                     key = {applyFor._id + 'x'}
                                                     name = "Xác nhận"
                                                     onClick = {()=> {
-                                                        applyFor.status = 'Đang làm'
                                                         let confirm = window.confirm('Nhận người làm?');
-                                                        if(confirm)
-                                                            PostData(applyFor);
+                                                        if(confirm){
+                                                            applyFor.status = 'Đang làm'
+                                                            PostDataJob(job);
+                                                            PostDataApply(applyFor);
+                                                        }
+
                                                     }}
                                                     link = {'/job-management/job' + job._id} 
                                                 />
@@ -93,9 +96,17 @@ export default function FreelancerList({job, freelancerList, applyForList}){
     );
 }
 
-function PostData(apply){
+function PostDataApply(apply){
     var fetchData = async()=>{
         await setDoc(doc(db, "apply_for",apply._id), apply);  
     } 
+    fetchData();
+}
+
+function PostDataJob(job){
+    var fetchData = async()=>{
+        await setDoc(doc(db, "job",job._id), job);  
+    } 
+    job.confirmed = (Number(job.confirmed)+1).toString();
     fetchData();
 }

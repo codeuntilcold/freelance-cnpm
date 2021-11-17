@@ -22,15 +22,16 @@ function JobList({employer,jobList, applyForList, setRender}) {
                     </h3>
                     {
                         jobList.map(function(job){
-                            return (
-                                
-                                <JobItem
-                                    key = {job._id}
-                                    job = {job}
-                                    applyForList = {applyForList}
-                                    setRender = {setRender}
-                                />
-                            )
+                            if (employer)
+                                if(job['employer-id'] === employer._id)
+                                    return (
+                                        <JobItem
+                                            key = {job._id}
+                                            job = {job}
+                                            applyForList = {applyForList}
+                                            setRender = {setRender}
+                                        />
+                                    )
                         })
                     }
                 </div>

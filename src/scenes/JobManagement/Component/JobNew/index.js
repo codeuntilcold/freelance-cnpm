@@ -8,11 +8,12 @@ import './index.css'
 import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
-
-function JobNew({ jId, setJId}){
+function JobNew({ employer, jobList, setRender}){
     let newJob = {
-        "_id": `j${jId}`,
-        "createdAt": "04/11/2021"
+        "_id": `j${GetId(jobList)}`,
+        "createdAt": '',
+        "confirmed": "0",
+        "employer-id": `${employer._id}`
     };
     return(
     <Container maxWidth='lg'>
@@ -21,14 +22,15 @@ function JobNew({ jId, setJId}){
             <div className = "job-management__item central-collumn">
                 <h1 className = "job-heading central-page-header">Tạo công việc mới</h1>
                 <form onSubmit = {(e)=>{
-                    e.preventDefault();
+                    e.preventDefault();               
+                    newJob.createdAt = ToTimestamp(FormatDate(new Date()));
                     newJob.deadline = ToTimestamp(newJob.deadline);
                     newJob['start-date'] = ToTimestamp(newJob['start-date']);
                     newJob.description = document.getElementById('description').textContent;
                     newJob.requirement = document.getElementById('requirement').textContent;
                     newJob.benefit = document.getElementById('benefit').textContent;
-                    PostData(newJob);
-                    setJId(prev=>prev+1);
+                    setRender(prev=>!prev)
+                    PostData(newJob, jobList);
                 }}>
                     <div className= 'item-container'>
                         <p className="item-input">
@@ -119,6 +121,8 @@ function FormatDate(date){
     let year = date.getYear() + 1900;
     let month = date.getMonth() + 1;
     let day = date.getDate();
+    if (day < 10)
+        return year + '-' + month + '-0' + day;
     return year + '-' + month + '-' + day;
 }
 
@@ -126,10 +130,22 @@ function ToTimestamp(date){
     return Timestamp.fromDate(new Date(date));
 }
 
-function PostData(job){
+function PostData(job, jobList){
     var fetchData = async()=>{
         await setDoc(doc(db, "job",job._id), job);  
         window.location.href = '/job-management';
     } 
     fetchData();
+}
+
+function GetId(jobList){
+    let cur = 0;
+    for(let i = 0; i<jobList.length;i++){
+        if ('j' + cur == jobList[i]._id){  
+            cur++;
+            i = 0;
+        }
+    }
+    return cur;
+
 }

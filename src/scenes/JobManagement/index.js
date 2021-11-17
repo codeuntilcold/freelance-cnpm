@@ -6,7 +6,7 @@ import FreelancerList from './Component/FreelancerManagement';
 import JobEdit from './Component/JobEdit';
 import JobNew from './Component/JobNew';
 import { db } from "../../services/db.js";
-import { collection, getDocs,  setDoc, doc, Timestamp} from "firebase/firestore";
+import { collection, getDocs} from "firebase/firestore";
 
 
 export default function Jobmanagement() {
@@ -56,14 +56,13 @@ export default function Jobmanagement() {
         fetchData();
     },[render]);
     
-    const [jId, setJId] = useState(100);
     return (
         <Switch>
             <Route path = "/job-management"  exact>
                 <JobList key = "1" employer = {employerList[0]} jobList = {jobList} applyForList = {applyForList} setRender = {setRender}/>
             </Route>
             <Route path = "/job-management/new" exact>
-                <JobNew key = '1' jId = {jId} setJId = {setJId} setRender = {setRender}/>
+                <JobNew key = '1' employer = {employerList[0]} jobList = {jobList} setRender = {setRender}/>
             </Route>
             { 
                 jobList.map(function(job){

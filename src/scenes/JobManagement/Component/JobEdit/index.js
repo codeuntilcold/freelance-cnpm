@@ -20,10 +20,11 @@ function JobEdit({job}){
                     <h1 className = "job-heading central-page-header">Chỉnh sửa công việc</h1>
                     <form onSubmit={(e)=>{
                         e.preventDefault();
-                        if (job.deadline !== temp.deadline)
-                            temp.deadline = ToTimestamp(temp.deadline);
-                        if (job['start-date'] !== temp['start-date'])
-                            temp['start-date'] = ToTimestamp(temp['start-date']);
+                        // if (job.deadline !== temp.deadline){
+                        //     temp.deadline = ToTimestamp(temp.deadline);
+                        // }
+                        // if (job['start-date'] !== temp['start-date'])
+                        //     temp['start-date'] = ToTimestamp(temp['start-date']);
                         if (job.description !== document.getElementById('description').textContent){
                             temp.description = document.getElementById('description').textContent;
                             changed = true
@@ -109,6 +110,7 @@ function JobEdit({job}){
                                 <input type = 'date' className = "item-input__box" required defaultValue = {FormatDate(job.deadline)}
                                     onChange = {(e)=> {
                                         temp.deadline = e.target.value;
+                                        temp.deadline = ToTimestamp(temp.deadline);
                                         changed = true;
                                     }}
                                 />
@@ -118,6 +120,7 @@ function JobEdit({job}){
                                 <input type = 'date' className = "item-input__box" required defaultValue = {FormatDate(job['start-date'])}
                                     onChange = {(e)=> {
                                         temp['start-date'] = e.target.value;
+                                        temp['start-date'] = ToTimestamp(temp['start-date']);
                                         changed = true;
                                     }}  
                                 />
@@ -173,6 +176,8 @@ function FormatDate(date){
     let year = date.getYear() + 1900;
     let month = date.getMonth() + 1;
     let day = date.getDate();
+    if (day < 10)
+        return year + '-' + month + '-0' + day;
     return year + '-' + month + '-' + day;
 }
 

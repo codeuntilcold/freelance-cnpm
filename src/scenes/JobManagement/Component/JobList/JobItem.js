@@ -10,7 +10,7 @@ function JobItem({job, applyForList, setRender}){
             <h2 className = "item__name">{job.name}</h2>
             <p className = "item__field">
                 <span className = "item__field--name">Trạng thái</span> 
-                <span className = "item__field--content">Đang tuyển</span>
+                <span className = "item__field--content">{((job.deadline> new Date()) && (job.confirmed < job.total) )?"Đang tuyển":"Dừng tuyển" }</span>
             </p>
             <p className = "item__field">
                 <span className = "item__field--name">Đơn mới</span>
@@ -26,13 +26,7 @@ function JobItem({job, applyForList, setRender}){
             <p className = "item__field">
                 <span className = "item__field--name">Số lượng</span>
                 <span className = "item__field--content">
-                    {
-                        applyForList.reduce(function(sum, cur){
-                            if (cur['job-id'] === job._id && cur.status === 'Đang làm')
-                                return sum+1;
-                            else return sum;
-                        }, 0)
-                    }/{job.total}
+                    {job.confirmed}/{job.total}
                 </span>
             </p>
             
