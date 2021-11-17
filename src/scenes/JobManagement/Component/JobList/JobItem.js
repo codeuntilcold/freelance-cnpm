@@ -1,8 +1,10 @@
 import AccessButton from '../../../../components/button/AccessButton';
 import DeleteButton from '../../../../components/button/DeleteButton';
+import { db } from '../../../../services/db';
+import { doc, deleteDoc } from "firebase/firestore";
 import './index.css';
 
-function JobItem({job, applyForList}){
+function JobItem({job, applyForList, setRender}){
     return (
         <div className = "item-container">
             <h2 className = "item__name">{job.name}</h2>
@@ -15,7 +17,7 @@ function JobItem({job, applyForList}){
                 <span className = "item__field--content">
                 {
                     applyForList.reduce(function(sum, cur){
-                        if (cur['job-id'] == job._id && cur.status == 'Dang doi')
+                        if (cur['job-id'] === job._id && cur.status === 'Đang đợi')
                             return sum+1;
                         else return sum;
                     }, 0)
@@ -26,7 +28,7 @@ function JobItem({job, applyForList}){
                 <span className = "item__field--content">
                     {
                         applyForList.reduce(function(sum, cur){
-                            if (cur['job-id'] == job._id && cur.status == 'Xac nhan')
+                            if (cur['job-id'] === job._id && cur.status === 'Đang làm')
                                 return sum+1;
                             else return sum;
                         }, 0)
@@ -39,6 +41,13 @@ function JobItem({job, applyForList}){
                     key = {job._id + 'x'}
                     name = "Xóa"
                     link = "/job-management"
+                    onClick = {()=>{
+                        let confirm = window.confirm('Bạn chắc chắn muốn xóa?');
+                        if(confirm){
+                            DeleteData(job);
+                            setRender(prev=>!prev);
+                        }
+                    }}
                 />
                 <AccessButton
                     key = {job._id + 'd'}
@@ -56,3 +65,10 @@ function JobItem({job, applyForList}){
 }
 
 export default JobItem;
+
+function DeleteData(job){
+    var fetchData = async()=>{
+        await deleteDoc(doc(db, "job", job._id)); 
+    } 
+    fetchData();
+}
