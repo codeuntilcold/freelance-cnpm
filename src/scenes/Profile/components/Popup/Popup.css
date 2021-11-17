@@ -1,0 +1,89 @@
+.Popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PopupInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 40%;
+  background-color: white;
+  height: 640px;
+  border-radius: 20px;
+}
+
+.Body .MuiSvgIcon-root {
+  float: right;
+  font-weight: 700;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.Body .MuiSvgIcon-root:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  border-radius: 100%;
+}
+.Item:hover {
+  background-color: lightgray;
+}
+.Item div {
+  align-items: center;
+}
+.Item span {
+  text-transform: capitalize;
+  font-size: var(--text-h2);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  display: inline-block;
+  width: 90%;
+  border-bottom: 2px solid darkgray;
+  /* text-transform: uppercase; */
+}
+
+.Confirmation {
+  margin-bottom: 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.Confirmation button {
+  border: none;
+  font-size: var(--text-h1);
+  padding: 0rem 1rem;
+  border-radius: 10%;
+  float: right;
+  margin-left: 1rem;
+}
+.Confirmation button:hover {
+  box-shadow: 0px 2px 2px gray;
+  /* font-weight: bold; */
+}
+.submit {
+  background-color: var(--primary-color);
+}
+.Body input {
+  font-size: var(--text-h2);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  display: inline-block;
+  width: inherit;
+  border: none;
+}
+.Body input:focus {
+  outline: none;
+}
