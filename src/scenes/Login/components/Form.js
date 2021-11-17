@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 import { Form, Input, Button} from "antd";
 import { MailOutlined, LockOutlined, FacebookFilled, GoogleCircleFilled, GithubFilled } from "@ant-design/icons";
 import "./Form.css";
+import { signInWithPopup, FacebookAuthProvider } from "firebase/auth";
+import auth from "../../../services/auth";
+
+const provider = new FacebookAuthProvider();
 
 const LoginForm = () => {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
+
+  const handleFbLogin = () => {
+    // auth.signInWithPopup(FacebookAuthProvider)
+    signInWithPopup(auth, provider);
+  }
 
   return (
     <Form
@@ -56,7 +65,7 @@ const LoginForm = () => {
 
       <div style={{ width: "100%", marginBottom: "20px"}} align="center">
         <GoogleCircleFilled className="icons"/>
-        <FacebookFilled className="icons"/>
+        <FacebookFilled className="icons" onClick={handleFbLogin}/>
         <GithubFilled className="icons"/>
       </div>
 
