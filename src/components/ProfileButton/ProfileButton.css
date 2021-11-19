@@ -31,6 +31,15 @@
   background-color: var(--logo-color);
 }
 
+.logout-button {
+  font-size: small;
+  margin: 0.5rem;
+  min-width: 2rem;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 777px) {
   .ProfileButton h1,
   .ProfileButton h2 {
