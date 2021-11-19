@@ -29,7 +29,7 @@ export default function Jobdetails() {
 
         // get data   
         var fetchData = async() => {
-            const docRef = doc(db, "job", id);
+            const docRef = doc(db, "job", "j1");
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
@@ -38,8 +38,9 @@ export default function Jobdetails() {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
             }
-
-            setJob(docSnap.data());
+            var temp = docSnap.data();
+            temp.deadline = temp.deadline.toDate();
+            setJob(temp);
         }
         fetchData();
     },[]);
@@ -51,7 +52,7 @@ export default function Jobdetails() {
 
                 <h1>{jobs.name}</h1>
 
-                {/* <Feed job={jobs} /> */}
+                <Feed job={jobs} />
 
                 <Stats />
             </div>

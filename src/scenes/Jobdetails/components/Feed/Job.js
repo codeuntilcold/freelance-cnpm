@@ -17,6 +17,12 @@ function Job({ job }) {
     const [ save, setSave ] = useState(false);
     const [ apply, setApply ] = useState(false);
 
+    // thêm------------------
+    var time = "";  
+    if (job.deadline)
+        time = FormatDate(job.deadline);
+    // ---------------------
+
     const onClickButton = () => {
         setSave(!save)
     };
@@ -38,7 +44,7 @@ function Job({ job }) {
 
                 <div className="deadline">
                     <AccessTimeIcon />
-                    Hạn chót nộp hồ sơ: {job.deadline}
+                    Hạn chót nộp hồ sơ: {time}
                 </div>
             </div>
 
@@ -64,3 +70,12 @@ function Job({ job }) {
 }
 
 export default Job
+
+function FormatDate(date){
+    let year = date.getYear() + 1900;
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    if (day < 10)
+        return  '0' + day + '-' + month + '-' + year;
+    return day + '-' + month + '-' + year;
+}
