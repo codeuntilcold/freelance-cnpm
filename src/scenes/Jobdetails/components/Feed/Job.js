@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import React from 'react'
 import { useState } from 'react';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import { collection, doc, setDoc, query, where, onSnapshot } from "firebase/firestore";
 
 function ToText({ text, content }) {
     return (
@@ -9,9 +10,9 @@ function ToText({ text, content }) {
             {text}{content}
         </span>
     )
-}
+}  
 
-function Job({ content }) {
+function Job({ job }) {
 
     const [ save, setSave ] = useState(false);
     const [ apply, setApply ] = useState(false);
@@ -28,7 +29,7 @@ function Job({ content }) {
         <div className="job">
             <div className="info">
                 <div className="job-section">
-                    {content.title}
+                    {job.name}
                 </div>
 
                 <Link to='/profile'>
@@ -37,7 +38,7 @@ function Job({ content }) {
 
                 <div className="deadline">
                     <AccessTimeIcon />
-                    Hạn chót nộp hồ sơ: {content.deadline}
+                    Hạn chót nộp hồ sơ: {job.deadline}
                 </div>
             </div>
 
@@ -53,7 +54,7 @@ function Job({ content }) {
                 <div className="div-button">
                     <button className="normal" onClick={() => {onClickButton()}}>
                         { save 
-                            ? <ToText text="Tin đã lưu" content="" /> 
+                            ? <ToText text="Bỏ lưu tin" content="" /> 
                             : <ToText text="Lưu tin" content="" /> }
                     </button>
                 </div>

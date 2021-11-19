@@ -1,35 +1,57 @@
+import { useState, useEffect } from "react";
 import { Container } from '@mui/material'
 import './index.css';
 import Sidebar from '../../components/Sidebar/Sidebar'
-import Feed from './components/Detail/index'
+import Feed from './components/Feed/index'
 import Stats from './components/Stats/index'
 
 import { useParams } from 'react-router';
+import { db } from "../../services/db";
+import { doc, getDoc } from "firebase/firestore";
+
+function ToText({ text, content }) {
+    return (
+        <span>
+            {text}{content}
+        </span>
+    )
+}  
 
 export default function Jobdetails() {
-
-    const param = useParams()
-
+    const param = useParams();
     // param.jobID is j1, j2, j3...
 
-    const job = {
-        title: "Lau dọn phân xưởng",
-        salary: "20.000đ/h",
-        target: "15/20",
-        prerequisite: "Không",
-        sex: "Nam/Nữ",
-        location: "TP.HCM",
-        description: "Xưởng đóng cửa lâu ngày, cần người lên phụ dọn dẹp để mở cửa trở lại.",
-        requirement: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, dolor?",
-        deadline: "DD/MM/YYYY"
-    }
+    const [jobs, setJob] = useState([]);
+    const [render, setRender] = useState(true);
+
+    useEffect(() =>{   
+        const id = param.jobID
+
+        // get data   
+        var fetchData = async() => {
+            const docRef = doc(db, "job", id);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+
+            setJob(docSnap.data());
+        }
+        fetchData();
+    },[]);
 
     return (
         <Container maxWidth='lg'>
             <div className='whole-page-container'>
                 <Sidebar role="freelancer"/>
 
-                <Feed content={job}/>
+                <h1>{jobs.name}</h1>
+
+                {/* <Feed job={jobs} /> */}
 
                 <Stats />
             </div>
