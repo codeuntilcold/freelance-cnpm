@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import {
-  UserOutlined,
   MailOutlined,
   LockOutlined,
   FacebookFilled,
@@ -10,10 +9,13 @@ import {
   GithubFilled,
 } from "@ant-design/icons";
 import "./Form.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../../services/auth";
 
 const SignUpForm = () => {
+
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    createUserWithEmailAndPassword(auth, values.email, values.password);
   };
 
   return (
@@ -22,22 +24,10 @@ const SignUpForm = () => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
+      onFinish={onFinish}    
     >
       <Form.Item
-        name="name"
-        rules={[
-          {
-            required: true,
-            message: "Vui lòng nhập tên của bạn!",
-          },
-        ]}
-      >
-        <Input prefix={<UserOutlined />} placeholder="Họ và tên" />
-      </Form.Item>
-
-      <Form.Item
-        name="username"
+        name="email"
         rules={[
           {
             required: true,
@@ -65,7 +55,7 @@ const SignUpForm = () => {
       </Form.Item>
 
       <Form.Item
-        name="re-password"
+        name="password"
         rules={[
           {
             required: true,
@@ -81,7 +71,7 @@ const SignUpForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button htmlType="submit" type="primary" className="login-form-button">
           ĐĂNG KÝ
         </Button>
       </Form.Item>

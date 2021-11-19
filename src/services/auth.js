@@ -1,14 +1,18 @@
-import { 
-    getAuth, 
-    // createUserWithEmailAndPassword, 
-    // signInWithPopup, 
-    // FacebookAuthProvider 
-} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
-const auth = getAuth();
+const firebaseConfig = {
+  apiKey: "AIzaSyAH1VJJZl8zZ01TN8Sc5rWR-rUGAOjzK0c",
+  authDomain: "freelance-cnpm.firebaseapp.com",
+  projectId: "freelance-cnpm",
+  storageBucket: "freelance-cnpm.appspot.com",
+  messagingSenderId: "619153882709",
+  appId: "1:619153882709:web:6688bc04eedf73d5ac1edc",
+  measurementId: "G-9L3LZJ1VZS",
+};
 
-// export function signUp(email, password) {
-//     return createUserWithEmailAndPassword(auth, email, password);
-// }
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
 
 export default auth;
