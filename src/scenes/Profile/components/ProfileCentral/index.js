@@ -15,7 +15,7 @@ export default function ProfileCentral(props){
             "address": [ "33/3 Ung Văn Khiêm, quận Bình Thạnh, TP.HCM", "12 Lê Lợi", "193 Hùng Vương"],
             "phone": "0945123456",
             "email": "minhnguyen12@gmail.com",
-            "about-me": "Lao động tự do, cần tìm một công việc sau dịch bệnh.",
+            "aboutme": "Lao động tự do, cần tìm một công việc sau dịch bệnh.",
             "desired-hourly-salary": "25000 VND",
             "skills": ["bưng bê", "rửa chén", "phụ bếp", "thu ngân", "quét dọn"],
             "education": ["cấp 3"],
@@ -43,9 +43,7 @@ export default function ProfileCentral(props){
     }
     useEffect(() => {
         LoadData(dataType);
-        // console.log("index")
     }, [buttonPopup])
-        const Content = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quaerat omnis voluptates vel ipsum officiis soluta sed, maiores eos aperiam.";
     return (
         <div class="central-column">
 
@@ -61,7 +59,7 @@ export default function ProfileCentral(props){
                         </JCard>
                         ) : ""
                 }
-                <CustomInfo Name="Freelancer's name here" Location="TP.HCM" HourlyRate="85.000" Content={Content}></CustomInfo>
+                <CustomInfo profile={profile} setProfile={setProfile} setSaveProfile={props.setSaveProfile}></CustomInfo>
                 <InfoTag Name={"Lịch sử công việc"} Handle={()=>{Handle("History")}} Editable={false}>
                     <Info content="Công việc 1" status="Done"/>
                     <Info content="Công việc 1" status="Done"/>
