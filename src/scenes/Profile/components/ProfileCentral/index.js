@@ -35,6 +35,8 @@ export default function ProfileCentral(props){
                 setData([...profile.education]);
                 setDataType(Name)
                 break;
+            default:
+                break;
         }
     }
     function Handle (Name = "None"){
@@ -67,14 +69,14 @@ export default function ProfileCentral(props){
                 <InfoTag Name={"Kỹ năng"} Handle={()=>{Handle("skills")}} Editable={true}>  
                     {
                         profile.skills.map((skill) => (
-                            <Info content={skill}/>
+                            <Info key={skill} content={skill}/>
                             ))
                     }                  
                 </InfoTag>
                 <InfoTag Name={"Trình độ học vấn"} Handle={()=>{Handle("education")}} Editable={true}>
                     {
                         profile.education.map((certificate) =>(
-                            <Info content={certificate}/>
+                            <Info key={certificate} content={certificate}/>
                         ))
                     }
                 </InfoTag>

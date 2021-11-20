@@ -26,6 +26,8 @@ function Stats(props) {
                 setData([...profile.address]);
                 setDataType(Name)
                 break;
+            default:
+                break;
         }
     }
     function Handle (Name = "None"){

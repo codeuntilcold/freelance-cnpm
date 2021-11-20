@@ -6,7 +6,7 @@ export default function InfoTag(props){
         <div className="InfoTag">
             <div className="Header">
             <span className="Content">{Name}</span>
-            {(Editable == true) ?<EditOutlinedIcon className="EditIcon" onClick={Handle}  style={{fontSize:'30px'}}/> :""}
+            {(Editable === true) ?<EditOutlinedIcon className="EditIcon" onClick={Handle}  style={{fontSize:'30px'}}/> :""}
             </div>
             {props.children}
         </div>

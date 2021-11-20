@@ -18,7 +18,7 @@ export default function Sidebar(props){
                 <div>
                     {
                         freelancerSidebar.map(option=>{
-                        return <SidebarOption active={option.active} Icon={option.Icon} text={option.text} linkTo={option.linkTo}/>
+                        return <SidebarOption key={option.text} active={option.active} Icon={option.Icon} text={option.text} linkTo={option.linkTo}/>
                         })
                     }
                 </div>
@@ -28,7 +28,7 @@ export default function Sidebar(props){
                 return (
                     <div>                
                 {employerSidebar.map(option=>{
-                return <SidebarOption active={option.active} Icon={option.Icon} text={option.text} linkTo={option.linkTo}/>
+                return <SidebarOption key={option.text} active={option.active} Icon={option.Icon} text={option.text} linkTo={option.linkTo}/>
                 })
                 }
                 </div>)

@@ -11,7 +11,7 @@ function Popup(props) {
         let temp = props.data;
         
         const Eindex = temp.indexOf(Element);
-        if (Eindex!= -1){
+        if (Eindex!== -1){
             temp.splice(Eindex, 1);
         }
         else console.log("Element not found");
@@ -22,7 +22,7 @@ function Popup(props) {
     function insertContact(){
         const newValue = document.getElementById("insert").value;
         const newType = document.getElementById("type").value;
-        if (newValue != ""){
+        if (newValue !== ""){
             let temp = props.data;
             temp.push({Type: newType, Value: newValue});
             props.setData(temp);
@@ -34,7 +34,7 @@ function Popup(props) {
         // console.log("insert")
         else{
             const newValue = document.getElementById("insert").value;
-            if (newValue != ""){
+            if (newValue !== ""){
                 let temp = props.data;
                 temp.push(newValue);
                 props.setData(temp);

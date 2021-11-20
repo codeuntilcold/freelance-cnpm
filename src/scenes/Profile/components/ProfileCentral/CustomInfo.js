@@ -6,22 +6,19 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import MiniHeader from "../MiniHeader/index";
 import Popup from "../Popup/Popup";
-export default function CustomInfo(props){
+function CustomInfo(props){
     
     const [buttonPopup, setButtonPopup] = useState(false);
     const [data, setData] = useState([]);
     const [dataType, setDataType] = useState("");
-    function LoadData (Name = "None"){
-        setData(props.profile.aboutme)
-        setDataType("aboutme")
-    }
     function Handle (){
         setButtonPopup(true);
         setData(props.profile.aboutme)
         setDataType("aboutme")
     }
     useEffect(() => {
-        LoadData(dataType);
+        setData(props.profile.aboutme)
+        setDataType("aboutme")
         // console.log("index")
     }, [buttonPopup])
     return (
@@ -48,3 +45,4 @@ export default function CustomInfo(props){
         </div>
     );
 }
+export default CustomInfo;
