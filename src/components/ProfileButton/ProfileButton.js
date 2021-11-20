@@ -18,7 +18,7 @@ const ProfileButton = ({active}) => {
             <article>
                 <h1>Tên người dùng</h1>
                 <h2>Thông tin ngắn</h2>
-                <button onClick={handleLogout} className="logout-button"><LogoutOutlined/><span>Đăng xuất<span/></span></button>
+                <button onClick={handleLogout} className="logout-button"><LogoutOutlined/><span> Đăng xuất<span/></span></button>
             </article>
         </Link>
     )

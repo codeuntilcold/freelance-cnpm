@@ -12,6 +12,7 @@ import "./Form.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../../services/auth";
 import { db } from "../../../services/db";
+import { collection, addDoc } from "firebase/firestore"; 
 
 const { Option } = Select;
 
@@ -23,6 +24,12 @@ const SignUpForm = () => {
   const onFinish = async (values) => {
     const newUser = await createUserWithEmailAndPassword(auth, values.email, values.password);
     console.log("New user data: " , {newUser});
+
+    await addDoc(collection(db, "user"), {
+      uid: newUser.user.uid,
+      role: values.role,
+      // roleId: null
+    });
   };
 
 

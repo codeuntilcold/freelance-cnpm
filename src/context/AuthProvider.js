@@ -42,7 +42,7 @@ export default function AuthProvider({children}) {
             if (user) {
                 const { displayName, email, uid, photoURL } = user;
                 setUser({
-                    displayName,email, uid, photoURL
+                    displayName, email, uid, photoURL
                 });
                 setIsLoading(false);
                 history.push('/jobsfeed');
@@ -50,7 +50,7 @@ export default function AuthProvider({children}) {
             }
 
             setIsLoading(false);
-            history.push('/')
+            history.push('/home')
         });
 
         //clean function
