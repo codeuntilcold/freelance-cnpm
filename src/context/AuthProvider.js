@@ -4,6 +4,29 @@ import { onAuthStateChanged } from "firebase/auth";
 import auth from "../services/auth";
 import { CircularProgress } from "@mui/material";
 
+//custom hook
+// export function useAuth() {
+//     const [ currentUser, setCurrentUser ] = useState();
+
+//     React.useEffect(() => {
+//         const unsub = onAuthStateChanged(auth, user => setCurrentUser(user))
+//         return unsub;
+//     }, []);
+
+//     return currentUser;
+// }
+
+
+//how to use
+// const currentUser = useAuth();
+// const mail = currentUser?.email;
+// if (currentUser) {
+//     //logged in
+// }
+// else {
+//     //logged out
+// }
+
 
 export const AuthContext = React.createContext();
 
@@ -14,10 +37,10 @@ export default function AuthProvider({children}) {
 
     React.useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
-            console.log({user})
+            // console.log({user})
 
             if (user) {
-                const { displayName,email, uid, photoURL } = user;
+                const { displayName, email, uid, photoURL } = user;
                 setUser({
                     displayName,email, uid, photoURL
                 });
@@ -27,7 +50,7 @@ export default function AuthProvider({children}) {
             }
 
             setIsLoading(false);
-            history.push('/home')
+            history.push('/')
         });
 
         //clean function

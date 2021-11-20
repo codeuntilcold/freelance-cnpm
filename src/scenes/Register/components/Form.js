@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Select  } from "antd";
 import {
   MailOutlined,
   LockOutlined,
@@ -11,12 +11,20 @@ import {
 import "./Form.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../../services/auth";
+import { db } from "../../../services/db";
+
+const { Option } = Select;
 
 const SignUpForm = () => {
+  // const onFinish = (values) => {
+  //   console.log(values);
+  // }
 
-  const onFinish = (values) => {
-    createUserWithEmailAndPassword(auth, values.email, values.password);
+  const onFinish = async (values) => {
+    const newUser = await createUserWithEmailAndPassword(auth, values.email, values.password);
+    console.log("New user data: " , {newUser});
   };
+
 
   return (
     <Form
@@ -55,7 +63,7 @@ const SignUpForm = () => {
       </Form.Item>
 
       <Form.Item
-        name="password"
+        name="re-password"
         rules={[
           {
             required: true,
@@ -68,6 +76,24 @@ const SignUpForm = () => {
           type="password"
           placeholder="Xác nhận mật khẩu"
         />
+      </Form.Item>
+
+      <Form.Item
+        name="role"
+        rules={[
+          {
+            required: true,
+            message: "Vui lòng chọn 1 trong 2 !",
+          },
+        ]}
+      >
+        <Select
+          placeholder="Bạn là người tìm việc hay người tuyển dụng?"
+          allowClear
+        >
+          <Option value="freelancer">Người tìm việc</Option>
+          <Option value="employer">Người tuyển dụng</Option>
+        </Select>
       </Form.Item>
 
       <Form.Item>

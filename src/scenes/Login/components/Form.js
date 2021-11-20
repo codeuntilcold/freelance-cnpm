@@ -25,8 +25,9 @@ const LoginForm = () => {
     signInWithPopup(auth, fbProvider);
   }
   
-  const handleGgLogin = () => {
-    signInWithPopup(auth, ggProvider);
+  const handleGgLogin = async () => {
+    const temp = await signInWithPopup(auth, ggProvider);
+    console.log({temp});
   }
 
   return (
