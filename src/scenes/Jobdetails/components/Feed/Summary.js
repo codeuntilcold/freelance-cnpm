@@ -17,10 +17,10 @@ function Summary({ job }) {
             </div>
             <div className="summary_right">
                 <Section text="Mức lương" content={job.salary} />
-                <Section text="Số lượng cần tuyển" content={job.target} />
-                <Section text="Yêu cầu về kinh nghiệm" content={job.prerequisite} />
+                <Section text="Số lượng cần tuyển" content={job.total} />
+                <Section text="Yêu cầu về kinh nghiệm" content={job.requirement} />
                 <Section text="Yêu cầu về giới tính" content={job.sex} />
-                <Section text="Địa điểm làm việc" content={job.location} />
+                <Section text="Địa điểm làm việc" content={job.address} />
             </div>
         </div>
     )

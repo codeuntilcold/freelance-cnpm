@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Employer() {
+function Employer({ content }) {
     return (
         <div className="company">
             
             <div className="employer-section">
-                <p>Tên doanh nghiệp</p>
+                <p>{content.name}</p>
             </div>
 
             <div className="div-button">
