@@ -4,29 +4,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import auth from "../services/auth";
 import { CircularProgress } from "@mui/material";
 
-//custom hook
-// export function useAuth() {
-//     const [ currentUser, setCurrentUser ] = useState();
-
-//     React.useEffect(() => {
-//         const unsub = onAuthStateChanged(auth, user => setCurrentUser(user))
-//         return unsub;
-//     }, []);
-
-//     return currentUser;
-// }
-
-
-//how to use
-// const currentUser = useAuth();
-// const mail = currentUser?.email;
-// if (currentUser) {
-//     //logged in
-// }
-// else {
-//     //logged out
-// }
-
 
 export const AuthContext = React.createContext();
 

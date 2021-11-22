@@ -6,27 +6,21 @@ import Feed from "./components/Feed/index";
 import Stats from "./components/Stats/index";
 import "./index.css";
 
-// import { AuthContext } from "../../context/AuthProvider";
 import auth from "../../services/auth";
 import { db } from "../../services/db";
 import { collection, query, where, getDocs } from "firebase/firestore";
+
+import { AppContext } from "../../context/AppProvider";
 
 
 
 export default function Jobsfeed() {
   const [jobs, setJobs] = useState();
 
-  // const data = useContext(AuthContext);
-  // const currentUID = data.user.uid;
-
-  const currentUID = auth.currentUser?.uid;
-  console.log("current UID: ", currentUID);
-
-  // const userList = collection(db, "user");
-  // const q = query(userList, where("uid", "==", currentUID));
-
-  // const querySnapshot = getDocs(q);
-  // console.log(querySnapshot);
+  const {currentUser, userInfo} = useContext(AppContext);
+  console.log(currentUser);
+  console.log(userInfo);
+  
 
   return (
     <Container maxWidth="lg">
