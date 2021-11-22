@@ -18,7 +18,7 @@ export default function AppProvider({ children }) {
   }, [uid]);
   const currentUser = useFirestore("user", userCondition);
 
-  
+
 //   const currentRoleID = currentUser.roleId;
 
 
@@ -37,7 +37,6 @@ export default function AppProvider({ children }) {
     <AppContext.Provider
       value={{
         currentUser,
-        userInfo,
       }}
     >
       {children}
