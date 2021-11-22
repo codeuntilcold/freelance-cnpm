@@ -6,24 +6,20 @@ import Feed from "./components/Feed/index";
 import Stats from "./components/Stats/index";
 import "./index.css";
 
-import auth from "../../services/auth";
-import { db } from "../../services/db";
-import { collection, query, where, getDocs } from "firebase/firestore";
-
 import { AppContext } from "../../context/AppProvider";
-
 
 
 export default function Jobsfeed() {
   const [jobs, setJobs] = useState();
 
   const {currentUser} = useContext(AppContext);
-  console.log(currentUser);  
+  console.log(currentUser)
+  var role = currentUser?.role;
 
   return (
     <Container maxWidth="lg">
       <div className="whole-page-container">
-        <Sidebar active={0} role="freelancer" />
+        <Sidebar active={0} role={role} />
 
         <Feed />
 

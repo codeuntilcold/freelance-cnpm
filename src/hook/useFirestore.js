@@ -3,15 +3,15 @@ import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { db } from '../services/db';
 
 export default function useFirestore(collectionParam, condition) {
-  const [document, setDocument] = useState([]);
+  const [document, setDocument] = useState();
   useEffect(() => {
     let collectionRef = collection(db, collectionParam);
     if (!condition) {
       if (!condition.compareValue || condition.compareValue.length)
-        setDocument([]);
+        setDocument({});
       return;
     }
-    var q = [];
+    var q = {};
     try {
       q = query(collectionRef, where(condition.fieldName, condition.operator, condition.compareValue));
     } catch (error) {
@@ -20,14 +20,12 @@ export default function useFirestore(collectionParam, condition) {
       return;
     }
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const documents = [];
+      var documents = {};
       querySnapshot.forEach(doc => {
-        documents.push({
+        documents = {
           ...doc.data(),
-          id: doc.id
-        })
+        }
       })
-      documents.sort((item1, item2) => item1.createdAt - item2.createdAt);
       setDocument(documents);
     });
     return () => {

@@ -1,5 +1,5 @@
 import { documentId } from "@firebase/firestore";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useFirestore from "../hook/useFirestore";
 import { AuthContext } from "./AuthProvider";
 
@@ -18,25 +18,24 @@ export default function AppProvider({ children }) {
   }, [uid]);
   const currentUser = useFirestore("user", userCondition);
 
+  // var currentRoleID = currentUser?.roleId;
 
-//   const currentRoleID = currentUser.roleId;
 
+  // const userInfoCondition = React.useMemo(() => {
+  //   return {
+  //     fieldName: documentId(),
+  //     operator: "==",
+  //     compareValue: currentRoleID,
+  //   };
+  // }, [currentRoleID]);
 
-//   const userInfoCondition = React.useMemo(() => {
-//     return {
-//       fieldName: documentId(),
-//       operator: "==",
-//       compareValue: currentRoleID,
-//     };
-//   }, [currentRoleID]);
-
-//   const userInfo = useFirestore("freelancer", userInfoCondition);
+  // const userInfo = useFirestore("employee", userInfoCondition);
 
 
   return (
     <AppContext.Provider
       value={{
-        currentUser,
+        currentUser
       }}
     >
       {children}
