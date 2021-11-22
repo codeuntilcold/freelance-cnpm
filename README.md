@@ -36,4 +36,8 @@ Folder này sẽ bao gồm các components chung mà các scene có thể sử d
 
 02/11: Thêm footer, chỉnh responsive một chút
 
-12/11: Thêm Firebase (chưa hoạt động được) vào thư mục src/services. Import để sử dụng database.
+12/11: Thêm Firestore vào thư mục src/services. Import để sử dụng database.
+
+17/11: Thêm một dòng ở code của Hạ để có thể lấy được job-id. 
+
+
