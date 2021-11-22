@@ -17,10 +17,8 @@ import { AppContext } from "../../context/AppProvider";
 export default function Jobsfeed() {
   const [jobs, setJobs] = useState();
 
-  const {currentUser, userInfo} = useContext(AppContext);
-  console.log(currentUser);
-  console.log(userInfo);
-  
+  const {currentUser} = useContext(AppContext);
+  console.log(currentUser);  
 
   return (
     <Container maxWidth="lg">

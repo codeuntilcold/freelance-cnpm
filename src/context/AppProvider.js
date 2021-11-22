@@ -18,20 +18,19 @@ export default function AppProvider({ children }) {
   }, [uid]);
   const currentUser = useFirestore("user", userCondition);
 
+  
+//   const currentRoleID = currentUser.roleId;
 
-  //bug
 
-  const currentRoleID = currentUser.roleId;
+//   const userInfoCondition = React.useMemo(() => {
+//     return {
+//       fieldName: documentId(),
+//       operator: "==",
+//       compareValue: currentRoleID,
+//     };
+//   }, [currentRoleID]);
 
-  const userInfoCondition = React.useMemo(() => {
-    return {
-      fieldName: documentId(),
-      operator: "==",
-      compareValue: currentRoleID,
-    };
-  }, [currentRoleID]);
-
-  const userInfo = useFirestore("freelancer", userInfoCondition);
+//   const userInfo = useFirestore("freelancer", userInfoCondition);
 
 
   return (
