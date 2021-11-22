@@ -1,52 +1,64 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import "./index.css";
 import FeedItem from "./FeedItem";
 import { CircularProgress } from "@mui/material";
 
+import { AppContext } from "../../../context/AppProvider";
+// import auth from "../../../services/auth";
 import { db } from "../../../services/db";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 function Feed() {
+
   const [appls, setAppls] = useState();
 
-  const [jobs, setJobs] = useState();
+  const {currentUser} = useContext(AppContext);
 
-  const FREELANCER_ID = "fr2";
 
   useEffect(() => {
-    async function fetchData() {
+    
+    async function getList() {
+  
+      // GET APPLY_FOR
       let applyarray = [];
       let jid = [];
-
       let q = query(
         collection(db, "apply_for"),
-        where("freelancer-id", "==", FREELANCER_ID)
+        where("freelancer-id", "==", currentUser[0].roleID)
       );
       let querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         applyarray.push(doc.data());
         jid.push(doc.data()["job-id"]);
       });
-
       // apply_for: status + job-id
+  
+      // GET JOBS IN APPLY_FOR
       let jobarray = [];
       q = query(collection(db, "job"), where("__name__", "in", jid));
       querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => jobarray.push(doc.data()));
-
-      // job:
-
-      applyarray = applyarray.map((stat, index) => {
-        return { ...stat, ...jobarray[index] };
-      });
-
-      setAppls(applyarray);
-    //   console.log(applyarray);
+      querySnapshot.forEach((doc) => jobarray.push(doc));
+      
+      // GET APPLY_FOR AND JOB INFO TOGETHER
+      let zipped = [];
+      applyarray.forEach((application) =>
+        jobarray.forEach(
+          (job) =>
+            application["job-id"] === job.id &&
+            zipped.push({ ...application, ...job.data() })
+        )
+      );
+      
+      setAppls(zipped);
     }
 
-    fetchData();
+    getList()
+
   }, []);
+
+
+
 
   return (
     <div className="central-collumn">
@@ -58,7 +70,7 @@ function Feed() {
         appls?.map(
           (job) =>
             (job.status === "Đang làm" || job.status === "Đã xong") && (
-              <FeedItem content={job} />
+              <FeedItem key={job["job-id"]} content={job} />
             )
         )
       ) : (
@@ -71,7 +83,10 @@ function Feed() {
 
       {appls ? (
         appls?.map(
-          (job) => job.status === "Đang đợi" && <FeedItem content={job} />
+          (job) =>
+            job.status === "Đang đợi" && (
+              <FeedItem key={job["job-id"]} content={job} />
+            )
         )
       ) : (
         <CircularProgress />
@@ -82,7 +97,12 @@ function Feed() {
       </div>
 
       {appls ? (
-        appls?.map((job) => job.status === "Lưu" && <FeedItem content={job} />)
+        appls?.map(
+          (job) =>
+            job.status === "Đã lưu" && (
+              <FeedItem key={job["job-id"]} content={job} />
+            )
+        )
       ) : (
         <CircularProgress />
       )}

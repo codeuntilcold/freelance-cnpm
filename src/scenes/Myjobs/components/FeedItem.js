@@ -38,7 +38,7 @@ function Status({ jobStatus }) {
         </div>
       )}
 
-      {jobStatus === "Lưu" && (
+      {jobStatus === "Đã lưu" && (
         <div
           className="feed-item-status"
           style={{ backgroundColor: "var(--green-700)" }}
@@ -64,7 +64,7 @@ function FeedItem({ content }) {
 
       <div className="feed-item-date">
         <p>
-          Bắt đầu: {content["start-date"].toDate().toLocaleDateString("vi-VN")}
+          Bắt đầu: {content["start-date"]?.toDate().toLocaleDateString("vi-VN")}
         </p>
       </div>
     </div>
