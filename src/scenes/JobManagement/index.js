@@ -1,5 +1,5 @@
 import {Route, Switch } from 'react-router-dom';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import './index.css'
 import JobList from './Component/JobList';
 import FreelancerList from './Component/FreelancerManagement';
@@ -7,14 +7,17 @@ import JobEdit from './Component/JobEdit';
 import JobNew from './Component/JobNew';
 import { db } from "../../services/db.js";
 import { collection, getDocs} from "firebase/firestore";
+import { AppContext } from "../../context/AppProvider";
 
 
 export default function Jobmanagement() {
     const [jobList, setJobList] = useState([])
     const [freelancerList, setFreelancerList] = useState([])
     const [applyForList, setapplyForList] = useState([])
-    const [employerList, setEmployerList] = useState([]);
     const [render, setRender] = useState(true);
+    
+    const {currentUser} = useContext(AppContext);
+    let emID = currentUser?.roleId;
     useEffect(() =>{   
         // get data   
         var fetchData = async()=>{
@@ -44,14 +47,7 @@ export default function Jobmanagement() {
                 temp = [...temp, data]
             });
             setapplyForList(temp);      
-            
-            temp = []
-            const querySnapshotEmployer = await getDocs(collection(db, "employer"));
-            querySnapshotEmployer.forEach((doc) => {
-                let data = {"_id":doc.id,...doc.data()}
-                temp = [...temp, data]
-            });
-            setEmployerList(temp);     
+   
         }
         fetchData();
     },[render]);
@@ -59,10 +55,10 @@ export default function Jobmanagement() {
     return (
         <Switch>
             <Route path = "/job-management"  exact>
-                <JobList key = "1" employer = {employerList[0]} jobList = {jobList} applyForList = {applyForList} setRender = {setRender}/>
+                <JobList key = "1" employerID = {emID} jobList = {jobList} applyForList = {applyForList} setRender = {setRender}/>
             </Route>
             <Route path = "/job-management/new" exact>
-                <JobNew key = '1' employer = {employerList[0]} jobList = {jobList} setRender = {setRender}/>
+                <JobNew key = '1' employerID = {emID} jobList = {jobList} setRender = {setRender}/>
             </Route>
             { 
                 jobList.map(function(job){

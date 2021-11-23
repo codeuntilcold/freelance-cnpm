@@ -8,12 +8,12 @@ import './index.css'
 import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
-function JobNew({ employer, jobList, setRender}){
+function JobNew({ employerID, jobList, setRender}){
     let newJob = {
         "_id": `j${GetId(jobList)}`,
         "createdAt": '',
         "confirmed": "0",
-        "employer-id": `${employer._id}`
+        "employer-id": `${employerID}`
     };
     return(
     <Container maxWidth='lg'>

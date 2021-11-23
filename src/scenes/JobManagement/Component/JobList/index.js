@@ -5,7 +5,7 @@ import JobItem from './JobItem';
 import CornerFooter from '../../../../components/CornerFooter'
 // import {useState} from 'react';
 
-function JobList({employer,jobList, applyForList, setRender}) {
+function JobList({employerID,jobList, applyForList, setRender}) {
     return (    
         <Container maxWidth='lg'>
             <div className="job-management whole-page-container">
@@ -22,8 +22,8 @@ function JobList({employer,jobList, applyForList, setRender}) {
                     </h3>
                     {
                         jobList.map(function(job){
-                            if (employer)
-                                if(job['employer-id'] === employer._id)
+                            if (employerID)
+                                if(job['employer-id'] === employerID)
                                     return (
                                         <JobItem
                                             key = {job._id}
