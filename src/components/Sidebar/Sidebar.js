@@ -7,10 +7,13 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 // import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ProfileButton from "../ProfileButton/ProfileButton";
-
+import {AppContext} from "../../context/AppProvider";
+import { useContext } from "react";
 export default function Sidebar(props){
-    const {role, active} = props;
+    const {role, roleID} = useContext(AppContext);
+    const { active} = props;
     const active_a = [0,0,0,0];
+    const profilesLink = "/profiles/" + role + "/" + roleID; 
     active_a[active] = 1;
     const SidebarOptions = () =>{
             if (role === "freelancer"){
@@ -96,7 +99,8 @@ export default function Sidebar(props){
         <Logo className="Viecmoi-logo"></Logo>
         <SidebarOptions/>
         </div>
-        <ProfileButton active={active_a[4]} linkTo="/profile"></ProfileButton>
+        <ProfileButton active={active_a[4]} linkTo="/profile/"></ProfileButton>
+        <ProfileButton active={active_a[4]} linkTo={profilesLink}></ProfileButton>
         </div>
     )
 

@@ -9,7 +9,7 @@ import Profile from './scenes/Profile/index';
 import Register from './scenes/Register/index';
 import Index from './scenes/Index/index';
 import Noti from './scenes/Noti/index';
-
+import Profiles from './scenes/Profiles';
 import AuthProvider from './context/AuthProvider';
 
 import './App.css';
@@ -31,6 +31,9 @@ function App() {
                   <Route path="/login" exact component={Login} />
                   <Route path="/myjobs" exact component={Myjobs} />
                   <Route path="/profile" exact component={Profile} />
+                  
+                  <Route path="/profiles" exact component={Profiles} />
+                  <Route path="/profiles/:Type/:ID" exact component={Profiles} />
                   <Route path="/register" exact component={Register} />
                   <Route path="/notification" exact component={Noti} />
                   <Route path="*" component={() => 

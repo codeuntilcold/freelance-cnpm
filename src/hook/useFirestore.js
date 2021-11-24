@@ -5,10 +5,14 @@ import { db } from '../services/db';
 export default function useFirestore(collectionParam, condition) {
   const [document, setDocument] = useState();
   useEffect(() => {
+    if (collectionParam == undefined){
+      setDocument([]);
+      return document;
+    }
     let collectionRef = collection(db, collectionParam);
     if (!condition) {
       if (!condition.compareValue || condition.compareValue.length)
-        setDocument({});
+        setDocument([]);
       return;
     }
     var q = {};

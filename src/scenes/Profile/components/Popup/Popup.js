@@ -16,7 +16,7 @@ function Popup(props) {
         }
         else console.log("Element not found");
         props.setData(temp);
-        console.log(props.data)
+        // console.log(props.data)
         setRender(!render);
     }
     function insertContact(){
@@ -45,7 +45,7 @@ function Popup(props) {
     function handleTextArea(){
         let newValue = document.getElementById("textarea").value;
         props.setData(newValue);
-        console.log(props.data);
+        // console.log(props.data);
     }
     function Save(){
         props.setProfile({...props.profile, [props.dataType]: props.data})

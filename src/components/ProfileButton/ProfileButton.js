@@ -10,10 +10,10 @@ const handleLogout = () => {
     signOut(auth);
 }
 
-const ProfileButton = ({active}) => {
+const ProfileButton = ({active, linkTo}) => {
 
     return (
-        <Link className={`ProfileButton ${active && '--active'}`} to='/profile'>
+        <Link className={`ProfileButton ${active && '--active'}`} to={linkTo}>
             <AccountCircleIcon/>
             <article>
                 <h1>Tên người dùng</h1>

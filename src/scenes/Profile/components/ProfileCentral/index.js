@@ -44,6 +44,7 @@ export default function ProfileCentral(props){
         LoadData(Name);
     }
     useEffect(() => {
+        console.log(props.profile);
         LoadData(dataType);
     }, [buttonPopup])
     return (

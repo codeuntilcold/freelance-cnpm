@@ -17,25 +17,36 @@ export default function AppProvider({ children }) {
     };
   }, [uid]);
   const currentUser = useFirestore("user", userCondition);
+  // console.log(currentUser);
 
-  // var currentRoleID = currentUser?.roleId;
-
-
-  // const userInfoCondition = React.useMemo(() => {
-  //   return {
-  //     fieldName: documentId(),
-  //     operator: "==",
-  //     compareValue: currentRoleID,
-  //   };
-  // }, [currentRoleID]);
-
-  // const userInfo = useFirestore("employee", userInfoCondition);
+  const currentUserRole = React.useMemo(()=>{
+      return {
+        roleID : currentUser?.roleID,
+        role: currentUser?.role
+      } || {};
+  }, [currentUser]);
+  // console.log(currentUserRole);
+  const userInfoCondition = React.useMemo(()=>(
+       {
+          fieldName: documentId(),
+          operator: "==",
+          compareValue: currentUserRole.roleID
+      }
+  ), [currentUserRole.roleID])
+  // console.log(userInfoCondition);
+  const userInfo = useFirestore(currentUserRole.role, userInfoCondition);
+  const role = currentUserRole?.role;
+  const roleID = currentUserRole?.roleID;
+  console.log("context", userInfo);
 
 
   return (
     <AppContext.Provider
       value={{
-        currentUser
+        currentUser,
+        userInfo,
+        role,
+        roleID
       }}
     >
       {children}

@@ -16,7 +16,7 @@ function Stats(props) {
     const [dataType, setDataType] = useState("");
 
     function LoadData (Name = "None"){
-        console.log("Load");
+        // console.log("Load");
         switch(Name){
             case "contact":
                 setData([...profile.contact]);
@@ -31,13 +31,13 @@ function Stats(props) {
         }
     }
     function Handle (Name = "None"){
-        console.log("handle");
+        // console.log("handle");
         setButtonPopup(true);
         LoadData(Name);
     }
     useEffect(() => {
         LoadData(dataType);
-        console.log(profile)
+        // console.log(profile)
     }, [buttonPopup])
 
     return (
