@@ -13,10 +13,18 @@
   margin-bottom: 35px !important;
 }
 
+.sidebar-options-list {
+  margin-top: 35px;
+}
+
 @media screen and (max-width: 777px) {
   .sidebar {
     flex: 0.1;
     width: min-content;
+  }
+  .sidebar-options-list {
+
+    margin-top: 10px;
   }
 }
 @media screen and (max-width: 425px) {
