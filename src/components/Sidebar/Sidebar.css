@@ -21,6 +21,49 @@
 }
 @media screen and (max-width: 425px) {
   .sidebar {
+    position: fixed;
+    
+    left: 0px;
+    bottom: 0px;
+
+    padding: 15px 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+
+    /* border-radius: 20px 20px; */
+    /* border:1px solid black; */
+    box-shadow: 0px -0px 10px gray;
+  }
+
+  .sidebar-options-list {
+    display: flex;
+    flex-direction: row;
+    flex: 0.75;
+  }
+
+  .sidebar-options-list .sidebarOption {
+    margin: 0 25px;
+  }
+
+  .sidebar-options-list .sidebarOption--active > .MuiSvgIcon-root {
+    color: var(--primary-color);
+  }
+
+  .ProfileButton {
+    flex: 0.1;
+    /* background-color: white !important; */
+    padding: 0px !important;
+    margin: 0 25px !important;
+    border-radius: 50% !important;
+  }
+
+  .ProfileButton > article > button {
     display: none;
   }
 }

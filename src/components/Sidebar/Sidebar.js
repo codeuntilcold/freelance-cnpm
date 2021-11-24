@@ -18,7 +18,7 @@ export default function Sidebar(props){
     const SidebarOptions = () =>{
             if (role === "freelancer"){
             return(
-                <div>
+                <div className='sidebar-options-list'>
                     {
                         freelancerSidebar.map(option=>{
                         return <SidebarOption key={option.text} active={option.active} Icon={option.Icon} text={option.text} linkTo={option.linkTo}/>
@@ -29,7 +29,7 @@ export default function Sidebar(props){
             }
             else if (role==="employer") {
                 return (
-                    <div>                
+                    <div className='sidebar-options-list'>                
                 {employerSidebar.map(option=>{
                 return <SidebarOption key={option.text} active={option.active} Icon={option.Icon} text={option.text} linkTo={option.linkTo}/>
                 })
@@ -86,12 +86,12 @@ export default function Sidebar(props){
         //     text: "Tin nhắn",
         //     linkTo:"/message"    
         // },
-        {
-            active: active_a[3],
-            Icon: NotificationsIcon,
-            text: "Thông báo",
-            linkTo:"/notification"        
-        }
+        // {
+        //     active: active_a[3],
+        //     Icon: NotificationsIcon,
+        //     text: "Thông báo",
+        //     linkTo:"/notification"        
+        // }
     ];
     return(
         <div className="sidebar">
