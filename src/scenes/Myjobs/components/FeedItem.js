@@ -64,7 +64,7 @@ function FeedItem({ content }) {
 
       <div className="feed-item-date">
         <p>
-          Bắt đầu: {content["start-date"]?.toDate().toLocaleDateString("vi-VN")}
+          Bắt đầu làm từ {content["start-date"]?.toDate().toLocaleDateString("vi-VN")} - {content.duration || ""}
         </p>
       </div>
     </div>

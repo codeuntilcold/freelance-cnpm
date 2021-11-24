@@ -19,13 +19,12 @@ function Feed() {
   useEffect(() => {
     
     async function getList() {
-  
       // GET APPLY_FOR
       let applyarray = [];
       let jid = [];
       let q = query(
         collection(db, "apply_for"),
-        where("freelancer-id", "==", currentUser[0].roleID)
+        where("freelancer-id", "==", currentUser.roleID)
       );
       let querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
@@ -52,10 +51,12 @@ function Feed() {
       
       setAppls(zipped);
     }
+    
+    currentUser && getList()
 
-    getList()
+    // console.log(currentUser)
 
-  }, []);
+  }, [currentUser]);
 
 
 
