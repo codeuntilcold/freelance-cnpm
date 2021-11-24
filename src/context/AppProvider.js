@@ -37,7 +37,7 @@ export default function AppProvider({ children }) {
   const userInfo = useFirestore(currentUserRole.role, userInfoCondition);
   const role = currentUserRole?.role;
   const roleID = currentUserRole?.roleID;
-  console.log("context", userInfo);
+  // console.log("context", userInfo);
 
 
   return (

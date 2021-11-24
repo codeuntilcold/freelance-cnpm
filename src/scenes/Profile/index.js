@@ -26,7 +26,7 @@ export default function Profile() {
             
         }}>
         {
-            profile == {} ? <CircularProgress/> : 
+            (profile == {}) ? <CircularProgress/> : 
             <Container maxWidth="lg">
                 <div className="whole-page-container">
                     <Sidebar active={4} role="freelancer"/>

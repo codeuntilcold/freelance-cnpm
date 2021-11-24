@@ -11,17 +11,19 @@ import FreelancerProfile from './components/FreelancerProfile';
 import EmployerProfile from './components/EmployerProfile';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Stats from './components/Stats';
+
+export const ProfileContext = React.createContext();
+
 function Profiles() {
     
     const {userInfo, role, roleID} = useContext(AppContext);
-    const [Editable, setEditable] = useState(false);
-    const [profile, setProfile] = useState({});
+    const [editable, setEditable] = useState(false);
+    const [profile, setProfile] = useState();
     const [saveProfile, setSaveProfile] = useState(false);
     const param = useParams();
     useEffect(()=>{
-        
         console.log(roleID, param);
-        if (roleID == param.ID ){
+        if (roleID === param.ID ){
             setProfile({...userInfo})
             setEditable(true);
         }
@@ -51,19 +53,26 @@ function Profiles() {
     return (
         <div>
         {
-            profile == {} ? <CircularProgress/> : 
-
-            <Container maxWidth="lg">
-                <div className="whole-page-container">
-                    <Sidebar active={4} role={role}/>
-                    <div>
-                    {
-                        param.Type == "employer" ? <EmployerProfile/> : <FreelancerProfile/>
-                    }
-                    </div>
-                    <Stats saveProfile={saveProfile} setSaveProfile={setSaveProfile}/>
-                </div>
-            </Container>
+            profile == undefined ? <CircularProgress/> : 
+                <ProfileContext.Provider value={{
+                    profile,
+                    setProfile,
+                    editable,
+                    saveProfile,
+                    setSaveProfile
+                }}>
+                    <Container maxWidth="lg">
+                        <div className="whole-page-container">
+                            <Sidebar active={4} role={role}/>
+                            <div>
+                            {
+                                param.Type === "employer" ? <EmployerProfile/> : <FreelancerProfile/>
+                            }
+                            </div>
+                            <Stats saveProfile={saveProfile} setSaveProfile={setSaveProfile}/>
+                        </div>
+                    </Container>
+                </ProfileContext.Provider>
         }
         </div>
     );
