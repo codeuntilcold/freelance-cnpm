@@ -1,11 +1,41 @@
 import NotiItem from "./NotiItem";
 // import JCard from "../../components/JCard";
 import { Chip, Snackbar } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+
+import { collection, getDocs, query, where } from "@firebase/firestore";
+import { db } from "../../services/db";
+import { AppContext } from "../../context/AppProvider";
+
 
 function NotiList() {
-  const content =
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quis?";
+
+  const [notifications, setNotifications] = useState([])
+
+  const {currentUser} = useContext(AppContext);
+
+  
+  useEffect(() => {
+
+    async function fetchNotifs() {
+      
+      let array = []
+
+      const q = query(collection(db, "apply_for"), where("freelancer-id", "==", currentUser.roleID))
+      const notiRef = await getDocs(q)
+
+      notiRef.forEach(doc => array.push(doc.data()))
+
+      setNotifications(array)
+
+      // array: [job-id, notifications]
+      console.log(array)
+
+    }
+
+    currentUser && fetchNotifs()
+  }, [currentUser])
+
 
   const [allRead, setAllRead] = useState(false);
   const [snack, setSnack] = useState(false)
@@ -30,16 +60,17 @@ function NotiList() {
         message="Đã đánh dấu hết"
       />
 
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
-      <NotiItem content={content} all={allRead} />
+      {/* <NotiItem content={content} all={allRead} /> */}
+      {notifications && notifications.map(application => 
+        application?.notifications && <>
+        
+        <NotiItem content={application.notifications[0]?.message} all={allRead} />
+        <NotiItem content={application.notifications[1]?.message} all={allRead} />
+        
+        </>
+        
+        )}
+
     </div>
   );
 }
