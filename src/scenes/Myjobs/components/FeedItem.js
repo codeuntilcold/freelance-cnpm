@@ -38,7 +38,7 @@ function Status({ jobStatus }) {
         </div>
       )}
 
-      {jobStatus === "Đã lưu" && (
+      {jobStatus === "Lưu" && (
         <div
           className="feed-item-status"
           style={{ backgroundColor: "var(--green-700)" }}

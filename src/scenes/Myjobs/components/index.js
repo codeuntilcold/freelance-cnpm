@@ -100,7 +100,7 @@ function Feed() {
       {appls ? (
         appls?.map(
           (job) =>
-            job.status === "Đã lưu" && (
+            job.status === "Lưu" && (
               <FeedItem key={job["job-id"]} content={job} />
             )
         )
