@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
-import React from 'react'
+import React from 'react';
 import { useState } from "react";
-import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import { db } from "../../../../services/db";
 import { Timestamp, setDoc, doc, deleteDoc } from "@firebase/firestore";
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 function ToText({ text }) {
     return (
@@ -14,104 +14,139 @@ function ToText({ text }) {
     )
 }  
 
-function Job({ job, employer, applyList, setRender }) {
+function Job({ job, employer, applyList, setRender, role, id }) {
+
     const param = useParams();
 
     // fix format deadline
     var time = "";  
-    if (job.deadline)
-        time = FormatDate(job.deadline);
+    if (job.deadline) time = FormatDate(job.deadline);
 
     const [ save, setSave ] = useState(false);
+    const saveJob = () => {
+        setSave(!save);
+    };
+
     const [ apply, setApply ] = useState(false);
+    const applyJob = () => {
+        setApply(!apply);
+    };
+
+    const applyID = GetId(applyList); 
 
     let applyToJob = {
-        "_id": `a${GetId(applyList)}`,
+        "_id": `a${applyID}`,
         "createdAt": '',
-        "freelancer-id": "fr2",
+        "freelancer-id": `${id}`,
         "job-id": `${param.jobID}`,
         "status": "Đang đợi"
     };
 
     let JobSaved = {
-        "_id": `a${GetId(applyList)}`,
+        "_id": `a${applyID}`,
         "createdAt": '',
-        "freelancer-id": "fr2",
+        "freelancer-id": `${id}`,
         "job-id": `${param.jobID}`,
         "status": "Đã lưu"
     };
 
-    const saveJob = () => {
-        setSave(!save);
-    };
+    if (role === "freelancer"){
+        return (
+            <div className="job">
+                <div className="info">
+                    <div className="job-section">
+                        {job.name}
+                    </div>
 
-    const applyJob = () => {
-        setApply(!apply);
-    };
+                    <Link to='/profile'>
+                        <div className="section">{employer.name}</div>
+                    </Link>
 
-    return (
-        <div className="job">
-            <div className="info">
-                <div className="job-section">
-                    {job.name}
+                    <div className="deadline">
+                        <AccessTimeIcon />
+                        Hạn chót nộp hồ sơ: {time}
+                    </div>
                 </div>
 
-                <Link to='/profile'>
-                    <div className="section">{employer.name}</div>
-                </Link>
+                <div className="double-button">
+                    <div className="div-button">
+                        <button className="apply" onClick={() => {
+                            let result = CheckApplyStatus(param, apply, applyList, id);
+                            if (result === false){
+                                var answer = window.confirm("Bạn muốn ứng tuyển vào công việc này?");
+                                if (answer === true){
+                                    applyJob();
+                                    const i = SavedIndex(param, applyList, id);
+                                    DeleteData('a' + i);
+                                    applyToJob.createdAt = ToTimestamp(new Date());
+                                    setRender(prev=>!prev);
+                                    PostData(applyToJob);
+                                }
+                            }
+                            else alert("Bạn đã ứng tuyển vào công việc này!");
+                        }}>
+                            {
+                                CheckApplyStatus(param, apply, applyList, id)
+                                ? <ToText text="Đã ứng tuyển" /> 
+                                : <ToText text="Ứng tuyển ngay" />
+                            }
+                        </button>
+                    </div>
 
-                <div className="deadline">
-                    <AccessTimeIcon />
-                    Hạn chót nộp hồ sơ: {time}
+                    <div className="div-button">
+                        <button className="normal" onClick={() => {
+                            if (CheckSaveStatus(param, save, applyList, id) === false){
+                                saveJob();
+                                JobSaved.createdAt = ToTimestamp(new Date());
+                                setRender(prev=>!prev);
+                                PostData(JobSaved);
+                            }
+                            else {
+                                saveJob();
+                                setRender(prev=>!prev);
+                                const i = SavedIndex(param, applyList, id);
+                                DeleteData('a' + i);
+                            }
+                        }}>
+                            {
+                                CheckSaveStatus(param, save, applyList, id)
+                                ? <ToText text="Bỏ lưu tin" /> 
+                                : <ToText text="Lưu tin" />
+                            }
+                        </button>
+                    </div>
                 </div>
             </div>
+        );
+    }
+    else if (role === "employer") {
+        return (
+            <div className="job">
+                <div className="info">
+                    <div className="job-section">
+                        {job.name}
+                    </div>
 
-            <div className="double-button">
-                <div className="div-button">
-                    <button className="apply" onClick={() => {
-                        if (checkApplyStatus(param, apply, applyList) === false){
-                            alert("Bạn muốn ứng tuyển vào công việc này?");
-                            applyJob();
-                            applyToJob.createdAt = ToTimestamp(new Date());
-                            setRender(prev=>!prev);
-                            PostData(applyToJob);
-                        }
-                        else alert("Bạn đã ứng tuyển vào công việc này!");
-                    }}>
-                        { 
-                            checkApplyStatus(param, apply, applyList)
-                            ? <ToText text="Đã ứng tuyển" /> 
-                            : <ToText text="Ứng tuyển ngay" />
-                        }
-                    </button>
-                </div>
+                    <Link to='/profile'>
+                        <div className="section">{employer.name}</div>
+                    </Link>
 
-                <div className="div-button">
-                    <button className="normal" onClick={() => {
-                        if (checkSaveStatus(param, save, applyList) === false){
-                            saveJob();
-                            JobSaved.createdAt = ToTimestamp(new Date());
-                            setRender(prev=>!prev);
-                            PostData(JobSaved);
-                        }
-                        else {
-                            saveJob();
-                            setRender(prev=>!prev);
-                            DeleteData(JobSaved);
-                        }
-                    }}>
-                        { 
-                            save
-                            ? <ToText text="Bỏ lưu tin" /> 
-                            : <ToText text="Lưu tin" />
-                        }
-                    </button>
+                    <div className="deadline">
+                        <AccessTimeIcon />
+                        Hạn chót nộp hồ sơ: {time}
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        );
+    }
+    else {
+        console.log("No specified role");
+        return <h1>Please specify role</h1>
+    }
 }
 export default Job;
+
+
 
 function FormatDate(date){
     let year = date.getYear() + 1900;
@@ -134,9 +169,9 @@ function PostData(apply){
     fetchData();
 }
 
-function DeleteData(apply){
+function DeleteData(applyID){
     var fetchData = async()=>{
-        await deleteDoc(doc(db, "apply_for", apply._id));
+        await deleteDoc(doc(db, "apply_for", applyID));
     } 
     fetchData();
 }
@@ -153,15 +188,21 @@ function GetId(applyList){
     return current;
 }
 
-function checkApplyStatus(param, apply, applyList){
+function CheckApplyStatus(param, apply, applyList, roleID){
+    let temp = applyList[0];
     if (apply === false) {
         for(let i = 0; i < applyList.length; i++){
-            let temp = applyList[i];
-            if (temp['freelancer-id'] === "fr2"){  
+            temp = applyList[i];
+            if (temp['freelancer-id'] === roleID){  
                 if (temp['job-id'] === param.jobID){
                     if (temp['status'] === "Đang đợi"){
                         apply = true;
-                    }    
+                        break;
+                    }
+                    else if (temp['status'] === "Đã lưu"){
+                        apply = false;
+                        break;
+                    }
                 }
             }
         }
@@ -169,18 +210,33 @@ function checkApplyStatus(param, apply, applyList){
     return apply;
 }
 
-function checkSaveStatus(param, save, applyList){
-    if (save === false){
-        for(let i = 0; i < applyList.length; i++){
-            let temp = applyList[i];
-            if (temp['freelancer-id'] === "fr2"){  
-                if (temp['job-id'] === param.jobID){
-                    if (temp['status'] === "Đã lưu"){
-                        save = true;
-                    }    
+function CheckSaveStatus(param, save, applyList, roleID){
+    let result = 0;
+    for(let i = 0; i < applyList.length; i++){
+        let temp = applyList[i];
+        if (temp['freelancer-id'] === roleID){  
+            if (temp['job-id'] === param.jobID){
+                if (temp['status'] === "Đã lưu"){
+                    save = true;
+                    result = i;
                 }
             }
         }
     }
     return save;
+}
+
+function SavedIndex(param, applyList, roleID){
+    let result = 0;
+    for(let i = 0; i < applyList.length; i++){
+        let temp = applyList[i];
+        if (temp['freelancer-id'] === roleID){  
+            if (temp['job-id'] === param.jobID){
+                if (temp['status'] === "Đã lưu"){
+                    result = i;
+                }
+            }
+        }
+    }
+    return result;
 }

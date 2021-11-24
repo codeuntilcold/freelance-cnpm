@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Container } from '@mui/material'
 import { useParams } from 'react-router';
 import { db } from "../../services/db";
 import { doc, getDoc, getDocs, collection } from "firebase/firestore";
+import { AppContext } from "../../context/AppProvider";
 
 import './index.css';
 import Sidebar from '../../components/Sidebar/Sidebar'
@@ -12,6 +13,11 @@ import Stats from './components/Stats/index'
 export default function Jobdetails() {
 
     const param = useParams();
+
+    const {currentUser} = useContext(AppContext);
+    // console.log(currentUser)
+    var role = currentUser?.role;
+    var id = currentUser?.roleID
 
     const [ job, setJob ] = useState([]);
     const [ emp, setEmp ] = useState([]);
@@ -53,9 +59,9 @@ export default function Jobdetails() {
     return (
         <Container maxWidth='lg'>
             <div className='whole-page-container'>
-                <Sidebar role="freelancer"/>
+                <Sidebar role={role} />
 
-                <Feed content={job} employer={emp} applyList={applyList} setRender={setRender} />
+                <Feed content={job} employer={emp} applyList={applyList} setRender={setRender} role={role} id={id} />
 
                 <Stats content={emp} />
             </div>
