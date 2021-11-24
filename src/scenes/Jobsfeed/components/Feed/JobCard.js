@@ -1,8 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import BookmarkIcon from "@mui/icons-material/Bookmark";
-import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
+// import BookmarkIcon from "@mui/icons-material/Bookmark";
+// import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
@@ -21,11 +21,11 @@ function JobCard({ content }) {
 
   const decoded = content.data();
 
-  const [save, setSave] = useState(true);
+  // const [save, setSave] = useState(true);
 
-  const onToggleBookmark = () => {
-    setSave(!save);
-  };
+  // const onToggleBookmark = () => {
+  //   setSave(!save);
+  // };
 
   return (
     <div className="job-card">
@@ -34,7 +34,7 @@ function JobCard({ content }) {
           <h2>{decoded.name}</h2>
         </Link>
 
-        <span
+        {/* <span
           className="job-bookmark"
           onClick={() => {
             onToggleBookmark();
@@ -53,7 +53,7 @@ function JobCard({ content }) {
               style={{ fontSize: "30px", cursor: "pointer" }}
             />
           )}
-        </span>
+        </span> */}
       </div>
 
       <p>{decoded.description}</p>

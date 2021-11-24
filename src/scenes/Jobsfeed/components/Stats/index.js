@@ -17,9 +17,14 @@ function Stats() {
     return (
         <div className='stats'>
 
+            {0 ? 
             <Link to='/profile'>
                 <NextJob />
             </Link>
+            : 
+            <div></div>
+            }            
+
 
             <CornerFooter />
 

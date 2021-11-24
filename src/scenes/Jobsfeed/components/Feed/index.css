@@ -9,6 +9,7 @@
   border-radius: 50px;
   padding: 7px 15px;
   margin: 0 0 20px;
+  overflow-wrap: normal;
 }
 
 .job-search__input input {
@@ -17,6 +18,20 @@
   border: none;
   font-size: var(--text-p);
   margin-left: 15px;
+}
+
+.job-search__input input:focus {
+  outline: none;
+}
+
+.job-filter {
+  display: flex;
+  justify-content: space-around;
+}
+
+.job-filter span {
+  display: flex;
+  flex-direction: column;
 }
 
 .job-card {

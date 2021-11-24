@@ -1,5 +1,6 @@
 // import { Link } from 'react-router-dom';
-import { useState, useEffect, useContext } from "react";
+import { // useState, useEffect, 
+  useContext } from "react";
 import { Container } from "@mui/material";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Feed from "./components/Feed/index";
@@ -10,7 +11,6 @@ import { AppContext } from "../../context/AppProvider";
 
 
 export default function Jobsfeed() {
-  const [jobs, setJobs] = useState();
 
   const {currentUser} = useContext(AppContext);
   console.log(currentUser)
@@ -18,13 +18,14 @@ export default function Jobsfeed() {
 
   return (
     <Container maxWidth="lg">
+      {role &&
       <div className="whole-page-container">
         <Sidebar active={0} role={role} />
 
         <Feed />
 
         <Stats />
-      </div>
+      </div>}
     </Container>
   );
 }
