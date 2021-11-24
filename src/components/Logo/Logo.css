@@ -14,8 +14,28 @@
   color: var(--logo-color);
   cursor: pointer;
 }
+
+
+
+@media screen and (min-width: 778px) {
+  .logo > img {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 777px) {
-  .logo {
+  .logo > span {
+    display: none;
+  }
+
+  .logo > img {
+    display: inline;
+    margin: 0 25px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .logo > img {
     display: none;
   }
 }
