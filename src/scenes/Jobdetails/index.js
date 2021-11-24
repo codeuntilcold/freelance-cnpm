@@ -54,6 +54,9 @@ export default function Jobdetails() {
             setapplyForList(temp);
         }
         fetchData();
+
+        // Dũng: Disable warning
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[render]);
 
     return (
