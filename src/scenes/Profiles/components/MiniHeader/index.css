@@ -1,0 +1,23 @@
+.MiniHeader-Icon {
+  float: right;
+  font-weight: 700;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.MiniHeader-Icon:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  border-radius: 100%;
+}
+.MiniHeader-Content {
+  font-size: var(--text-h1);
+  text-transform: uppercase;
+}
+
+.Uneditable {
+  display: none !important;
+}

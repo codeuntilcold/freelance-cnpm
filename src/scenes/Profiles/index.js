@@ -5,9 +5,12 @@ import Container from '@mui/material/Container';
 import './index.css';
 import {AppContext} from "../../context/AppProvider";
 import { CircularProgress } from "@mui/material";
-import useFirestore from '../../hook/useFirestore';
-import { documentId } from '@firebase/firestore';
-
+import { collection, documentId, query, where, onSnapshot } from '@firebase/firestore';
+import { db } from '../../services/db';
+import FreelancerProfile from './components/FreelancerProfile';
+import EmployerProfile from './components/EmployerProfile';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Stats from './components/Stats';
 function Profiles() {
     
     const {userInfo, role, roleID} = useContext(AppContext);
@@ -15,39 +18,50 @@ function Profiles() {
     const [profile, setProfile] = useState({});
     const [saveProfile, setSaveProfile] = useState(false);
     const param = useParams();
-    const loadProfile = useFirestore(role,
-    {
-        fieldName: documentId(),
-        operator: "==",
-        compareValue: param.ID
-    }) 
-    // useEffect(() => {
-    //     setProfile({...userInfo});
-    // }, [userInfo])
-    // Set quyền chỉnh sửa
     useEffect(()=>{
-        // console.log(roleID, param.ID);
+        
+        console.log(roleID, param);
         if (roleID == param.ID ){
             setProfile({...userInfo})
             setEditable(true);
         }
         else{
-            setProfile({...loadProfile});
+            let collectionRef = collection(db,param.Type);
+            var q = {};
+            try {
+                q = query(collectionRef, where(documentId(), "==", param.ID));
+            } catch(error){
+                setProfile({});
+            }
+            const unsubscribe = onSnapshot(q, (querySnapshot) => {
+                var documents = {};
+                querySnapshot.forEach(doc => {
+                    documents = {
+                        ...doc.data(),
+                    }
+                })
+                setProfile(documents);
+            });
+            return () => {
+            unsubscribe();
             setEditable(false);
+            }
         }
-    }, [])
+    }, [param])
     return (
         <div>
         {
             profile == {} ? <CircularProgress/> : 
+
             <Container maxWidth="lg">
                 <div className="whole-page-container">
-                    <h2>{role}</h2>
-                    <h2>{roleID}</h2>
-                    <h4>{profile.name}</h4>
-                    {/* <Sidebar active={4} role="freelancer"/>
-                    <ProfileCentral profile={profile} saveProfile={saveProfile} setSaveProfile={setSaveProfile}/>
-                    <Stats saveProfile={saveProfile} setSaveProfile={setSaveProfile}/> */}
+                    <Sidebar active={4} role={role}/>
+                    <div>
+                    {
+                        param.Type == "employer" ? <EmployerProfile/> : <FreelancerProfile/>
+                    }
+                    </div>
+                    <Stats saveProfile={saveProfile} setSaveProfile={setSaveProfile}/>
                 </div>
             </Container>
         }

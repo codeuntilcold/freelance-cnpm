@@ -1,13 +1,16 @@
 
-import { documentId } from "@firebase/firestore";
-import React, { useState, useEffect, useContext } from "react";
-import Container from '@mui/material/Container';
+
 import Sidebar from '../../components/Sidebar/Sidebar';
 import ProfileCentral from './components/ProfileCentral/index';
 import Stats from './components/Stats/index';
+import React, { useState, useEffect, useContext } from "react";
+import Container from '@mui/material/Container';
 import './index.css';
 import {AppContext} from "../../context/AppProvider";
 import { CircularProgress } from "@mui/material";
+
+export const ProfileContext = React.createContext();
+
 export default function Profile() {
     const {currentUser, userInfo, role} = useContext(AppContext);
     const [profile, setProfile] = useState({});
@@ -19,7 +22,9 @@ export default function Profile() {
     })
     const[saveProfile, setSaveProfile] = useState(false);
     return (
-        <div>
+        <ProfileContext.Provider value={{
+            
+        }}>
         {
             profile == {} ? <CircularProgress/> : 
             <Container maxWidth="lg">
@@ -30,6 +35,6 @@ export default function Profile() {
                 </div>
             </Container>
         }
-        </div>
+        </ProfileContext.Provider>
     );
 }
