@@ -3,12 +3,12 @@ import './index.css';
 import CornerFooter from '../../../../components/CornerFooter'
 import Employer from './Employer';
 
-function Sidebar({ content }) {
+function Sidebar({ content, job }) {
 
     return (
         <div className="stats">
 
-            <Employer content={content} />
+            <Employer employer={content} job={job} />
 
             <CornerFooter />
 

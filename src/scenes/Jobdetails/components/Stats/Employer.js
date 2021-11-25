@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Employer({ content }) {
+function Employer({ employer, job }) {
     return (
         <div className="company">
             
             <div className="employer-section">
-                <p>{content.name}</p>
+                <p>{employer.name}</p>
             </div>
 
             <div className="div-button">
-                <Link to='/profile'>
+                <Link to={`/profile/${job['employer-id']}`}>
                     <button className="about-us">Về chúng tôi</button>
                 </Link>
             </div>

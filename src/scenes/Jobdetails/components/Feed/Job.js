@@ -39,7 +39,13 @@ function Job({ job, employer, applyList, setRender, role, id }) {
         "createdAt": '',
         "freelancer-id": `${id}`,
         "job-id": `${param.jobID}`,
-        "status": "Đang đợi"
+        "status": "Đang đợi",
+        "notifications": [
+            {
+                "message": "Bạn đã ứng tuyển vào công việc " + `${job.name}`,
+                "isRead": false
+            }
+        ]
     };
 
     let JobSaved = {
@@ -47,7 +53,7 @@ function Job({ job, employer, applyList, setRender, role, id }) {
         "createdAt": '',
         "freelancer-id": `${id}`,
         "job-id": `${param.jobID}`,
-        "status": "Đã lưu"
+        "status": "Lưu"
     };
 
     if (role === "freelancer"){
@@ -58,7 +64,7 @@ function Job({ job, employer, applyList, setRender, role, id }) {
                         {job.name}
                     </div>
 
-                    <Link to='/profile'>
+                    <Link to={`/profile/${job['employer-id']}`}>
                         <div className="section">{employer.name}</div>
                     </Link>
 
@@ -71,19 +77,28 @@ function Job({ job, employer, applyList, setRender, role, id }) {
                 <div className="double-button">
                     <div className="div-button">
                         <button className="apply" onClick={() => {
-                            let result = CheckApplyStatus(param, apply, applyList, id);
-                            if (result === false){
-                                var answer = window.confirm("Bạn muốn ứng tuyển vào công việc này?");
-                                if (answer === true){
-                                    applyJob();
-                                    const i = SavedIndex(param, applyList, id);
-                                    DeleteData('a' + i);
-                                    applyToJob.createdAt = ToTimestamp(new Date());
-                                    setRender(prev=>!prev);
-                                    PostData(applyToJob);
-                                }
+                            let applyTime = FormatDate(new Date());
+                            if (time < applyTime){
+                                alert("Đã quá hạn nộp hồ sơ!");
                             }
-                            else alert("Bạn đã ứng tuyển vào công việc này!");
+                            else if (job.confirmed === job.total){
+                                alert("Số lượng người cần tuyển cho công việc đã đủ!");
+                            }
+                            else {
+                                let result = CheckApplyStatus(param, apply, applyList, id);
+                                if (result === false){
+                                    var answer = window.confirm("Bạn muốn ứng tuyển vào công việc này?");
+                                    if (answer === true){
+                                        applyJob();
+                                        const i = SavedIndex(param, applyList, id);
+                                        DeleteData('a' + i);
+                                        applyToJob.createdAt = applyTime;
+                                        setRender(prev=>!prev);
+                                        PostData(applyToJob);
+                                    }
+                                }
+                                else alert("Bạn đã ứng tuyển vào công việc này!");
+                            }
                         }}>
                             {
                                 CheckApplyStatus(param, apply, applyList, id)
@@ -199,7 +214,7 @@ function CheckApplyStatus(param, apply, applyList, roleID){
                         apply = true;
                         break;
                     }
-                    else if (temp['status'] === "Đã lưu"){
+                    else if (temp['status'] === "Lưu"){
                         apply = false;
                         break;
                     }
@@ -211,14 +226,12 @@ function CheckApplyStatus(param, apply, applyList, roleID){
 }
 
 function CheckSaveStatus(param, save, applyList, roleID){
-    let result = 0;
     for(let i = 0; i < applyList.length; i++){
         let temp = applyList[i];
         if (temp['freelancer-id'] === roleID){  
             if (temp['job-id'] === param.jobID){
-                if (temp['status'] === "Đã lưu"){
+                if (temp['status'] === "Lưu" || temp['status'] === "Đang đợi"){
                     save = true;
-                    result = i;
                 }
             }
         }
@@ -232,7 +245,7 @@ function SavedIndex(param, applyList, roleID){
         let temp = applyList[i];
         if (temp['freelancer-id'] === roleID){  
             if (temp['job-id'] === param.jobID){
-                if (temp['status'] === "Đã lưu"){
+                if (temp['status'] === "Lưu"){
                     result = i;
                 }
             }

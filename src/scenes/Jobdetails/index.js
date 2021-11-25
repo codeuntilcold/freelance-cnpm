@@ -66,7 +66,7 @@ export default function Jobdetails() {
 
                 <Feed content={job} employer={emp} applyList={applyList} setRender={setRender} role={role} id={id} />
 
-                <Stats content={emp} />
+                <Stats content={emp} job={job} />
             </div>
         </Container>
     )
