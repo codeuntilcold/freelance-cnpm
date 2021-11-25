@@ -46,22 +46,22 @@ function Stats(props) {
                     </Popup>): ""}
                         <MiniHeader Content="Liên lạc" MiniIcon={EditOutlined} Handle={()=>{Handle("contact")}} className="MinorInfoCom" Editable={editable}></MiniHeader>
                         {
-                            profile.contact.map(Info=>{
-                                return <span className="Line">
+                            profile.contact.map((Info, index)=>(
+                                <span className="Line"  key={index}>
                                     {Info.Type === "Phone" ? <Phone/> : <Mail/>}
                                     <span>{Info.Value}</span>
                                 </span>
-                            })
+                            ))
                         }
                     </div>
                     <div className="Info">
                         <MiniHeader Content="Địa chỉ" MiniIcon={EditOutlined} Handle={()=>{Handle("address")}} className="MinorInfoCom" Editable={editable}></MiniHeader>
                         {
-                            profile.address.map(addr=>{
-                                return <span className="Line">
+                            profile.address.map((addr, index)=>(
+                                <span className="Line" key={index}>
                                     {addr}
                                 </span>
-                            })
+                            ))
                         }
                     </div>
             </div>

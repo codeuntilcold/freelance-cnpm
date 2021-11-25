@@ -9,11 +9,13 @@ import InfoTag from "./components/InfoTag";
 import PageHeader from "../../../../components/PageHeader/PageHeader";
 import Popup from "../Popup/Popup";
 import JCard from "../../../../components/JCard";
+import { collection, query, getDoc } from "@firebase/firestore";
 export default function CentralInfo() {
-    const {profile, setProfile, saveProfile, setSaveProfile, editable} = useContext(ProfileContext);
+    const {profile, setProfile, saveProfile, setSaveProfile, editable, param, jobs} = useContext(ProfileContext);
     const [buttonPopup, setButtonPopup] = useState(false);
     const [data, setData] = useState([]);
     const [dataType, setDataType] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
     const LoadData = useCallback( (Name = "None") =>{
         switch(Name){
             case "skills":
@@ -47,13 +49,14 @@ export default function CentralInfo() {
     }
     useEffect(() => {
         LoadData(dataType);
-    }, [buttonPopup, LoadData, dataType])
+        // console.log(profile.jobs.length, jobs.length)
+    }, [buttonPopup, LoadData, dataType, jobs])
     useEffect(()=>{
-        console.log("profile",profile)
-    }, [profile, saveProfile, editable])
+        console.log("ở trong", jobs.length);
+    })
     return (
         <div>
-            {profile === undefined ? (<CircularProgress/>) : 
+            {jobs.length === 0 ?  (<CircularProgress/>) : 
                 (<div className="central-column">
                     <PageHeader title="Thông tin doanh nghiệp"/>
                     {/* Đây là trang của employer
@@ -68,13 +71,23 @@ export default function CentralInfo() {
                         ) : ""
                     }
                     {buttonPopup ? (<Popup setTrigger={setButtonPopup} data={data} setData={setData} profile={profile} setProfile={setProfile} dataType={dataType} setSaveProfile={setSaveProfile} />) : ""}
-                    <CustomInfo profile={profile} setProfile={setProfile} setSaveProfile={setSaveProfile} Editable={editable} Handle={HandleAboutMe}/> 
+                    <CustomInfo profile={profile} setProfile={setProfile} setSaveProfile={setSaveProfile} Editable={editable} Handle={HandleAboutMe} content={param.Type === "employer" ? "Về chúng tôi" : "Về tôi"}/> 
                    {
                        "domain" in profile ? (
                            <div>
+                            {
+                                <InfoTag Name={"Công việc"} Editable="Uneditable">
+                                    {
+                                        jobs.map((job, index)=>(
+                                            <Info key={index} content={job.name}/>
+                                        ))
+                                    }
+                                </InfoTag>
+                            }
+
                            <InfoTag Name={"Phạm vi công việc"} Handle={()=>{Handle("domain")}} Editable={editable}>
-                                {profile.domain.map((domain)=>(
-                                    <Info key={domain} content={domain}/>
+                                {profile.domain.map((domain, index)=>(
+                                    <Info key={index} content={domain}/>
                                     ))
                                 }
                             </InfoTag>
@@ -84,15 +97,15 @@ export default function CentralInfo() {
                             {/* <CustomInfo profile={profile} setProfile={setProfile} setSaveProfile={setSaveProfile} Editable={editable} Handle={HandleAboutMe}/>  */}
                            <InfoTag Name={"Kĩ năng"} Handle={()=>{Handle("skills")}} Editable={editable} >
                            {
-                               profile.skills.map((skill)=>(
-                                   <Info key={skill} content={skill}/>
+                               profile.skills.map((skill, index)=>(
+                                   <Info key={index} content={skill}/>
                                ))
                            }
                            </InfoTag>
                            <InfoTag Name={"Học vấn"} Handle={()=>{Handle("education")}} Editable={editable}>
                                 {
-                                    profile.education.map((item)=>(
-                                        <Info key={item} content={item}/>
+                                    profile.education.map((item, index)=>(
+                                        <Info key={index} content={item}/>
                                     ))
                                 }
                            </InfoTag>

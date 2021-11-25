@@ -1,5 +1,5 @@
 import { documentId } from "@firebase/firestore";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useFirestore from "../hook/useFirestore";
 import { AuthContext } from "./AuthProvider";
 
