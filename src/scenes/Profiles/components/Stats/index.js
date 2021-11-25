@@ -1,21 +1,18 @@
-import { useState, useEffect }from 'react'
+import { useState, useEffect, useContext, useCallback }from 'react'
 import './index.css'
 import MiniHeader from '../MiniHeader'
 import EditOutlined from '@mui/icons-material/EditOutlined'
 import CornerFooter from '../../../../components/CornerFooter'
 import { Phone, Mail} from '@mui/icons-material';
+import { ProfileContext } from '../../index'
 import Popup from '../Popup/Popup';
 function Stats(props) {
+    const {profile, setProfile, setSaveProfile, editable} = useContext(ProfileContext);
     const [buttonPopup, setButtonPopup] = useState(false);
-    const [profile, setProfile] = useState(
-        {
-            "address": [ "33/3 Ung Văn Khiêm, quận Bình Thạnh, TP.HCM", "12 Lê Lợi", "193 Hùng Vương"],
-            "contact": [{"Type": "Phone", "Value": "0123456789"}, {"Type": "Email", "Value": "example@example"}]
-        })
     const [data, setData] = useState([]);
     const [dataType, setDataType] = useState("");
 
-    function LoadData (Name = "None"){
+    const LoadData = useCallback( (Name = "None")=>{
         // console.log("Load");
         switch(Name){
             case "contact":
@@ -29,24 +26,25 @@ function Stats(props) {
             default:
                 break;
         }
-    }
+    }, [profile])
     function Handle (Name = "None"){
         // console.log("handle");
         setButtonPopup(true);
         LoadData(Name);
     }
     useEffect(() => {
-        LoadData(dataType);
+        // LoadData(dataType);
         // console.log(profile)
-    }, [buttonPopup])
-
+    }, [buttonPopup, LoadData])
+    // useEffect(()=>{
+    // }, [editable])
     return (
         <div className="Stats">
             <div className='MinorInfo'>
                     <div className="Info">
-                    { buttonPopup ? (<Popup setTrigger={setButtonPopup} data={data} setData={setData} profile={profile} setProfile={setProfile} dataType={dataType} setSaveProfile={props.setSaveProfile}>
+                    { buttonPopup ? (<Popup setTrigger={setButtonPopup} data={data} setData={setData} profile={profile} setProfile={setProfile} dataType={dataType} setSaveProfile={setSaveProfile}>
                     </Popup>): ""}
-                        <MiniHeader Content="Liên lạc" MiniIcon={EditOutlined} Handle={()=>{Handle("contact")}} className="MinorInfoCom"></MiniHeader>
+                        <MiniHeader Content="Liên lạc" MiniIcon={EditOutlined} Handle={()=>{Handle("contact")}} className="MinorInfoCom" Editable={editable}></MiniHeader>
                         {
                             profile.contact.map(Info=>{
                                 return <span className="Line">
@@ -57,7 +55,7 @@ function Stats(props) {
                         }
                     </div>
                     <div className="Info">
-                        <MiniHeader Content="Địa chỉ làm việc" MiniIcon={EditOutlined} Handle={()=>{Handle("address")}} className="MinorInfoCom"></MiniHeader>
+                        <MiniHeader Content="Địa chỉ làm việc" MiniIcon={EditOutlined} Handle={()=>{Handle("address")}} className="MinorInfoCom" Editable={editable}></MiniHeader>
                         {
                             profile.address.map(addr=>{
                                 return <span className="Line">

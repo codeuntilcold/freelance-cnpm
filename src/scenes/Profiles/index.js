@@ -1,8 +1,7 @@
 
 import { useParams } from 'react-router';
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import Container from '@mui/material/Container';
-import './index.css';
 import {AppContext} from "../../context/AppProvider";
 import { CircularProgress } from "@mui/material";
 import { collection, documentId, query, where, onSnapshot } from '@firebase/firestore';
@@ -11,23 +10,25 @@ import FreelancerProfile from './components/FreelancerProfile';
 import EmployerProfile from './components/EmployerProfile';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Stats from './components/Stats';
+import { Link } from 'react-router-dom';
+import './index.css';
 
 export const ProfileContext = React.createContext();
 
 function Profiles() {
     
     const {userInfo, role, roleID} = useContext(AppContext);
-    const [editable, setEditable] = useState(false);
+    const [editable, setEditable] = useState("Editable");
     const [profile, setProfile] = useState();
     const [saveProfile, setSaveProfile] = useState(false);
     const param = useParams();
-    useEffect(()=>{
-        console.log(roleID, param);
+    const fetchData = useCallback(()=>{
         if (roleID === param.ID ){
+            setEditable("Editable");
             setProfile({...userInfo})
-            setEditable(true);
         }
         else{
+            setEditable("Uneditable");
             let collectionRef = collection(db,param.Type);
             var q = {};
             try {
@@ -46,28 +47,32 @@ function Profiles() {
             });
             return () => {
             unsubscribe();
-            setEditable(false);
-            }
         }
-    }, [param])
+        }
+    }, [roleID, userInfo, param])
+    useEffect(()=>{
+        fetchData();
+    }, [fetchData])
+    useEffect(()=>{
+    }, [profile, editable])
     return (
         <div>
         {
-            profile == undefined ? <CircularProgress/> : 
+            profile === undefined ? <CircularProgress/> : 
                 <ProfileContext.Provider value={{
                     profile,
                     setProfile,
                     editable,
                     saveProfile,
-                    setSaveProfile
+                    setSaveProfile,
+                    param
                 }}>
                     <Container maxWidth="lg">
                         <div className="whole-page-container">
                             <Sidebar active={4} role={role}/>
-                            <div>
-                            {
-                                param.Type === "employer" ? <EmployerProfile/> : <FreelancerProfile/>
-                            }
+                            <div className="central-column">
+                            <EmployerProfile/>
+                            <Link to="/profiles/freelancer/fr1">Freelancer 1</Link>
                             </div>
                             <Stats saveProfile={saveProfile} setSaveProfile={setSaveProfile}/>
                         </div>

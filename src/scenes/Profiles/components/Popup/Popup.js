@@ -30,7 +30,7 @@ function Popup(props) {
         }
     }
     function insert(){
-        if (props.dataType == "contact") insertContact()
+        if (props.dataType === "contact") insertContact()
         // console.log("insert")
         else{
             const newValue = document.getElementById("insert").value;
@@ -54,7 +54,7 @@ function Popup(props) {
     }
     function switchHanlde(dataType="aboutme"){
         switch (dataType){
-            case "aboutme":
+            case "about-me":
                 return <div>
                     <TextareaAutosize
                         aria-label="minimum height"
@@ -68,7 +68,7 @@ function Popup(props) {
             case "contact":
                 return <div>
                     {props.data.map((item) =>(
-                                    <div className="Item">
+                                    <div className="Item" key={item.Value}>
                                         {
                                                 <div>
                                                     <span>{item.Value}</span>
@@ -89,7 +89,7 @@ function Popup(props) {
             default:
                 return <div>
                         {props.data.map((item) =>(
-                                    <div className="Item">
+                                    <div className="Item" key={item}>
                                         {
                                                 <div>
                                                     <span>{item}</span>

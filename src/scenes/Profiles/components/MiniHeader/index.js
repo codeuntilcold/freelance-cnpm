@@ -1,7 +1,8 @@
-import { fontSize } from "@mui/system";
+
 import React from "react";
 import './index.css';
-export default function({MiniIcon, Content, Handle, Editable}){
+
+function MiniHeader({MiniIcon, Content, Handle, Editable}){
     // console.log(`${typeof(Handle)} ${Content}`);
     return (
         <div>
@@ -11,4 +12,5 @@ export default function({MiniIcon, Content, Handle, Editable}){
             </span>
         </div>
     );
-}
+};
+export default MiniHeader;

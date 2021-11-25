@@ -35,8 +35,10 @@ export default function AppProvider({ children }) {
   ), [currentUserRole.roleID])
   // console.log(userInfoCondition);
   const userInfo = useFirestore(currentUserRole.role, userInfoCondition);
-  const role = currentUserRole?.role;
-  const roleID = currentUserRole?.roleID;
+  const role = React.useMemo(()=>{return currentUserRole?.role}, [currentUserRole]);
+  const roleID = React.useMemo(()=>{return currentUserRole?.roleID}, [currentUserRole]);
+  // const role = currentUserRole?.role;
+  // const roleID = currentUserRole?.roleID;
   // console.log("context", userInfo);
 
 
@@ -46,7 +48,8 @@ export default function AppProvider({ children }) {
         currentUser,
         userInfo,
         role,
-        roleID
+        roleID,
+        currentUserRole
       }}
     >
       {children}
