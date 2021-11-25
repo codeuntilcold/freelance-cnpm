@@ -55,7 +55,7 @@ function Stats(props) {
                         }
                     </div>
                     <div className="Info">
-                        <MiniHeader Content="Địa chỉ làm việc" MiniIcon={EditOutlined} Handle={()=>{Handle("address")}} className="MinorInfoCom" Editable={editable}></MiniHeader>
+                        <MiniHeader Content="Địa chỉ" MiniIcon={EditOutlined} Handle={()=>{Handle("address")}} className="MinorInfoCom" Editable={editable}></MiniHeader>
                         {
                             profile.address.map(addr=>{
                                 return <span className="Line">

@@ -7,7 +7,7 @@ import { CircularProgress } from "@mui/material";
 import { collection, documentId, query, where, onSnapshot } from '@firebase/firestore';
 import { db } from '../../services/db';
 // import FreelancerProfile from './components/FreelancerProfile';
-import EmployerProfile from './components/EmployerProfile';
+import CentralInfo from './components/CentralInfo';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Stats from './components/Stats';
 import { Link } from 'react-router-dom';
@@ -71,7 +71,7 @@ function Profiles() {
                         <div className="whole-page-container">
                             <Sidebar active={4} role={role}/>
                             <div className="central-column">
-                            <EmployerProfile/>
+                            <CentralInfo/>
                             <Link to="/profiles/freelancer/fr1">Freelancer 1</Link>
                             </div>
                             <Stats saveProfile={saveProfile} setSaveProfile={setSaveProfile}/>

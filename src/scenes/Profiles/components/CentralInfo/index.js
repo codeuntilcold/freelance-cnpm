@@ -9,22 +9,23 @@ import InfoTag from "./components/InfoTag";
 import PageHeader from "../../../../components/PageHeader/PageHeader";
 import Popup from "../Popup/Popup";
 import JCard from "../../../../components/JCard";
-export default function EmployerProfile() {
-    const {profile, setProfile, saveProfile, setSaveProfile, editable, param} = useContext(ProfileContext);
+export default function CentralInfo() {
+    const {profile, setProfile, saveProfile, setSaveProfile, editable} = useContext(ProfileContext);
     const [buttonPopup, setButtonPopup] = useState(false);
     const [data, setData] = useState([]);
     const [dataType, setDataType] = useState("");
     const LoadData = useCallback( (Name = "None") =>{
         switch(Name){
             case "skills":
-                setData([...profile.skills]);
+                setData([...profile["skills"]]);
                 setDataType(Name);
+                break;
             case "domain":
-                setData([...profile.domain]);
+                setData([...profile["domain"]]);
                 setDataType(Name);
                 break;
             case "education":
-                setData([...profile.education]);
+                setData([...profile["education"]]);
                 setDataType(Name);
                 break;
             case "about-me":

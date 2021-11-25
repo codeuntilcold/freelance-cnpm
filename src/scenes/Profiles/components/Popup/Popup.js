@@ -52,7 +52,25 @@ function Popup(props) {
         props.setSaveProfile(true);
         props.setTrigger(false);
     }
-    function switchHanlde(dataType="aboutme"){
+    function nameHandle(dataType="Mặc định"){
+        switch(dataType){
+            case "about-me":
+                return <h1>Giới thiệu</h1>
+            case "skills":
+                return <h1>Kĩ năng</h1>
+            case "domain":
+                return <h1>Phạm vi công việc</h1>
+            case "education":
+                return <h1>Học vấn</h1>
+            case "contact":
+                return <h1>Liên lạc</h1>
+            case "address":
+                return <h1>Địa chỉ</h1>
+            default:
+                return <h1>Không tìm thấy dữ liệu</h1>
+        }
+    }
+    function switchHandle(dataType="aboutme"){
         switch (dataType){
             case "about-me":
                 return <div>
@@ -112,10 +130,8 @@ function Popup(props) {
         <div className="Popup">
                 <div className="PopupInner">
                     <div className="Body">
-                        <h1>{props.dataType}</h1>
-                        {switchHanlde(props.dataType)
-                        }
-
+                        {nameHandle(props.dataType)}
+                        {switchHandle(props.dataType)}
                     </div>
                     <div className="Confirmation">
                     <button className="submit" onClick={()=>{Save()}}>Lưu</button>

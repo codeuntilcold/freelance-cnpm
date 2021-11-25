@@ -99,7 +99,6 @@ export default function Sidebar(props){
         <Logo className="Viecmoi-logo"></Logo>
         <SidebarOptions/>
         </div>
-        <ProfileButton active={active_a[4]} linkTo="/profile/"></ProfileButton>
         <ProfileButton active={active_a[4]} linkTo={profilesLink} name={userInfo.name}></ProfileButton>
         </div>
     )

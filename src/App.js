@@ -5,7 +5,6 @@ import Jobmanagement from './scenes/JobManagement';
 import Jobsfeed from './scenes/Jobsfeed/index';
 import Login from './scenes/Login/index';
 import Myjobs from './scenes/Myjobs/index';
-import Profile from './scenes/Profile/index';
 import Register from './scenes/Register/index';
 import Index from './scenes/Index/index';
 import Noti from './scenes/Noti/index';
@@ -30,7 +29,6 @@ function App() {
                   <Route path="/jobsfeed" exact component={Jobsfeed} />
                   <Route path="/login" exact component={Login} />
                   <Route path="/myjobs" exact component={Myjobs} />
-                  <Route path="/profile" exact component={Profile} />
                   
                   <Route path="/profiles" exact component={Profiles} />
                   <Route path="/profiles/:Type/:ID" exact component={Profiles} />
