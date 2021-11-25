@@ -3,13 +3,16 @@ import CornerFooter from '../../../../components/CornerFooter'
 import { db } from "../../../../services/db";
 import { Timestamp, setDoc, doc } from "@firebase/firestore";
 import './index.css'
+import { useHistory } from "react-router-dom";
+
 
 import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
 
-function JobEdit({job}){
+function JobEdit({job, setRender}){
 
+    let history = useHistory();
     let temp = job;
     let changed = false;
     return(
@@ -20,11 +23,6 @@ function JobEdit({job}){
                     <h1 className = "job-heading central-page-header">Chỉnh sửa công việc</h1>
                     <form onSubmit={(e)=>{
                         e.preventDefault();
-                        // if (job.deadline !== temp.deadline){
-                        //     temp.deadline = ToTimestamp(temp.deadline);
-                        // }
-                        // if (job['start-date'] !== temp['start-date'])
-                        //     temp['start-date'] = ToTimestamp(temp['start-date']);
                         if (job.description !== document.getElementById('description').textContent){
                             temp.description = document.getElementById('description').textContent;
                             changed = true
@@ -41,8 +39,13 @@ function JobEdit({job}){
                             var answer = window.confirm("Lưu thay đổi?")
                             if (answer === true) {
                                 job = temp;
+                                setRender(prev=>!prev);
                                 PostData(job);
+                                history.push("/job-management"); 
                             }
+                        }
+                        else {
+                            history.push("/job-management"); 
                         }
                     }}>
                         {/* Name input--------------------- */}
@@ -186,9 +189,10 @@ function ToTimestamp(date){
 }
 
 function PostData(job){
+    
     var fetchData = async()=>{
-        await setDoc(doc(db, "job",job._id), job);  
-        window.location.href = '/job-management';
+        await setDoc(doc(db, "job",job._id), job); 
+        
     } 
     fetchData();
 }

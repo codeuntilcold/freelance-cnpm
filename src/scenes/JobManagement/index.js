@@ -17,7 +17,7 @@ export default function Jobmanagement() {
     const [render, setRender] = useState(true);
     
     const {currentUser} = useContext(AppContext);
-    let emID = currentUser?.roleId;
+    let emID = currentUser?.roleID;
     useEffect(() =>{   
         // get data   
         var fetchData = async()=>{
@@ -52,6 +52,8 @@ export default function Jobmanagement() {
         fetchData();
     },[render]);
     
+    // if (applyForList[0])
+    //     console.log(applyForList[0].notifications[0].message);
     return (
         <Switch>
             <Route path = "/job-management"  exact>
@@ -80,6 +82,7 @@ export default function Jobmanagement() {
                             <JobEdit 
                                 key = {job._id+'b'}
                                 job = {job}
+                                setRender = {setRender}
                             />
                         </Route>
                     );

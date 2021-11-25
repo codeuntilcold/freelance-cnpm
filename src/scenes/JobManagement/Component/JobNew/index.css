@@ -29,3 +29,8 @@
 .item__button--foot {
   margin-top: 20px;
 }
+
+
+@media screen and (max-width: 777px) {
+  
+}

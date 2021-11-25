@@ -1,5 +1,6 @@
 import CornerFooter from '../../../../components/CornerFooter'
 import AccessButton from '../../../../components/button/AccessButton'
+import DeleteButton from '../../../../components/button/DeleteButton';
 import { db } from "../../../../services/db";
 import { Timestamp, setDoc, doc } from "@firebase/firestore";
 import './index.css'
@@ -9,6 +10,15 @@ import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
 export default function FreelancerList({job, freelancerList, applyForList}){
+    let notification = {
+        message: `Bạn đã được nhận vào công việc ${job.name}`,
+        isRead: false
+    }
+    let numInJob = {
+        confirmed: parseInt( job.confirmed),
+        total: parseInt(job.total)
+    }
+    console.log(applyForList);
     return (
         <Container maxWidth='lg'>
             <div className="job-management whole-page-container">
@@ -32,15 +42,36 @@ export default function FreelancerList({job, freelancerList, applyForList}){
                                             <p key = {applyFor._id+'ddc2'} className = "item__field item-content">{freelancer['about-me']}</p>
                                             <p key = {applyFor._id+'ddc3'} className= "item__field item__field--name">{freelancer.address}</p>
                                             <p key = {applyFor._id+'ddc4'} className = "item__button">
+                                                <DeleteButton
+                                                    name = "Xóa bỏ"
+                                                    onClick = {()=> {
+                                                        let confirm = window.confirm('Từ chối người làm?');
+                                                        if(confirm){
+                                                            applyFor.status = 'Hủy'
+                                                            notification.message = `Bạn bị từ chối khỏi công việc ${job.name}`
+                                                            applyFor.notifications.push(notification);
+                                                            PostDataJob(job);
+                                                            PostDataApply(applyFor);
+                                                        }
+
+                                                    }}
+                                                    link = {'/job-management/job' + job._id} 
+                                                />
                                                 <AccessButton
                                                     key = {applyFor._id + 'x'}
                                                     name = "Xác nhận"
                                                     onClick = {()=> {
                                                         let confirm = window.confirm('Nhận người làm?');
                                                         if(confirm){
-                                                            applyFor.status = 'Đang làm'
-                                                            PostDataJob(job);
-                                                            PostDataApply(applyFor);
+                                                            if (numInJob.confirmed >= numInJob.total){
+                                                                alert("Công việc này đã đủ người");
+                                                            }
+                                                            else {
+                                                                applyFor.status = 'Đang làm'
+                                                                applyFor.notifications.push(notification);
+                                                                PostDataJob(job);
+                                                                PostDataApply(applyFor);
+                                                            }
                                                         }
 
                                                     }}

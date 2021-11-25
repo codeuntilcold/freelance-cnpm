@@ -4,7 +4,7 @@ import { db } from "../../../../services/db";
 import { Timestamp, setDoc, doc } from "@firebase/firestore";
 
 import './index.css'
-
+import { useHistory } from "react-router-dom";
 import Container from '@mui/material/Container';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
@@ -15,6 +15,8 @@ function JobNew({ employerID, jobList, setRender}){
         "confirmed": "0",
         "employer-id": `${employerID}`
     };
+    let history = useHistory();
+
     return(
     <Container maxWidth='lg'>
         <div className="job-management whole-page-container">
@@ -31,6 +33,7 @@ function JobNew({ employerID, jobList, setRender}){
                     newJob.benefit = document.getElementById('benefit').textContent;
                     setRender(prev=>!prev)
                     PostData(newJob, jobList);
+                    history.push("/job-management");
                 }}>
                     <div className= 'item-container'>
                         <p className="item-input">
@@ -131,9 +134,11 @@ function ToTimestamp(date){
 }
 
 function PostData(job, jobList){
+    
     var fetchData = async()=>{
         await setDoc(doc(db, "job",job._id), job);  
-        window.location.href = '/job-management';
+        
+        // window.location.href = '/job-management';
     } 
     fetchData();
 }
