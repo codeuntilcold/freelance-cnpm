@@ -67,17 +67,20 @@ export default function EmployerProfile() {
                         ) : ""
                     }
                     {buttonPopup ? (<Popup setTrigger={setButtonPopup} data={data} setData={setData} profile={profile} setProfile={setProfile} dataType={dataType} setSaveProfile={setSaveProfile} />) : ""}
-                   <CustomInfo profile={profile} setProfile={setProfile} setSaveProfile={setSaveProfile} Editable={editable} Handle={HandleAboutMe}/> 
+                    <CustomInfo profile={profile} setProfile={setProfile} setSaveProfile={setSaveProfile} Editable={editable} Handle={HandleAboutMe}/> 
                    {
                        "domain" in profile ? (
-                            <InfoTag Name={"Domain"} Handle={()=>{Handle("domain")}} Editable={editable}>
+                           <div>
+                           <InfoTag Name={"Phạm vi công việc"} Handle={()=>{Handle("domain")}} Editable={editable}>
                                 {profile.domain.map((domain)=>(
                                     <Info key={domain} content={domain}/>
-                                ))
+                                    ))
                                 }
                             </InfoTag>
+                            </div>
                        ) : (
                            <div>
+                            {/* <CustomInfo profile={profile} setProfile={setProfile} setSaveProfile={setSaveProfile} Editable={editable} Handle={HandleAboutMe}/>  */}
                            <InfoTag Name={"Kĩ năng"} Handle={()=>{Handle("skills")}} Editable={editable} >
                            {
                                profile.skills.map((skill)=>(
@@ -87,9 +90,9 @@ export default function EmployerProfile() {
                            </InfoTag>
                            <InfoTag Name={"Học vấn"} Handle={()=>{Handle("education")}} Editable={editable}>
                                 {
-                                    profile.education.map((item)=>{
+                                    profile.education.map((item)=>(
                                         <Info key={item} content={item}/>
-                                    })
+                                    ))
                                 }
                            </InfoTag>
                            </div>

@@ -6,7 +6,7 @@ import {AppContext} from "../../context/AppProvider";
 import { CircularProgress } from "@mui/material";
 import { collection, documentId, query, where, onSnapshot } from '@firebase/firestore';
 import { db } from '../../services/db';
-import FreelancerProfile from './components/FreelancerProfile';
+// import FreelancerProfile from './components/FreelancerProfile';
 import EmployerProfile from './components/EmployerProfile';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Stats from './components/Stats';

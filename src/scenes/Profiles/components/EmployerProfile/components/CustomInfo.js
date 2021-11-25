@@ -18,7 +18,7 @@ function CustomInfo(props){
                 </article>
             </div>
             <div className="About">
-                <MiniHeader Content="Về chúng tôi" MiniIcon={EditOutlinedIcon} className="MiniHeader" Handle={props.Handle}/>
+                <MiniHeader Content="Về chúng tôi" MiniIcon={EditOutlinedIcon} className="MiniHeader" Handle={props.Handle} Editable={props.Editable}/>
                 <div className="Content">
                     {props.profile["about-me"]}
                 </div>

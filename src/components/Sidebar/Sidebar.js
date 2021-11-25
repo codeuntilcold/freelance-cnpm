@@ -10,7 +10,7 @@ import ProfileButton from "../ProfileButton/ProfileButton";
 import {AppContext} from "../../context/AppProvider";
 import { useContext } from "react";
 export default function Sidebar(props){
-    const {role, roleID} = useContext(AppContext);
+    const {role, roleID, userInfo} = useContext(AppContext);
     const { active} = props;
     const active_a = [0,0,0,0];
     const profilesLink = "/profiles/" + role + "/" + roleID; 
@@ -100,7 +100,7 @@ export default function Sidebar(props){
         <SidebarOptions/>
         </div>
         <ProfileButton active={active_a[4]} linkTo="/profile/"></ProfileButton>
-        <ProfileButton active={active_a[4]} linkTo={profilesLink}></ProfileButton>
+        <ProfileButton active={active_a[4]} linkTo={profilesLink} name={userInfo.name}></ProfileButton>
         </div>
     )
 
