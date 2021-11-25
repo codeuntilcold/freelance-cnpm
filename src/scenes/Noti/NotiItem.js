@@ -1,11 +1,63 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function NotiItem({ content, all }) {
-  const [read, setRead] = useState(false);
+import { arrayRemove, arrayUnion, doc, updateDoc } from "@firebase/firestore";
+import { db } from "../../services/db";
 
-  const toggleRead = () => {
-    setRead(true);
+
+
+
+function NotiItem({ docID, jobID, notiIndex, message, isRead, all }) {
+
+  const [read, setRead] = useState(isRead);
+
+  const toggleRead = async () => {
+    
+    if (!read) {
+      
+      setRead(true);
+      const applyRef = doc(db, "apply_for", docID)
+  
+      await updateDoc(applyRef, {
+        notifications: arrayRemove({
+          message: message,
+          isRead: false
+        })
+      })
+  
+      await updateDoc(applyRef, {
+        notifications: arrayUnion({
+          message: message,
+          isRead: true
+        })
+      })
+    }
+
   };
+
+  // const toggleUnread = async () => {
+    
+  //     setRead(false);
+  //     const applyRef = doc(db, "apply_for", docID)
+  
+  //     await updateDoc(applyRef, {
+  //       notifications: arrayRemove({
+  //         message: message,
+  //         isRead: true
+  //       })
+  //     })
+  
+  //     await updateDoc(applyRef, {
+  //       notifications: arrayUnion({
+  //         message: message,
+  //         isRead: false
+  //       })
+  //     })
+
+  // };
+
+  useEffect(() => {
+    all && toggleRead()
+  }, [all])
 
   return (
     <div
@@ -13,7 +65,7 @@ function NotiItem({ content, all }) {
       onClick={toggleRead}
     >
       {/* {content} */}
-      <p>{content}</p>
+      <p>{message}</p>
     </div>
   );
 }

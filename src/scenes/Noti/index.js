@@ -12,7 +12,7 @@ function Noti() {
 
   const {currentUser} = useContext(AppContext);
   // console.log(currentUser)
-  var role = currentUser?.role;
+  const role = currentUser?.role;
 
   return (
     <Container maxWidth="lg">
