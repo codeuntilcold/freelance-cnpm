@@ -96,10 +96,10 @@ export default function Sidebar(props){
     return(
         <div className="sidebar">
         <div>
-        <Logo className="Viecmoi-logo"></Logo>
-        <SidebarOptions/>
+            <Logo className="Viecmoi-logo"></Logo>
+            <SidebarOptions/>
         </div>
-        <ProfileButton active={active_a[4]} linkTo={profilesLink} name={userInfo.name}></ProfileButton>
+            {userInfo && <ProfileButton active={active_a[4]} linkTo={profilesLink} name={userInfo.name}></ProfileButton>}
         </div>
     )
 
