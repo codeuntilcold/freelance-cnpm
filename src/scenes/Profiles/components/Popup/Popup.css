@@ -87,3 +87,15 @@
 .Body input:focus {
   outline: none;
 }
+.PrimaryAddr {
+  margin-bottom: 10px;
+}
+.job-filter {
+  display: flex;
+  justify-content: space-around;
+}
+
+.job-filter span {
+  display: flex;
+  flex-direction: column;
+}

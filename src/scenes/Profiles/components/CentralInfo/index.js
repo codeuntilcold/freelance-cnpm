@@ -9,6 +9,8 @@ import InfoTag from "./components/InfoTag";
 import PageHeader from "../../../../components/PageHeader/PageHeader";
 import Popup from "../Popup/Popup";
 import JCard from "../../../../components/JCard";
+import { db } from "../../../../services/db";
+import { setDoc, doc } from "@firebase/firestore";
 export default function CentralInfo() {
     const {profile, setProfile, saveProfile, setSaveProfile, editable, param, jobs} = useContext(ProfileContext);
     const [buttonPopup, setButtonPopup] = useState(false);
@@ -39,7 +41,7 @@ export default function CentralInfo() {
         }
     }, [profile]);
     function handleAboutMe (){
-        console.log("handleAboutMe");
+        // console.log("handleAboutMe");
         setButtonPopup(true);
         LoadData("about-me");
     }
@@ -48,17 +50,22 @@ export default function CentralInfo() {
         LoadData(Name);
     }
     function handleSave(){
-        alert("Save");
+        // alert("Save");
+        var fetchData = async()=>{
+            await setDoc(doc(db, param.Type,param.ID), {...profile}); 
+        } 
+        fetchData();
+        setSaveProfile(false);
     }
     function handleCancel(){
-        history.go();
+        history.go(0);
     }
     useEffect(() => {
         LoadData(dataType);
         // console.log(profile.jobs.length, jobs.length)
     }, [buttonPopup, LoadData, dataType, jobs])
     useEffect(()=>{
-        console.log("ở trong", jobs.length);
+        // console.log("ở trong", profile);
     })
     return (
         <div>
@@ -70,8 +77,8 @@ export default function CentralInfo() {
                         saveProfile ? (
                             <JCard>
                                 <h2>Đã có thông tin bị thay đổi, bạn có chắc chắn muốn lưu?</h2>
-                                <button onClick={()=>handleSave()}>Có</button>
-                                <button onClick={()=>handleCancel()}>Không</button>
+                                <button className="button button--access" onClick={()=>handleSave()}>Có</button>
+                                <button className="button button--cancel" onClick={()=>handleCancel()}>Không</button>
                             </JCard>
                         ) : ""
                     }

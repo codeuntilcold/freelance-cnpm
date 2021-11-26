@@ -78,7 +78,7 @@ function Profiles() {
                             value.map(item=>{
                             data.push( item.data());
                             })
-                            console.log("asd", data);
+                            // console.log("asd", data);
                             setJobs(data);
                         })
                     });
@@ -148,7 +148,6 @@ function Profiles() {
                                 <Sidebar active={4} role={role}/>
                                 <div className="central-column">
                                 <CentralInfo/>
-                                <Link to="/profiles/freelancer/fr2">Freelancer 1</Link>
                                 </div>
                                 <Stats saveProfile={saveProfile} setSaveProfile={setSaveProfile}/>
                             </div>

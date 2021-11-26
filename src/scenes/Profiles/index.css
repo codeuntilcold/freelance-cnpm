@@ -122,8 +122,19 @@
   margin: auto;
   text-align: center;
   text-transform: capitalize;
+  /* font-size: larger; */
+  /* margin-left: 5px; */
+}
+.button--access {
+  background-color: var(--primary-color);
 }
 
+.button--cancel {
+  color: #4db066 !important;
+  box-shadow: 0 1px 2px #4b4a4a;
+  font-weight: 600;
+  font-size: 16px;
+}
 .Info .InfoStatus {
   margin: auto;
   width: 6rem;

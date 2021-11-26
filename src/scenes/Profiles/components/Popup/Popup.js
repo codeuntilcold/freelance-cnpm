@@ -3,7 +3,9 @@ import {useState, useEffect} from 'react';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { TextareaAutosize } from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
 import "./Popup.css"
+import { Check } from '@mui/icons-material';
 function Popup(props) {
     // console.log(props.data)
     const [render, setRender] = useState(true);
@@ -38,6 +40,7 @@ function Popup(props) {
                 let temp = props.data;
                 temp.push(newValue);
                 props.setData(temp);
+                document.getElementById("insert").value = "";
                 setRender(!render);
             }
         }
@@ -51,6 +54,15 @@ function Popup(props) {
         props.setProfile({...props.profile, [props.dataType]: props.data})
         props.setSaveProfile(true);
         props.setTrigger(false);
+    }
+    function changeAddress(addr){
+        var first = addr;
+        let temp = props.data;
+        temp.sort(function(x,y){ return x == first ? -1 : y == first ? 1 : 0; });
+        props.setData(temp);
+        document.getElementById("addrAlert").innerHTML="Changed";
+        setRender(!render);
+        document.getElementById("selectPrimaryAddr").hidden = true;
     }
     function nameHandle(dataType="Mặc định"){
         switch(dataType){
@@ -85,8 +97,8 @@ function Popup(props) {
                 </div>
             case "contact":
                 return <div>
-                    {props.data.map((item) =>(
-                                    <div className="Item" key={item.Value}>
+                    {props.data.map((item, index) =>(
+                                    <div className="Item" key={index}>
                                         {
                                                 <div>
                                                     <span>{item.Value}</span>
@@ -103,6 +115,36 @@ function Popup(props) {
                     </select>
                     <input type="text" name="insert" id="insert" placeholder="Thêm mới"/>
                         <AddIcon onClick={()=>{insert()}}/>
+                </div>
+            case "address":
+                return <div>
+                    <div className="PrimaryAddr">
+                    <span style={{marginRight : "5px"}}>Current Primary address:</span>
+                    <select name="selectPrimaryAddr" id="selectPrimaryAddr">
+                        <option value="" disabled defaultValue hidden>Select</option>
+                        {
+                            props.data.map((item, index)=>(
+                                <option key={index} value={item} onClick={()=>{changeAddress(item)}}>{item}</option>
+                            ))
+                        }
+                    </select>
+                    <span id="addrAlert"></span>
+                    </div>
+                    {props.data.map((item,index) =>(
+                                <div className="Item" key={index}>
+                                    {
+                                            <div>
+                                                <span>{item}</span>
+                                                <RemoveIcon className="DeleteIcon" onClick={()=>{Delete(item)}} />
+                                                {/* <CheckIcon onClick={()=>{changeAddress(item)}}/> */}
+                                            </div>
+
+                                    }
+                                </div>
+                            ))
+                    }
+                    <input type="text" name="insert" id="insert" placeholder="Thêm mới"/>
+                    <AddIcon onClick={()=>{insert()}}/>
                 </div>
             default:
                 return <div>
@@ -134,44 +176,11 @@ function Popup(props) {
                         {switchHandle(props.dataType)}
                     </div>
                     <div className="Confirmation">
-                    <button className="submit" onClick={()=>{Save()}}>Lưu</button>
-                    <button className="close" onClick={()=>{props.setTrigger(false)}}>Huỷ</button>
+                    <button className="button button--access" onClick={()=>{Save()}}>Lưu</button>
+                    <button className="button button--cancel" onClick={()=>{props.setTrigger(false)}}>Huỷ</button>
                     </div>
                 </div>
             </div>
-            {/* <div className="Popup">
-                <div className="PopupInner">
-                    <div className="Body">
-                    <h1>{props.dataType}</h1>
-                        {   
-                                props.data.map((item) =>(
-                                    <div className="Item">
-                                        {
-                                                <div>
-                                                    <span>{props.dataType == "contact" ? (item.Value) : (item)}</span>
-                                                    <RemoveIcon className="DeleteIcon" onClick={()=>{Delete(item)}} />
-                                                </div>
-
-                                        }
-                                    </div>
-                                ))
-                                // )
-                            }
-                        { props.dataType == "contact" ? (
-                            <select name="type" id="type">
-                            <option value="Phone">SĐT</option>
-                            <option value="Email">Email</option>
-                            </select>) : ""    
-                        }
-                        <input type="text" name="insert" id="insert" placeholder="Thêm mới"/>
-                        <AddIcon onClick={()=>{insert()}}/>
-                    </div>
-                    <div className="Confirmation">
-                    <button className="submit" onClick={()=>{Save()}}>Lưu</button>
-                    <button className="close" onClick={()=>{props.setTrigger(false)}}>Huỷ</button>
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }
