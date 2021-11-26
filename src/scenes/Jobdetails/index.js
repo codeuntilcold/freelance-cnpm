@@ -15,7 +15,6 @@ export default function Jobdetails() {
     const param = useParams();
 
     const {currentUser} = useContext(AppContext);
-    // console.log(currentUser)
     var role = currentUser?.role;
     var id = currentUser?.roleID
 

@@ -32,8 +32,7 @@ function Job({ job, employer, applyList, setRender, role, id }) {
         setApply(!apply);
     };
 
-    const applyID = GetId(applyList); 
-
+    const applyID = GetId(applyList);
     let applyToJob = {
         "_id": `a${applyID}`,
         "createdAt": '',
@@ -64,7 +63,7 @@ function Job({ job, employer, applyList, setRender, role, id }) {
                         {job.name}
                     </div>
 
-                    <Link to={`/profile/${job['employer-id']}`}>
+                    <Link to={`/profiles/employer/${job['employer-id']}`}>
                         <div className="section">{employer.name}</div>
                     </Link>
 
@@ -77,22 +76,20 @@ function Job({ job, employer, applyList, setRender, role, id }) {
                 <div className="double-button">
                     <div className="div-button">
                         <button className="apply" onClick={() => {
-                            let applyTime = FormatDate(new Date());
-                            if (time < applyTime){
+                            if (job.deadline < new Date()){
                                 alert("Đã quá hạn nộp hồ sơ!");
                             }
                             else if (job.confirmed === job.total){
                                 alert("Số lượng người cần tuyển cho công việc đã đủ!");
                             }
                             else {
-                                let result = CheckApplyStatus(param, apply, applyList, id);
-                                if (result === false){
+                                if (CheckApplyStatus(param, apply, applyList, id) === false){
                                     var answer = window.confirm("Bạn muốn ứng tuyển vào công việc này?");
                                     if (answer === true){
                                         applyJob();
                                         const i = SavedIndex(param, applyList, id);
                                         DeleteData('a' + i);
-                                        applyToJob.createdAt = applyTime;
+                                        applyToJob.createdAt = FormatDate(new Date());
                                         setRender(prev=>!prev);
                                         PostData(applyToJob);
                                     }
@@ -142,7 +139,7 @@ function Job({ job, employer, applyList, setRender, role, id }) {
                         {job.name}
                     </div>
 
-                    <Link to='/profile'>
+                    <Link to={`/profiles/employer/${job['employer-id']}`}>
                         <div className="section">{employer.name}</div>
                     </Link>
 

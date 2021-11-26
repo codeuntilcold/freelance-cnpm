@@ -10,7 +10,7 @@ function Employer({ employer, job }) {
             </div>
 
             <div className="div-button">
-                <Link to={`/profile/${job['employer-id']}`}>
+                <Link to={`/profiles/employer/${job['employer-id']}`}>
                     <button className="about-us">Về chúng tôi</button>
                 </Link>
             </div>
