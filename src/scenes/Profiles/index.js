@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext} from "react";
 import Container from '@mui/material/Container';
 import {AppContext} from "../../context/AppProvider";
 import { CircularProgress } from "@mui/material";
-import { collection, documentId, query, where, onSnapshot, getDoc, getDocs } from '@firebase/firestore';
+import { collection, documentId, query, where, getDoc, getDocs } from '@firebase/firestore';
 import { db } from '../../services/db';
 // import FreelancerProfile from './components/FreelancerProfile';
 import CentralInfo from './components/CentralInfo';
@@ -33,6 +33,7 @@ function Profiles() {
                 setEditable("Editable");
             }
             else{
+                async function getProfile(){
                 setEditable("Uneditable");
                 let collectionRef = collection(db,param.Type);
                 var q = {};
@@ -41,18 +42,16 @@ function Profiles() {
                 } catch(error){
                     setProfile({});
                 }
-                const unsubscribe = onSnapshot(q, (querySnapshot) => {
-                    var documents = {};
-                    querySnapshot.forEach(doc => {
-                        documents = {
+                let querySnapshot = await getDocs(q);
+                var documents = {};
+                querySnapshot.forEach((doc) => {
+                    documents = {
                             ...doc.data(),
-                        }
-                    })
-                    setProfile(documents);
+                    }
                 });
-                return () => {
-                    unsubscribe();
+                setProfile(documents);
                 }
+                getProfile();
             }
         } else{
             // ! Trường hợp lỗi có nên dùng useHistory?
@@ -61,16 +60,8 @@ function Profiles() {
     useEffect(()=>{
             if (profile){
                 if (param.Type === "employer"){
-                    const q = query(collection(db, param.Type),where(documentId(), "==",param.ID));
-                    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-                        var documents = [];
-                        querySnapshot.forEach(doc => {
-                            documents = [
-                                ...doc.data().jobs,
-                            ]
-                        })
-                    
-                        Promise.all(documents.map(async (Ref) =>{
+                    var documents = profile.jobs;
+                    Promise.all(documents.map(async (Ref) =>{
                             return await getDoc(Ref);
                         }))
                         .then(value=>{
@@ -81,10 +72,7 @@ function Profiles() {
                             // console.log("asd", data);
                             setJobs(data);
                         })
-                    });
-                    return () => {
-                        unsubscribe();
-                    }
+
                 } else{
                         async function getList() {
                         // GET APPLY_FOR
