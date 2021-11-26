@@ -39,6 +39,13 @@
   background-color: white;
   border-radius: 5px;
 }
+.logout-button:hover {
+  color: #000000 !important;
+  opacity: 0.8;
+  /* background-color: gray; */
+  /* box-shadow: 1px 1px 1px black; */
+  font-weight: 700;
+}
 
 @media screen and (max-width: 777px) {
   .ProfileButton h1,

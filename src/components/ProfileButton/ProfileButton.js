@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import auth from '../../services/auth';
 import { signOut } from "firebase/auth";
 import {LogoutOutlined} from "@ant-design/icons";
+import LogoutIcon from '@mui/icons-material/Logout';
 const handleLogout = () => {
     signOut(auth);
 }
