@@ -1,10 +1,21 @@
 import React from "react";
 function Info (props){
     const {content, status} = props;
+    const convert = ()=>{
+        switch(status){
+            case "Đang đợi":
+                return "Waiting"
+            case "Lưu":
+                return "Interest"
+            default:
+                return "Default"
+        }
+    }
+    const convertStatus = convert();
     return (
         <div className="Info">
         <span className="InfoContent">{content}</span>
-        <div className={status + " InfoStatus"}>
+        <div className={convertStatus + " InfoStatus"}>
             <span className="InfoStatusContent">{status}</span>
         </div>
         </div>

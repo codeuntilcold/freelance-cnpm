@@ -86,7 +86,6 @@
   background-color: var(--secondary-color);
   border-radius: 100%;
 }
-
 .Info {
   margin: 1rem 0rem;
   display: flex;
@@ -100,10 +99,15 @@
   border-bottom: 2px solid darkgray;
   text-transform: capitalize;
 }
+.Info .Waiting {
+  background-color: var(--yellow-button);
+}
 .Info .Done {
   background-color: var(--secondary-color);
 }
-
+.Info .Interest {
+  background-color: var(--secondary-color);
+}
 .Info .Cancelled {
   background-color: var(--red-button);
 }
@@ -161,4 +165,12 @@
   .central-column {
     flex: 1;
   }
+}
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+.text-link:hover {
+  font-size: larger;
+  color: inherit;
 }
