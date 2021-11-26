@@ -80,7 +80,7 @@ export default function FreelancerList({job, freelancerList, applyForList}){
                                                 <AccessButton
                                                     key = {applyFor._id + 'c'}
                                                     name = "Chi tiết"
-                                                    link = "/profile"
+                                                    link = {"/profiles/freelancer/" + freelancer._id }
                                                 />
                                             </p>
                                         </div>
@@ -109,7 +109,7 @@ export default function FreelancerList({job, freelancerList, applyForList}){
                                                 <AccessButton
                                                     key = {applyFor._id}
                                                     name = "Chi tiết"
-                                                    link = "/profile"
+                                                    link = {"/profiles/freelancer/" + freelancer._id }
                                                 />
                                             </p>
                                         </div>
