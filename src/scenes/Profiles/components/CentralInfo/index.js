@@ -17,6 +17,7 @@ export default function CentralInfo() {
     const history = useHistory();
     const [data, setData] = useState([]);
     const [dataType, setDataType] = useState("");
+    const pageHeaderContent = param.Type === "employer" ? "Thông tin doanh nghiệp" : "Thông tin cá nhân"; 
     // const [isLoading, setIsLoading] = useState(true);
     const LoadData = useCallback( (Name = "None") =>{
         switch(Name){
@@ -70,7 +71,7 @@ export default function CentralInfo() {
     return (
         <div>
             <div className="central-column">
-                    <PageHeader title="Thông tin doanh nghiệp"/>
+                    <PageHeader title={pageHeaderContent}/>
                     {/* Đây là trang của employer
                     {profile.name} */}
                     {

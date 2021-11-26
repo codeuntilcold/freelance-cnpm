@@ -51,10 +51,12 @@
   margin: auto;
   padding: 00.5rem;
 }
-
+.About .MiniHeader {
+  text-decoration: underline;
+}
 .InfoTag {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   margin: 20px 0px;
   font-size: var(--text-p);
   border-radius: 20px;
