@@ -114,7 +114,7 @@
   background-color: var(--red-button);
 }
 .Info .Ongoing {
-  background-color: var(--yellow-button);
+  background-color: var(--primary-color);
 }
 
 .Info .Delete {

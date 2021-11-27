@@ -48,6 +48,7 @@ function Popup(props) {
     }
     useEffect(()=>{
         // console.log(props.data.length);
+        if (props.dataType === "about-me") return;
         if (props.dataType !== "about-me" && props.data.length >= 5){
             document.getElementById("insert").disabled=true;
             document.getElementById("insert").placeholder="Đã đủ số lượng, không được thêm nữa";
@@ -82,6 +83,9 @@ function Popup(props) {
         // console.log(newValue.length);
         if (newValue.length >= 255){
             document.getElementById("warning").innerHTML = "Bạn đã dùng hết số lượng kí tự (255)";
+        }
+        else{
+            document.getElementById("warning").innerHTML = "";
         }
         props.setData(newValue);
         // console.log(props.data);

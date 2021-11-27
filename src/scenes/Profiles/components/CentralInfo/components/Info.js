@@ -7,6 +7,8 @@ function Info (props){
                 return "Waiting"
             case "Lưu":
                 return "Interest"
+            case "Đang làm":
+                return "Ongoing"
             default:
                 return "Default"
         }
