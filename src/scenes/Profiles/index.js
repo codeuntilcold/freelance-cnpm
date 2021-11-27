@@ -10,7 +10,6 @@ import { db } from '../../services/db';
 import CentralInfo from './components/CentralInfo';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Stats from './components/Stats';
-import { Link } from 'react-router-dom';
 import './index.css';
 
 export const ProfileContext = React.createContext();
@@ -121,7 +120,7 @@ function Profiles() {
     return (
         <div>
         {
-            (profile === undefined) ? <CircularProgress/> : 
+            (profile === undefined) ? <CircularProgress /> : 
                 <ProfileContext.Provider value={{
                     profile,
                     setProfile,
