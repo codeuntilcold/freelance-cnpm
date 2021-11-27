@@ -1,14 +1,23 @@
+import { useContext } from "react";
+
 import { Container } from "@mui/material";
 import "./index.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import CornerFooter from "../../components/CornerFooter/index";
 import NotiList from "./NotiList";
 
+import { AppContext } from "../../context/AppProvider";
+
 function Noti() {
+
+  const {currentUser} = useContext(AppContext);
+  // console.log(currentUser)
+  const role = currentUser?.role;
+
   return (
     <Container maxWidth="lg">
       <div className="whole-page-container">
-        <Sidebar active={3} role="freelancer" />
+        <Sidebar active={3} role={role} />
 
         <NotiList />
 

@@ -3,9 +3,9 @@ import Sidebar from '../../../../components/Sidebar/Sidebar';
 import LargeButton from '../../../../components/button/LargeButton'
 import JobItem from './JobItem';
 import CornerFooter from '../../../../components/CornerFooter'
-import {useState} from 'react';
+// import {useState} from 'react';
 
-function JobList({jobList, applyForList}) {
+function JobList({employerID,jobList, applyForList, setRender}) {
     return (    
         <Container maxWidth='lg'>
             <div className="job-management whole-page-container">
@@ -22,13 +22,16 @@ function JobList({jobList, applyForList}) {
                     </h3>
                     {
                         jobList.map(function(job){
-                            return (
-                                <JobItem
-                                    key = {job._id}
-                                    job = {job}
-                                    applyForList = {applyForList}
-                                />
-                            )
+                            if (employerID)
+                                if(job['employer-id'] === employerID)
+                                    return (
+                                        <JobItem
+                                            key = {job._id}
+                                            job = {job}
+                                            applyForList = {applyForList}
+                                            setRender = {setRender}
+                                        />
+                                    )
                         })
                     }
                 </div>

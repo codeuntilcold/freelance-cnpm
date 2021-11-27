@@ -12,7 +12,7 @@ export default function Home() {
                 <Link className='link' to='/jobsfeed'>Go to jobsfeed page</Link> <br />
                 <Link className='link' to='/login'>Go to login page</Link> <br />
                 <Link className='link' to='/myjobs'>Go to my jobs page</Link> <br />
-                <Link className='link' to='/profile'>Go to profile page</Link> <br />
+                <Link className='link' to='/profiles'>Go to profile page</Link> <br />
                 <Link className='link' to='/register'>Go to register page</Link> <br />
                 <Link className='link' to='/notification'>Go to notification page</Link> <br />
 

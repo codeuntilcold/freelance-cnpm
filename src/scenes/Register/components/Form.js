@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Select  } from "antd";
 import {
-  UserOutlined,
   MailOutlined,
   LockOutlined,
   FacebookFilled,
@@ -10,11 +9,29 @@ import {
   GithubFilled,
 } from "@ant-design/icons";
 import "./Form.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../../services/auth";
+import { db } from "../../../services/db";
+import { collection, addDoc } from "firebase/firestore"; 
+
+const { Option } = Select;
 
 const SignUpForm = () => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+  // const onFinish = (values) => {
+  //   console.log(values);
+  // }
+
+  const onFinish = async (values) => {
+    const newUser = await createUserWithEmailAndPassword(auth, values.email, values.password);
+    console.log("New user data: " , {newUser});
+
+    await addDoc(collection(db, "user"), {
+      uid: newUser.user.uid,
+      role: values.role,
+      // roleId: null
+    });
   };
+
 
   return (
     <Form
@@ -22,22 +39,10 @@ const SignUpForm = () => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
+      onFinish={onFinish}    
     >
       <Form.Item
-        name="name"
-        rules={[
-          {
-            required: true,
-            message: "Vui lòng nhập tên của bạn!",
-          },
-        ]}
-      >
-        <Input prefix={<UserOutlined />} placeholder="Họ và tên" />
-      </Form.Item>
-
-      <Form.Item
-        name="username"
+        name="email"
         rules={[
           {
             required: true,
@@ -80,8 +85,26 @@ const SignUpForm = () => {
         />
       </Form.Item>
 
+      <Form.Item
+        name="role"
+        rules={[
+          {
+            required: true,
+            message: "Vui lòng chọn 1 trong 2 !",
+          },
+        ]}
+      >
+        <Select
+          placeholder="Bạn là người tìm việc hay người tuyển dụng?"
+          allowClear
+        >
+          <Option value="freelancer">Người tìm việc</Option>
+          <Option value="employer">Người tuyển dụng</Option>
+        </Select>
+      </Form.Item>
+
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button htmlType="submit" type="primary" className="login-form-button">
           ĐĂNG KÝ
         </Button>
       </Form.Item>

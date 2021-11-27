@@ -1,30 +1,55 @@
 {
-    "employer": 
-    {
-        "name": "Nhà hàng Cơm Việt",
-        "address": "35 CMT8, quận 3, TP.HCM",
-        "phone": "0905555555",
-        "email": "comviet@gmail.com",
-        "about-me": "Với danh tiếng lâu năm, nhà hàng có một lượng khách nhiều và ổn định. Nhà hàng đang cần tuyển thêm nhân viên cho nhiều mảng vận hành.",
-        "domain": "bếp núc",
-        "jobs": [ "job_id" ],    
-        "_id": "em1",
-        "createdAt": "01/11/2021"
-    },
-    "freelancer":
-    {
-        "name": "Nguyễn Văn Minh",
-        "address": [ "33/3 Ung Văn Khiêm, quận Bình Thạnh, TP.HCM" ],
-        "phone": "0945123456",
-        "email": "minhnguyen12@gmail.com",
-        "about-me": "Lao động tự do, cần tìm một công việc sau dịch bệnh.",
-        "desired-hourly-salary": "25000 VND",
-        "skills": ["bưng bê", "rửa chén", "phụ bếp", "thu ngân", "quét dọn"],
-        "education": ["cấp 3"],
-        "_id": "fr1",
-        "createdAt": "05/11/2021"
-    },
-    "job": [
+    "employers": [
+        {
+            "name": "Nhà hàng Cơm Việt",
+            "address": "35 CMT8, quận 3, TP.HCM",
+            "phone": "0905555555",
+            "email": "comviet@gmail.com",
+            "about-me": "Với danh tiếng lâu năm, nhà hàng có một lượng khách nhiều và ổn định. Nhà hàng đang cần tuyển thêm nhân viên cho nhiều mảng vận hành.",
+            "domain": "bếp núc",
+            "jobs": [ "j1", "j2", "j3", "j4", "j5" ],    
+            "_id": "em1",
+            "createdAt": "01/11/2021"
+        },
+        {
+            "name": "Công ty TNHH Travelloki",
+            "address": "20 Thành Thái, quận 10, TP.HCM",
+            "phone": "0905999999",
+            "email": "travelloki@gmail.com",
+            "about-me": "Cung cấp dịch vụ du lịch khắp mọi miền tổ quốc.",
+            "domain": "du lịch",
+            "jobs": [ "j6" ],    
+            "_id": "em2",
+            "createdAt": "04/11/2021"
+        }   
+    ],
+    "freelancers": [
+        {
+            "name": "Nguyễn Văn Minh",
+            "address": [ "33/3 Ung Văn Khiêm, quận Bình Thạnh, TP.HCM" ],
+            "phone": "0945123456",
+            "email": "minhnguyen12@gmail.com",
+            "about-me": "Lao động tự do, cần tìm một công việc sau dịch bệnh.",
+            "desired-hourly-salary": "25000 VND",
+            "skills": ["bưng bê", "rửa chén", "phụ bếp", "thu ngân", "quét dọn"],
+            "education": ["cấp 3"],
+            "_id": "fr1",
+            "createdAt": "05/11/2021"
+        },
+        {
+            "name": "Lê Văn Việt",
+            "address": [ "44/4 Lý Thường Kiệt, quận Tân Bình, TP.HCM" ],
+            "phone": "0945445667",
+            "email": "vietle20@gmail.com",
+            "about-me": "Lao động tự do, cần tìm công việc thời vụ.",
+            "desired-hourly-salary": "26000 VND",
+            "skills": ["lái xe", "bảo vệ", "quét dọn", "bưng bê"],
+            "education": ["cấp 3"],
+            "_id": "fr2",
+            "createdAt": "07/11/2021"
+        }
+    ],
+    "jobs": [
         { 
             "_id": "j1",
             "createdAt": "04/11/2021",
@@ -36,7 +61,6 @@
             "description": "Tư vấn và ghi món ăn khi có khách đến, báo cho thu ngân.",
             "deadline": "15/11/2021",
             "start-date": "20/11/2021",
-            "end-date": "20/1/2022",
             "salary": "23000",
     
             "total": "5",
@@ -58,7 +82,6 @@
             "description": "Rửa bát đũa ở phía sau bếp",
             "deadline": "16/11/2021",
             "start-date": "22/11/2021",
-            "end-date": "22/3/2022",
             "salary": "20000",
     
             "total": "3",
@@ -80,7 +103,6 @@
             "description": "Trông giữ xe và bảo vệ nhà hàng.",
             "deadline": "17/11/2021",
             "start-date": "22/11/2021",
-            "end-date": "22/1/2022",
             "salary": "29000",
     
             "total": "2",
@@ -102,7 +124,6 @@
             "description": "Chuẩn bị nguyên liệu cho đầu bếp, nấu các món đơn giản.",
             "deadline": "15/11/2021",
             "start-date": "20/11/2021",
-            "end-date": "20/1/2022",
             "salary": "25000",
     
             "total": "4",
@@ -124,7 +145,6 @@
             "description": "Lau dọn bàn và quét dọn sàn nhà, lau cửa kính.",
             "deadline": "15/11/2021",
             "start-date": "25/11/2021",
-            "end-date": "25/2/2022",
             "salary": "23000",
     
             "total": "4",
@@ -134,7 +154,27 @@
             "sex": "cả hai",
             "requirement": "sức khỏe ổn định, cẩn thận và tỉ mỉ",
             "benefit": "có thưởng cuối tháng"
+        },
+        { 
+            "_id": "j6",
+            "createdAt": "07/11/2021",
+    
+            "name": "Lái xe khách",
+            "address": "20 Thành Thái, quận 10, TP.HCM",
+            "employer-id": "em2",
+    
+            "description": "Lái xe du lịch chở các tour đi các tỉnh.",
+            "deadline": "16/11/2021",
+            "start-date": "26/11/2021",
+            "salary": "27000",
+    
+            "total": "4",
+            "confirmed": "0",
+    
+            "experience": "Trên 8 năm kinh nghiệm trong nghề lái xe.",
+            "sex": "cả hai",
+            "requirement": "Đã có bằng E trở lên, đã từng lái xe giường nằm trước đó.",
+            "benefit": "Hỗ trợ tiền ăn uống sinh hoạt mỗi chuyến đi."
         }
     ]
-
 }

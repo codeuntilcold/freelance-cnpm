@@ -24,8 +24,15 @@
   transition: 0.3s;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 425px) {
   .noti-item {
     font-size: var(--text-p);
   }
+
+  .noti-header {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
 }
+
+

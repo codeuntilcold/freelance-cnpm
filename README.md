@@ -35,3 +35,9 @@ Folder này sẽ bao gồm các components chung mà các scene có thể sử d
 - `central-page-header`: là class cho phần header ở giữa trang (chỉ áp dụng cho `<div>` chứa thẻ `<h1>`). Có thể dùng component `PageHeader` thay cho class này.
 
 02/11: Thêm footer, chỉnh responsive một chút
+
+12/11: Thêm Firestore vào thư mục src/services. Import để sử dụng database.
+
+17/11: Thêm một dòng ở code của Hạ để có thể lấy được job-id. 
+
+

@@ -1,71 +1,13 @@
-/* .firstRow > .MuiSvgIcon-root {
-  padding: 0.5rem;
-  font-size: 7rem;
-}
-.firstRow {
-  box-sizing: border-box;
+.whole-page-container {
   display: flex;
-  background-color: white;
-
-  font-size: var(--text-p);
-  border-radius: 20px;
-  margin: 10px auto;
-  padding: 0.5rem;
-  width: 100%;
-  align-items: center;
+  height: 100vh;
+  overflow-y: hidden;
 }
-.Location {
-  display: flex;
+@media screen and (max-width: 777px) {
+  .whole-page-container {
+    flex: 1;
+  }
 }
-
-.Rate {
-  display: flex;
-}
-.CustomInfo {
-  display: flex;
-  flex: 0.7;
-  background-color: white;
-  font-size: var(--text-p);
-  border-radius: 20px;
-  margin: 10px 10px;
-  padding: 0.5rem;
-  width: 80%;
-  align-items: center;
-  box-shadow: 0px 3px 5px gray;
-  border-radius: 20px;
-}
-.About {
-  box-sizing: border-box;
-  background-color: var(--secondary-color);
-  font-size: var(--text-p);
-  border-radius: 20px;
-  margin: auto;
-  padding: 0.5rem;
-  width: 100%;
-  align-items: center;
-  border-radius: 20px;
-}
-.About .Header {
-  padding: 0.5rem;
-  display: flex;
-}
-.About .Header h2 {
-  width: 90%;
-}
-.About .Header > .MuiSvgIcon-root {
-  float: right;
-}
-.Content {
-  padding: 0.5rem;
-} 
-*/
-
-/* Các component có trong js này */
-/*  - CustomInfo
-        - firstRow
-            - MiniHeader
-*/
-
 .central-column {
   flex: 0.7;
   padding-left: 10px;
@@ -86,7 +28,7 @@
   background-color: white;
   box-shadow: 0px 3px 5px gray;
   border-radius: 20px;
-  flex: 0.7;
+  /* flex: 0.7; */
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -100,32 +42,52 @@
   padding: 00.5rem;
   font-size: 7rem;
 }
+.firstRow div {
+  display: flex;
+}
 .About {
   background-color: var(--secondary-color);
   border-radius: 20px;
   margin: auto;
   padding: 00.5rem;
 }
-
+.About .MiniHeader {
+  text-decoration: underline;
+}
 .InfoTag {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
   margin: 20px 0px;
   font-size: var(--text-p);
   border-radius: 20px;
   min-height: 200px;
   box-shadow: 0px 3px 5px gray;
 }
-.InfoTag .MiniHeader {
-  display: flex;
-}
-.InfoTag .MiniHeader-Content {
+
+.InfoTag .Header .Content {
+  font-size: larger;
+  text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
   width: 90%;
   border-bottom: 2px solid black;
 }
 
+.InfoTag .EditIcon {
+  float: right;
+  font-weight: 700;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.InfoTag .EditIcon:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  border-radius: 100%;
+}
 .Info {
   margin: 1rem 0rem;
   display: flex;
@@ -137,11 +99,17 @@
   display: inline-block;
   width: 85%;
   border-bottom: 2px solid darkgray;
+  text-transform: capitalize;
+}
+.Info .Waiting {
+  background-color: var(--yellow-button);
 }
 .Info .Done {
   background-color: var(--secondary-color);
 }
-
+.Info .Interest {
+  background-color: var(--secondary-color);
+}
 .Info .Cancelled {
   background-color: var(--red-button);
 }
@@ -155,8 +123,20 @@
 .Info .InfoStatusContent {
   margin: auto;
   text-align: center;
+  text-transform: capitalize;
+  /* font-size: larger; */
+  /* margin-left: 5px; */
+}
+.button--access {
+  background-color: var(--primary-color);
 }
 
+.button--cancel {
+  color: #4db066 !important;
+  box-shadow: 0 1px 2px #4b4a4a;
+  font-weight: 600;
+  font-size: 16px;
+}
 .Info .InfoStatus {
   margin: auto;
   width: 6rem;
@@ -198,4 +178,12 @@
   .central-column {
     flex: 1;
   }
+}
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+.text-link:hover {
+  font-size: larger;
+  color: inherit;
 }

@@ -4,18 +4,18 @@ import JobDetail from './JobDetail'
 import Summary from './Summary'
 import Job from './Job';
 
-function Feed({ content }) {
+function Feed({ content, employer, applyList, setRender, role, id }) {
 
 	return (
 		<div className='central-collumn'>
 
 			<PageHeader title='Chi tiết công việc' />
 
-            <Job content={content} />
+            <Job job={content} employer={employer} applyList={applyList} setRender={setRender} role={role} id={id} />
 
-			<Summary content={content} />
+			<Summary job={content} />
 
-			<JobDetail content={content} />
+			<JobDetail job={content} />
 	
 		</div>
 	)

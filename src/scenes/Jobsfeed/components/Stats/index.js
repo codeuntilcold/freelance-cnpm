@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import JCard from '../../../../components/JCard'
+// import JCard from '../../../../components/JCard'
 import CornerFooter from '../../../../components/CornerFooter'
 import './index.css'
 
@@ -17,9 +17,14 @@ function Stats() {
     return (
         <div className='stats'>
 
+            {0 ? 
             <Link to='/profile'>
                 <NextJob />
             </Link>
+            : 
+            <div></div>
+            }            
+
 
             <CornerFooter />
 

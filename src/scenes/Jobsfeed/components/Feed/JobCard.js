@@ -1,8 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import BookmarkIcon from "@mui/icons-material/Bookmark";
-import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
+// import BookmarkIcon from "@mui/icons-material/Bookmark";
+// import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
@@ -18,19 +18,23 @@ function MiniDetail({ MiniIcon, text, content }) {
 }
 
 function JobCard({ content }) {
-  const [save, setSave] = useState(true);
 
-  const onToggleBookmark = () => {
-    setSave(!save);
-  };
+  const decoded = content.data();
+
+  // const [save, setSave] = useState(true);
+
+  // const onToggleBookmark = () => {
+  //   setSave(!save);
+  // };
 
   return (
     <div className="job-card">
       <div className="job-title">
-        <Link to="/jobdetails">
-          <h2>{content.name}</h2>
+        <Link to={`/jobdetails/${content.id}`}>
+          <h2>{decoded.name}</h2>
         </Link>
-        <span
+
+        {/* <span
           className="job-bookmark"
           onClick={() => {
             onToggleBookmark();
@@ -49,31 +53,31 @@ function JobCard({ content }) {
               style={{ fontSize: "30px", cursor: "pointer" }}
             />
           )}
-        </span>
+        </span> */}
       </div>
 
-      <p>{content.description}</p>
+      <p>{decoded.description}</p>
 
       <div className="job-mini-detail">
         <MiniDetail
           MiniIcon={MonetizationOnIcon}
           text="Mức lương"
-          content={content.salary}
+          content={decoded.salary}
         />
         <MiniDetail
           MiniIcon={LocationOnIcon}
           text="Địa điểm"
-          content={content.address}
+          content={decoded.address}
         />
         <MiniDetail
           MiniIcon={PeopleAltIcon}
           text="Số lượng"
-          content={content.confirmed + '/' + content.total}
+          content={decoded.confirmed + "/" + decoded.total}
         />
         <MiniDetail
           MiniIcon={CancelIcon}
           text="Hạn chót"
-          content={content.deadline}
+          content={decoded.deadline.toDate().toLocaleDateString("vi-VN")} // firebase to react
         />
       </div>
     </div>
