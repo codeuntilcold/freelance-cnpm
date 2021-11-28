@@ -34,7 +34,7 @@ function NotiItem({ docID, jobID, notiIndex, message, isRead, all }) {
 
   };
 
-  // const toggleUnread = async () => {
+  // const toggleUnRead = async () => {
     
   //     setRead(false);
   //     const applyRef = doc(db, "apply_for", docID)
@@ -57,6 +57,7 @@ function NotiItem({ docID, jobID, notiIndex, message, isRead, all }) {
 
   useEffect(() => {
     all && toggleRead()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [all])
 
   return (

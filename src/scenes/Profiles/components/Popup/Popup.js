@@ -3,9 +3,9 @@ import {useState, useEffect} from 'react';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { TextareaAutosize } from '@mui/material';
-import CheckIcon from '@mui/icons-material/Check';
+// import CheckIcon from '@mui/icons-material/Check';
 import "./Popup.css"
-import { Check } from '@mui/icons-material';
+// import { Check } from '@mui/icons-material';
 function Popup(props) {
     // console.log(props.data)
     const [render, setRender] = useState(true);
@@ -58,6 +58,7 @@ function Popup(props) {
     function changeAddress(addr){
         var first = addr;
         let temp = props.data;
+        // eslint-disable-next-line eqeqeq
         temp.sort(function(x,y){ return x == first ? -1 : y == first ? 1 : 0; });
         props.setData(temp);
         document.getElementById("addrAlert").innerHTML="Changed";

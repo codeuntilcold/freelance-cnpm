@@ -20,7 +20,7 @@ function JobList({employerID,jobList, applyForList, setRender}) {
                             link = "/job-management/new"
                         />
                     </h3>
-                    {
+                    {   // eslint-disable-next-line array-callback-return
                         jobList.map(function(job){
                             if (employerID)
                                 if(job['employer-id'] === employerID)

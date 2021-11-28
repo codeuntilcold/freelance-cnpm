@@ -146,6 +146,7 @@ function PostData(job, jobList){
 function GetId(jobList){
     let cur = 0;
     for(let i = 0; i<jobList.length;i++){
+        // eslint-disable-next-line eqeqeq
         if ('j' + cur == jobList[i]._id){  
             cur++;
             i = 0;

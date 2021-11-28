@@ -35,6 +35,7 @@ export default function useFirestore(collectionParam, condition) {
     return () => {
       unsubscribe();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [collectionParam, condition])
   return document;
 }

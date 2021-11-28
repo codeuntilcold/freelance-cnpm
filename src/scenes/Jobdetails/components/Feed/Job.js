@@ -41,6 +41,7 @@ function Job({ job, employer, applyList, setRender, role, id }) {
         "status": "Đang đợi",
         "notifications": [
             {
+                // eslint-disable-next-line no-useless-concat
                 "message": "Bạn đã ứng tuyển vào công việc " + `${job.name}`,
                 "isRead": false
             }

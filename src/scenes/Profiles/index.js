@@ -10,7 +10,7 @@ import { db } from '../../services/db';
 import CentralInfo from './components/CentralInfo';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Stats from './components/Stats';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './index.css';
 
 export const ProfileContext = React.createContext();
@@ -66,6 +66,7 @@ function Profiles() {
                         }))
                         .then(value=>{
                             const data = [];
+                            // eslint-disable-next-line array-callback-return
                             value.map(item=>{
                             data.push( item.data());
                             })

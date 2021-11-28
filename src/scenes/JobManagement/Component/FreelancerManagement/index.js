@@ -2,7 +2,8 @@ import CornerFooter from '../../../../components/CornerFooter'
 import AccessButton from '../../../../components/button/AccessButton'
 import DeleteButton from '../../../../components/button/DeleteButton';
 import { db } from "../../../../services/db";
-import { Timestamp, setDoc, doc } from "@firebase/firestore";
+import { //Timestamp, 
+    setDoc, doc } from "@firebase/firestore";
 import './index.css'
 
 
@@ -30,7 +31,7 @@ export default function FreelancerList({job, freelancerList, applyForList}){
                         <h3 className = "list__name">
                             Đơn đang chờ
                         </h3>
-                        {
+                        {   // eslint-disable-next-line array-callback-return
                             applyForList.map(function(applyFor){
                                 if (applyFor["job-id"] === job._id && applyFor.status === 'Đang đợi'){
                                     var freelancer = freelancerList.find(function(freelancer){
@@ -94,7 +95,7 @@ export default function FreelancerList({job, freelancerList, applyForList}){
                         <h3 className = "list__name">
                             Đơn đã nhận
                         </h3>
-                        {
+                        {   // eslint-disable-next-line array-callback-return
                             applyForList.map(function(applyFor){
                                 if (applyFor["job-id"] === job._id && applyFor.status === 'Đang làm'){
                                     var freelancer = freelancerList.find(function(freelancer){
