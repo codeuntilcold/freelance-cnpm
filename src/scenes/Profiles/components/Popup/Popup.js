@@ -3,9 +3,7 @@ import {useState, useEffect} from 'react';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { TextareaAutosize } from '@mui/material';
-// import CheckIcon from '@mui/icons-material/Check';
 import "./Popup.css"
-// import { Check } from '@mui/icons-material';
 function Popup(props) {
     // console.log(props.data)
     const [render, setRender] = useState(true);
@@ -21,21 +19,56 @@ function Popup(props) {
         // console.log(props.data)
         setRender(!render);
     }
+    function removeWarning(){
+            document.getElementById("warning").innerHTML = "";
+    }
     function insertContact(){
         const newValue = document.getElementById("insert").value;
         const newType = document.getElementById("type").value;
+        if (newType === "Email"){
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!newValue.match(mailformat)){
+                document.getElementById("warning").innerHTML = "Email không đúng format"
+                return;
+            }
+        } else{
+            var phoneformat = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+            if (!newValue.match(phoneformat)){
+                document.getElementById("warning").innerHTML = "SĐT không đúng format"
+                return;
+            }
+        }
         if (newValue !== ""){
             let temp = props.data;
             temp.push({Type: newType, Value: newValue});
             props.setData(temp);
+            document.getElementById("insert").value = "";
             setRender(!render);
         }
     }
+    useEffect(()=>{
+        // console.log(props.data.length);
+        if (props.dataType === "about-me") return;
+        if (props.dataType !== "about-me" && props.data.length >= 5){
+            document.getElementById("insert").disabled=true;
+            document.getElementById("insert").placeholder="Đã đủ số lượng, không được thêm nữa";
+            document.getElementById("AddIcon").hidden = true;
+        }
+        else{
+            document.getElementById("insert").disabled=false;
+            document.getElementById("insert").placeholder="Thêm mới";
+            document.getElementById("AddIcon").hidden = false;
+        }
+    },[render, props])
     function insert(){
         if (props.dataType === "contact") insertContact()
         // console.log("insert")
         else{
             const newValue = document.getElementById("insert").value;
+            if (newValue.length > 127){
+                document.getElementById("warning").innerHTML = "Bạn đã vượt quá số lượng kí tự (127)";
+                return;
+            }
             if (newValue !== ""){
                 let temp = props.data;
                 temp.push(newValue);
@@ -47,6 +80,13 @@ function Popup(props) {
     }
     function handleTextArea(){
         let newValue = document.getElementById("textarea").value;
+        // console.log(newValue.length);
+        if (newValue.length >= 255){
+            document.getElementById("warning").innerHTML = "Bạn đã dùng hết số lượng kí tự (255)";
+        }
+        else{
+            document.getElementById("warning").innerHTML = "";
+        }
         props.setData(newValue);
         // console.log(props.data);
     }
@@ -58,10 +98,9 @@ function Popup(props) {
     function changeAddress(addr){
         var first = addr;
         let temp = props.data;
-        // eslint-disable-next-line eqeqeq
-        temp.sort(function(x,y){ return x == first ? -1 : y == first ? 1 : 0; });
+        temp.sort(function(x,y){ return x === first ? -1 : y === first ? 1 : 0; });
         props.setData(temp);
-        document.getElementById("addrAlert").innerHTML="Changed";
+        document.getElementById("addrAlert").innerHTML=addr ;
         setRender(!render);
         document.getElementById("selectPrimaryAddr").hidden = true;
     }
@@ -91,9 +130,10 @@ function Popup(props) {
                         aria-label="minimum height"
                         minRows={3}
                         value={props.data}
-                        style={{ width: "80%" }}
+                        style={{ width: "100%", margin: "auto" }}
                         id="textarea"
-                        onChange={handleTextArea}
+                        onChange={handleTextArea}        
+                        maxLength={255}
                     />
                 </div>
             case "contact":
@@ -110,17 +150,20 @@ function Popup(props) {
                                     </div>
                         ))
                     }
+                    <div>
                     <select name="type" id="type">
                        <option value="Phone">SĐT</option>
                        <option value="Email">Email</option>
                     </select>
-                    <input type="text" name="insert" id="insert" placeholder="Thêm mới"/>
-                        <AddIcon onClick={()=>{insert()}}/>
+                    <input type="text" name="insert" id="insert" placeholder="Thêm mới" onClick={()=>{removeWarning()}}/>
+                    <AddIcon id="AddIcon" onClick={()=>{insert()}}/>
+                    </div>
+                    <span id="warning"></span>
                 </div>
             case "address":
                 return <div>
                     <div className="PrimaryAddr">
-                    <span style={{marginRight : "5px"}}>Current Primary address:</span>
+                    <span style={{marginRight : "5px"}}>Địa chỉ hiện tại:</span>
                     <select name="selectPrimaryAddr" id="selectPrimaryAddr">
                         <option value="" disabled defaultValue hidden>Select</option>
                         {
@@ -145,12 +188,12 @@ function Popup(props) {
                             ))
                     }
                     <input type="text" name="insert" id="insert" placeholder="Thêm mới"/>
-                    <AddIcon onClick={()=>{insert()}}/>
+                    <AddIcon id="AddIcon" onClick={()=>{insert()}}/>
                 </div>
             default:
                 return <div>
-                        {props.data.map((item) =>(
-                                    <div className="Item" key={item}>
+                        {props.data.map((item, index) =>(
+                                    <div className="Item" key={index}>
                                         {
                                                 <div>
                                                     <span>{item}</span>
@@ -162,7 +205,7 @@ function Popup(props) {
                                 ))
                         }
                         <input type="text" name="insert" id="insert" placeholder="Thêm mới"/>
-                        <AddIcon onClick={()=>{insert()}}/>
+                        <AddIcon id="AddIcon" onClick={()=>{insert()}}/>
                 </div>
         }
     }
@@ -175,6 +218,8 @@ function Popup(props) {
                     <div className="Body">
                         {nameHandle(props.dataType)}
                         {switchHandle(props.dataType)}
+                        
+                    <span id="warning"></span>
                     </div>
                     <div className="Confirmation">
                     <button className="button button--access" onClick={()=>{Save()}}>Lưu</button>

@@ -77,7 +77,10 @@ function Job({ job, employer, applyList, setRender, role, id }) {
                 <div className="double-button">
                     <div className="div-button">
                         <button className="apply" onClick={() => {
-                            if (job.deadline < new Date()){
+                            if (WorkStatus(param, applyList, id)) {
+                                alert("Bạn đang làm công việc này.");
+                            }
+                            else if (job.deadline < new Date()){
                                 alert("Đã quá hạn nộp hồ sơ!");
                             }
                             else if (job.confirmed === job.total){
@@ -235,6 +238,21 @@ function CheckSaveStatus(param, save, applyList, roleID){
         }
     }
     return save;
+}
+
+function WorkStatus(param, applyList, roleID){
+    var result = false;
+    for(let i = 0; i < applyList.length; i++){
+        let temp = applyList[i];
+        if (temp['freelancer-id'] === roleID){  
+            if (temp['job-id'] === param.jobID){
+                if (temp['status'] === "Đang làm"){
+                    result = true;
+                }
+            }
+        }
+    }
+    return result;
 }
 
 function SavedIndex(param, applyList, roleID){

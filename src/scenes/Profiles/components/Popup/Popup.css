@@ -39,9 +39,6 @@
   background-color: var(--secondary-color);
   border-radius: 100%;
 }
-.Item:hover {
-  background-color: lightgray;
-}
 .Item div {
   align-items: center;
 }
@@ -81,7 +78,7 @@
   margin-bottom: 0.5rem;
   font-weight: 700;
   display: inline-block;
-  width: inherit;
+  width: 80%;
   border: none;
 }
 .Body input:focus {
