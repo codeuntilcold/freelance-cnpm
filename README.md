@@ -1,9 +1,16 @@
 # Viecmoi.net
 
 Repo for web-app assignment of Software Engineering Project!!
-
 ---
 
+# To run this project
+- Install NodeJS and npm.
+- Run `npm install` to install dependencies.
+- Run `npm start`.
+
+or... build this using `npm build` and run `serve -s build`
+ 
+---
 # Packages
 
 ## ~~Material-ui~~ MUI
