@@ -1,7 +1,6 @@
 # Viecmoi.net
 
 Repo for web-app assignment of Software Engineering Project!!
-Visit us at: [Việc mới](viec-moi.herokuapp.com)
 ---
 
 # To run this project
@@ -9,7 +8,9 @@ Visit us at: [Việc mới](viec-moi.herokuapp.com)
 - Run `npm install` to install dependencies.
 - Run `npm start`.
 
-or... build this using `npm build` and run `serve -s build`
+or... build this using `npm build` and run `serve -s build`.
+
+Hosted temporarily [here](https://viec-moi.herokuapp.com).
  
 ---
 # Packages
